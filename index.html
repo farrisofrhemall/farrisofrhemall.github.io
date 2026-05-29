@@ -3,209 +3,291 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The ADHD Herbalist | Holistic Coaching & Nervous System Support</title>
+<title>The ADHD Herbalist | Focus & Regulation Naturally</title>
 <style>
-/* Modern, Calming, Earthy Aesthetic */
+/* ADHD-Friendly Energizing & Calming Palette */
 :root {
---sage-green: #6E8268;
---soft-earth: #D9C5B2;
---dark-slate: #2C3531;
---cream: #F9F6F0;
---terracotta: #C87A53;
+--deep-forest: #1A3020; /* Calming baseline */
+--electric-sage: #4E9A6F; /* Dopamine exciting accent */
+--warm-neon: #D4A373; /* Pop elements */
+--soft-cream: #FDFBF7; /* Low-glare background */
+--charcoal: #2B2D42;
+}
+
+* {
+box-sizing: border-box;
+scroll-behavior: smooth;
 }
 
 body {
-font-family: 'Helvetica Neue', Arial, sans-serif;
-line-height: 1.6;
-color: var(--dark-slate);
-background-color: var(--cream);
+font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+background-color: var(--soft-cream);
+color: var(--charcoal);
 margin: 0;
 padding: 0;
+line-height: 1.6;
 }
 
 .container {
-width: 85%;
-max-width: 1100px;
+width: 90%;
+max-width: 1000px;
 margin: 0 auto;
 padding: 20px;
 }
 
-/* Navigation */
+/* Nav Bar */
 nav {
 display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 20px 0;
-border-bottom: 1px solid var(--soft-earth);
+border-bottom: 2px dashed var(--electric-sage);
 }
 
 .logo {
-font-size: 1.5rem;
-font-weight: bold;
-color: var(--sage-green);
-letter-spacing: 1px;
+font-size: 1.4rem;
+font-weight: 800;
+color: var(--deep-forest);
+text-decoration: none;
 }
 
 nav ul {
-list-style: none;
 display: flex;
-gap: 20px;
+gap: 15px;
+list-style: none;
 margin: 0;
 padding: 0;
 }
 
 nav a {
 text-decoration: none;
-color: var(--dark-slate);
-font-weight: 500;
+color: var(--charcoal);
+font-weight: 600;
+font-size: 0.95rem;
 }
+
+nav a:hover {
+color: var(--electric-sage);
+}
+
+/* Interactive Quick Check-in Tool */
+.interactive-bar {
+background: linear-gradient(135deg, var(--deep-forest), var(--electric-sage));
+color: white;
+padding: 15px;
+text-align: center;
+border-radius: 50px;
+margin: 20px 0;
+font-weight: 600;
+}
+
+.mood-btn {
+background: rgba(255,255,255,0.2);
+border: none;
+color: white;
+padding: 5px 12px;
+border-radius: 20px;
+cursor: pointer;
+margin: 0 5px;
+font-weight: bold;
+transition: 0.2s;
+}
+.mood-btn:hover { background: var(--warm-neon); transform: scale(1.05); }
 
 /* Hero Section */
 .hero {
-padding: 80px 0;
+padding: 60px 0;
 text-align: center;
-background: linear-gradient(180deg, #F2EFE9 0%, var(--cream) 100%);
 }
 
 .hero h1 {
 font-size: 3rem;
-color: var(--dark-slate);
-margin-bottom: 20px;
-line-height: 1.2;
+color: var(--deep-forest);
+line-height: 1.1;
+margin-bottom: 25px;
 }
 
 .hero h1 span {
-color: var(--sage-green);
+background: linear-gradient(to right, var(--electric-sage), var(--warm-neon));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
 
 .hero p {
-font-size: 1.2.5rem;
-max-width: 700px;
-margin: 0 auto 30px auto;
-color: #555;
+font-size: 1.3rem;
+max-width: 750px;
+margin: 0 auto 35px auto;
+color: #4A4A4A;
 }
 
-.cta-button {
+.cta-main {
 display: inline-block;
-background-color: var(--terracotta);
+background-color: var(--electric-sage);
 color: white;
-padding: 15px 35px;
-text-decoration: none;
-border-radius: 30px;
+padding: 18px 40px;
+font-size: 1.2rem;
 font-weight: bold;
-transition: transform 0.2s, background-color 0.2s;
+text-decoration: none;
+border-radius: 50px;
+box-shadow: 0 4px 15px rgba(78, 154, 111, 0.4);
+transition: all 0.2s ease;
 }
 
-.cta-button:hover {
-transform: translateY(-2px);
-background-color: #B56943;
+.cta-main:hover {
+transform: translateY(-3px);
+background-color: var(--deep-forest);
+box-shadow: 0 6px 20px rgba(26, 48, 32, 0.4);
 }
 
 /* Validation Section */
-.validation {
-background-color: white;
-padding: 60px 0;
-text-align: center;
-border-radius: 12px;
-box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+.validation-box {
+background: white;
+border: 3px solid var(--deep-forest);
+border-radius: 24px;
+padding: 40px 30px;
+margin: 40px 0;
+box-shadow: 8px 8px 0px var(--deep-forest);
 }
 
-.validation h2 {
-color: var(--sage-green);
-margin-bottom: 30px;
+.validation-box h2 {
+margin-top: 0;
+color: var(--deep-forest);
+font-size: 2rem;
 }
 
-.grid {
+.symptom-grid {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 30px;
-margin-top: 20px;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 20px;
+margin-top: 30px;
 }
 
-.card {
-background-color: var(--cream);
-padding: 30px;
-border-radius: 8px;
-border-left: 4px solid var(--sage-green);
-text-align: left;
+.symptom-card {
+background: #F4F9F5;
+padding: 20px;
+border-radius: 16px;
+border-left: 5px solid var(--warm-neon);
 }
 
-/* Framework Section */
-.framework {
-padding: 80px 0;
+.symptom-card h3 { margin-top: 0; color: var(--deep-forest); }
+
+/* The Strategy Framework */
+.framework-section {
+padding: 60px 0;
 }
 
-.framework h2 {
-text-align: center;
-margin-bottom: 40px;
-}
-
-.two-column {
+.split-view {
 display: grid;
 grid-template-columns: 1fr 1fr;
-gap: 50px;
+gap: 40px;
 align-items: center;
 }
 
-@media (max-width: 768px) {
-.two-column { grid-template-columns: 1fr; }
-.hero h1 { font-size: 2.2rem; }
+.pill-tag {
+display: inline-block;
+background: var(--deep-forest);
+color: white;
+padding: 5px 15px;
+border-radius: 20px;
+font-size: 0.85rem;
+font-weight: bold;
+margin-bottom: 10px;
 }
 
-/* Freebie Opt-in */
-.optin {
-background-color: var(--sage-green);
-color: white;
-padding: 60px 0;
+/* Lead Magnet/Opt-in Style */
+.optin-banner {
+background-color: #E2ECE6;
+border: 2px dashed var(--electric-sage);
+padding: 40px;
+border-radius: 24px;
 text-align: center;
-border-radius: 12px;
 margin: 60px 0;
 }
 
-.optin h2 { margin-bottom: 10px; }
-.optin p { margin-bottom: 30px; opacity: 0.9; }
-
-.optin-form {
+.email-bar {
 display: flex;
-justify-content: center;
+max-width: 550px;
+margin: 20px auto 0 auto;
 gap: 10px;
-max-width: 500px;
-margin: 0 auto;
 }
 
-.optin-form input[type="email"] {
-padding: 15px;
-border: none;
-border-radius: 25px;
-width: 70%;
+.email-bar input {
+flex: 2;
+padding: 15px 20px;
+border: 2px solid var(--electric-sage);
+border-radius: 30px;
 font-size: 1rem;
+outline: none;
 }
 
-.optin-form button {
-padding: 15px 25px;
-border: none;
-border-radius: 25px;
-background-color: var(--dark-slate);
+.email-bar button {
+flex: 1;
+background: var(--deep-forest);
 color: white;
+border: none;
+padding: 15px 25px;
+border-radius: 30px;
 font-weight: bold;
+font-size: 1rem;
 cursor: pointer;
+transition: 0.2s;
 }
 
-/* Footer & Legal */
+.email-bar button:hover { background: var(--electric-sage); }
+
+/* Real Free Guide Pop-up Window System */
+.guide-modal {
+display: none;
+position: fixed;
+top: 0; left: 0; width: 100%; height: 100%;
+background: rgba(0,0,0,0.6);
+z-index: 1000;
+justify-content: center;
+align-items: center;
+padding: 20px;
+}
+
+.guide-content {
+background: var(--soft-cream);
+max-width: 650px;
+width: 100%;
+max-height: 85vh;
+overflow-y: auto;
+border-radius: 20px;
+padding: 40px;
+position: relative;
+border: 4px solid var(--electric-sage);
+}
+
+.close-btn {
+position: absolute;
+top: 15px; right: 20px;
+font-size: 1.8rem;
+cursor: pointer;
+color: var(--deep-forest);
+font-weight: bold;
+}
+
+.herbal-recipe-card {
+background: white;
+border: 1px solid #DDD;
+padding: 15px;
+border-radius: 10px;
+margin: 15px 0;
+}
+
 footer {
-background-color: var(--dark-slate);
-color: #AEB6B1;
+background: var(--deep-forest);
+color: #C3CBD2;
 padding: 40px 0;
-font-size: 0.9rem;
+font-size: 0.85rem;
 margin-top: 80px;
 }
 
-.disclaimer {
-border-top: 1px solid #44504B;
-padding-top: 20px;
-margin-top: 20px;
-font-style: italic;
-line-height: 1.4;
+@media (max-width: 768px) {
+.split-view { grid-template-columns: 1fr; }
+.hero h1 { font-size: 2.2rem; }
+.email-bar { flex-direction: column; }
 }
 </style>
 </head>
@@ -213,81 +295,133 @@ line-height: 1.4;
 
 <div class="container">
 <nav>
-<div class="logo">🌿 THE ADHD HERBALIST</div>
+<a href="#" class="logo">🌿 THE ADHD HERBALIST</a>
 <ul>
-<li><a href="#about">About</a></li>
-<li><a href="#approach">My Approach</a></li>
-<li><a href="#services">Work With Me</a></li>
-<li><a href="#freebie" class="cta-button" style="padding: 10px 20px; color: white;">Free Guide</a></li>
+<li><a href="#about-approach">Approach</a></li>
+<li><a href="#coaching-packages">Work With Me</a></li>
+<li><a href="#get-free-guide">Free Guide</a></li>
 </ul>
 </nav>
+
+<div class="interactive-bar">
+🧠 Quick Brain Check-In: How are you feeling right now?
+<button class="mood-btn" onclick="alert('Frozen? Let’s try taking 1 deep breath and drinking a sip of water. No pressure.')">Locked/Paralyzed</button>
+<button class="mood-btn" onclick="alert('Racing mind? Try rolling your shoulders back. You are safe, and we can slow down together.')">Racing Mind</button>
+<button class="mood-btn" onclick="alert('Exhausted? Perfect time to look at some soothing herbal support options below.')">Fried/Burned Out</button>
 </div>
 
 <header class="hero">
-<div class="container">
-<h1>Ditch the Burnout. Regulate Your Nervous System.<br><span>Calm Your ADHD Brain, Naturally.</span></h1>
-<p>You don't need another rigid calendar or more brute-force discipline. You need a somatic approach that blends functional ADHD coaching with plant medicine to support your unique neurobiology.</p>
-<a href="#services" class="cta-button">Explore the Holistic Approach</a>
-</div>
+<h1>Stop Fighting Your Neurobiology.<br><span>Nourish Your Focus Naturally.</span></h1>
+<p>You aren't lazy, and you don't need a tougher planner. You have an intense nervous system that is completely out of fuel. Together, we combine somatic ADHD lifestyle design with clinical herbalism to ground your body and clear your brain fog.</p>
+<a href="#get-free-guide" class="cta-main">🚀 Unlock Your Free ADHD Focus Protocol</a>
 </header>
 
-<section class="container">
-<div class="validation">
-<h2>Does this sound like your neurodivergent brain?</h2>
-<div class="grid">
-<div class="card">
-<h3>🔄 The Wired-But-Tired Cycle</h3>
-<p>You use caffeine or stress to force focus during the day, leaving your nervous system completely fried and unable to sleep at night.</p>
+<section class="validation-box">
+<h2>Let's skip the shame. Does your brain do this?</h2>
+<div class="symptom-grid">
+<div class="symptom-card">
+<h3>🔋 The "Wired-But-Tired" Crash</h3>
+<p>You ride a wave of caffeine or deadline anxiety to get things done, leaving your nervous system entirely frazzled at night.</p>
 </div>
-<div class="card">
-<h3>🛑 Executive Paralysis</h3>
-<p>You know exactly <i>what</i> you need to do, but your body feels physically locked. Traditional planners only make you feel guilty.</p>
+<div class="symptom-card">
+<h3>🕸️ The Brain-Fog Barrier</h3>
+<p>You sit down to execute a task, but your thoughts feel scatter-brained, hazy, and completely out of reach.</p>
 </div>
-<div class="card) Grid-Fix">
-<h3>📈 Chronic Overwhelm</h3>
-<p>Your mind moves at 100mph, leading to deep sensory overload and frequent mental crashes by Thursday afternoon.</p>
-</div>
+<div class="symptom-card">
+<h3>🔒 Executive Paralysis</h3>
+<p>You know exactly what steps to take next, but your body feels completely frozen on the couch. It’s physically exhausting.</p>
 </div>
 </div>
 </section>
 
-<section id="approach" class="container framework">
-<h2>The Framework: Mind & Medicine</h2>
-<div class="two-column">
+<section id="about-approach" class="framework-section">
+<div class="split-view">
 <div>
-<h3 style="color: var(--sage-green); font-size: 1.8rem;">1. Behavioral Coaching</h3>
-<p>We build customized, low-friction routines designed around your fluctuating dopamine levels. No neurotypical rules allowed. We tackle time blindness, task initiation, and shame-free goal setting.</p>
-
-<h3 style="color: var(--terracotta); font-size: 1.8rem; margin-top: 30px;">2. Clinical Herbalism</h3>
-<p>We nourish the physiological engine. Using adaptogens to smooth out stress spikes, nervines to soothe a buzzy nervous system, and safe nootropics for cognitive clarity, we feed your brain what it needs to thrive.</p>
+<span class="pill-tag">SYSTEM RESET</span>
+<h2 style="color: var(--deep-forest); font-size: 2.2rem; margin-top: 5px;">A Two-Sided Strategy for One Complex Brain</h2>
+<p>Traditional coaching tells you <strong>what to do</strong>, but ignores that your nervous system is too overstimulated to actually do it. Traditional herbalism offers calm, but doesn't fix your time blindness.</p>
+<p><strong>We bridge that gap:</strong> We use gentle adaptogenic plant medicine to feed your dopamine receptors and lower cortisol, while designing friction-free behavioral routines built around your hyperfocus cycles.</p>
 </div>
-<div style="background-color: var(--soft-earth); padding: 40px; border-radius: 12px; text-align: center;">
-<span style="font-size: 4rem;">🧠 + 🌿</span>
-<h3>The Whole-Brain Result</h3>
-<p>Instead of whipping an exhausted brain into submission, we nourish it until focus becomes a natural byproduct of wellness.</p>
+<div style="background-color: white; border: 2px solid var(--electric-sage); padding: 30px; border-radius: 20px;">
+<h3 style="color: var(--electric-sage); margin-top:0;">What We Focus On:</h3>
+<ul style="padding-left: 20px; font-weight: 500;">
+<li style="margin-bottom:10px;">Soothe sensory overload with calming nervines</li>
+<li style="margin-bottom:10px;">Build dopamine routines that match your energy</li>
+<li style="margin-bottom:10px;">Clean up sleep cycles without prescription grogginess</li>
+<li style="margin-bottom:10px;">Manage task initiation without shame</li>
+</ul>
 </div>
 </div>
 </section>
 
-<section id="freebie" class="container">
-<div class="optin">
-<h2>Get the Free ADHD Ritual Guide</h2>
-<p>Discover 5 gentle herbs that help soothe executive dysfunction and ground a racing mind.</p>
-<form class="optin-form" onsubmit="event.preventDefault(); alert('Dopamine arriving in your inbox soon!');">
-<input type="email" placeholder="Your best email address..." required>
-<button type="submit">Send It To Me</button>
+<section id="get-free-guide" class="optin-banner">
+<h2 style="color: var(--deep-forest); margin-top:0; font-size: 2rem;">📥 Instant Dopamine Deposit: Get Your Free Guide</h2>
+<p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Enter your email to instantly open the <strong>ADHD Plant Medicine Quickstart Guide</strong> right here on your screen, plus get copy-and-paste somatic rituals sent straight to your inbox.</p>
+
+<form class="email-bar" onsubmit="openRealGuide(event)">
+<input type="email" id="subscriber-email" placeholder="Enter your best email address..." required>
+<button type="submit">Send It To Me ✨</button>
 </form>
-</div>
 </section>
+
+<section id="coaching-packages" style="padding: 40px 0; text-align: center;">
+<h2 style="color: var(--deep-forest); font-size: 2rem;">How We Can Work Together</h2>
+<p>Ready for a personalized lifestyle and custom botanical protocol? Book a strategy call today.</p>
+<a href="mailto:yourbusiness@email.com?subject=ADHD Coaching Inquiry" class="cta-main" style="background: var(--deep-forest);">Let's Connect Via Email</a>
+</section>
+
+</div>
+
+<div id="guideModal" class="guide-modal">
+<div class="guide-content">
+<span class="close-btn" onclick="closeRealGuide()">&times;</span>
+<span style="font-size: 3rem;">🌿</span>
+<h2 style="color: var(--deep-forest); margin-top: 10px;">Your ADHD Herbal Starter Guide is Unlocked!</h2>
+<p>Thank you! A copy has been routed to your email address. Here is your immediate access protocol to read right now while your momentum is high:</p>
+
+<hr style="border: 1px dashed var(--electric-sage); margin: 20px 0;">
+
+<h3>1. The Focus Alternative: Milky Oats & Rhodiola</h3>
+<p>Instead of blasting an already burned-out brain with mega-doses of caffeine, we look to nourishing adaptogens.</p>
+<div class="herbal-recipe-card">
+<strong>⚡ Focus Elixir Blend:</strong>
+<ul>
+<li><strong>Rhodiola Rosea Tincture:</strong> Helps stimulate cognitive clarity and physical stamina during task paralysis.</li>
+<li><strong>Milky Oat Tops:</strong> Deeply rebuilds a nervous system that feels "fried" or overstimulated by screens.</li>
+</ul>
+</div>
+
+<h3>2. The Somatic Transition Habit</h3>
+<p>ADHD brains struggle terribly with moving from resting to working. Use a sensory anchor to bridge the gap:</p>
+<p><em>"Whenever I steep my morning tea, I don't look at my phone. The physical sensation of smelling the herbs tells my brain it is safe to shift into an alert state without rushing."</em></p>
+
+<button onclick="closeRealGuide()" class="cta-main" style="width: 100%; margin-top: 20px;">Awesome, Got It!</button>
+</div>
+</div>
 
 <footer>
 <div class="container">
-<p>&copy; 2026 The ADHD Herbalist. All rights reserved.</p>
-<div class="disclaimer">
-<strong>Disclaimer:</strong> I am an ADHD Coach and Herbalist. I am not a medical doctor, psychiatrist, or licensed therapist. The information provided on this website, and within my coaching programs, is for educational and holistic lifestyle support purposes only. It is not intended to diagnose, treat, cure, or prevent ADHD or any other medical condition, nor is it a replacement for prescribed ADHD medication. Always consult your primary healthcare provider before starting any new herbal protocols.
+<p>&copy; 2026 The ADHD Herbalist. Built with care for neurodivergent brains.</p>
+<div style="font-style: italic; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; line-height: 1.4;">
+<strong>Strict Disclaimer:</strong> I am an ADHD Coach and Herbalist. I am not a medical doctor, psychiatrist, or licensed practitioner. The information provided on this webpage, including the interactive starter guide, is meant solely for educational and holistic lifestyle purposes. It does not replace medical diagnostics, clinical therapy, or pharmaceutical prescriptions. Always check with your doctor before introducing botanical supplements.
 </div>
 </div>
 </footer>
 
+<script>
+function openRealGuide(event) {
+event.preventDefault(); // Keeps the screen from refreshing unexpectedly
+const emailInput = document.getElementById('subscriber-email').value;
+
+if(emailInput) {
+// Instantly displays the modal guide on screen for immediate gratification
+document.getElementById('guideModal').style.display = 'flex';
+}
+}
+
+function closeRealGuide() {
+document.getElementById('guideModal').style.display = 'none';
+}
+</script>
 </body>
 </html>
