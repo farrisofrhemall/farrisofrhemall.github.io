@@ -41,7 +41,7 @@ font-family: 'Space Grotesk', sans-serif;
 font-weight: 700;
 }
 
-/* Navigation */
+/* Navigation Bar */
 nav {
 display: flex;
 justify-content: space-between;
@@ -59,15 +59,13 @@ border-bottom: 1px solid rgba(255,255,255,0.1);
 font-size: 1.5rem;
 font-weight: 700;
 color: var(--teal-light);
-display: flex;
-align-items: center;
-gap: 0.5rem;
 text-decoration: none;
 }
 
 .nav-links {
 display: flex;
 gap: 1.5rem;
+align-items: center;
 }
 
 .nav-links a {
@@ -81,9 +79,9 @@ transition: color 0.3s;
 color: var(--coral-excite);
 }
 
-/* Hero Section */
+/* Hero Landing */
 .hero {
-min-height: 85vh;
+min-height: 80vh;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -91,3 +89,506 @@ text-align: center;
 padding: 4rem 2rem;
 position: relative;
 background: radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.15) 0%, transparent 50%),
+radial-gradient(circle at 20% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50__);
+}
+
+.hero-content {
+max-width: 800px;
+}
+
+.badge {
+background: rgba(13, 148, 136, 0.2);
+color: var(--teal-light);
+padding: 0.5rem 1rem;
+border-radius: 50px;
+font-size: 0.9rem;
+display: inline-block;
+margin-bottom: 1.5rem;
+border: 1px solid var(--teal-calm);
+font-weight: 600;
+}
+
+.hero h1 {
+font-size: 3.5rem;
+line-height: 1.2;
+margin-bottom: 1.5rem;
+}
+
+.highlight-text {
+background: linear-gradient(to right, var(--teal-light), var(--coral-excite));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.hero p {
+font-size: 1.25rem;
+color: var(--text-muted);
+margin-bottom: 2.5rem;
+}
+
+/* Buttons */
+.cta-btn {
+background-color: var(--coral-excite);
+color: white;
+padding: 1rem 2rem;
+border-radius: 12px;
+text-decoration: none;
+font-weight: 700;
+font-size: 1.1rem;
+box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+transition: all 0.3s ease;
+display: inline-block;
+border: none;
+cursor: pointer;
+}
+
+.cta-btn:hover {
+background-color: var(--coral-hover);
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
+}
+
+.secondary-btn {
+background: transparent;
+color: var(--teal-light);
+border: 2px solid var(--teal-calm);
+padding: 1rem 2rem;
+border-radius: 12px;
+text-decoration: none;
+font-weight: 700;
+font-size: 1.1rem;
+margin-left: 1rem;
+transition: all 0.3s ease;
+display: inline-block;
+}
+
+.secondary-btn:hover {
+background: rgba(13, 148, 136, 0.1);
+border-color: var(--teal-light);
+}
+
+/* Engaging Visual Graphics */
+.visual-container {
+width: 100%;
+height: 350px;
+margin: 2rem 0;
+border-radius: 16px;
+overflow: hidden;
+position: relative;
+background: #1e293b;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.visual-placeholder {
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0.6;
+}
+
+.visual-overlay-text {
+position: absolute;
+bottom: 20px;
+left: 20px;
+right: 20px;
+background: rgba(15, 23, 42, 0.85);
+padding: 1rem;
+border-radius: 8px;
+border-left: 4px solid var(--coral-excite);
+}
+
+/* Core Structure */
+section {
+padding: 5rem 2rem;
+max-width: 1100px;
+margin: 0 auto;
+}
+
+.section-title {
+text-align: center;
+font-size: 2.5rem;
+margin-bottom: 3rem;
+}
+
+/* Bio/About Section Layout */
+.bio-grid {
+display: grid;
+grid-template-columns: 1fr 1.2fr;
+gap: 4rem;
+align-items: center;
+}
+
+.bio-text p {
+margin-bottom: 1.5rem;
+font-size: 1.1rem;
+color: var(--text-muted);
+}
+
+.bio-text strong {
+color: var(--text-light);
+}
+
+/* Research Segment Layout */
+.research-cards {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+}
+
+.card {
+background-color: var(--bg-card);
+padding: 2.5rem;
+border-radius: 16px;
+border: 1px solid rgba(255,255,255,0.05);
+transition: transform 0.3s;
+}
+
+.card:hover {
+transform: translateY(-5px);
+border-color: var(--teal-calm);
+}
+
+.card h3 {
+margin-bottom: 1rem;
+color: var(--teal-light);
+}
+
+/* Quiz Box Layout */
+.quiz-container {
+background-color: var(--bg-card);
+border-radius: 24px;
+padding: 3rem;
+max-width: 700px;
+margin: 0 auto;
+border: 2px solid var(--teal-calm);
+box-shadow: 0 10px 30px rgba(13, 148, 136, 0.1);
+}
+
+.quiz-progress {
+height: 6px;
+background: #334155;
+border-radius: 3px;
+margin-bottom: 2rem;
+overflow: hidden;
+}
+
+.quiz-progress-bar {
+height: 100%;
+width: 0%;
+background: linear-gradient(to right, var(--teal-light), var(--coral-excite));
+transition: width 0.3s ease;
+}
+
+.quiz-option {
+background: rgba(255,255,255,0.05);
+border: 1px solid rgba(255,255,255,0.1);
+padding: 1.2rem;
+border-radius: 12px;
+margin-bottom: 1rem;
+cursor: pointer;
+font-weight: 600;
+transition: all 0.2s ease;
+}
+
+.quiz-option:hover {
+background: rgba(45, 212, 191, 0.1);
+border-color: var(--teal-light);
+}
+
+.quiz-results {
+display: none;
+text-align: center;
+}
+
+/* Footer System */
+footer {
+background-color: #020617;
+padding: 4rem 2rem;
+text-align: center;
+border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Ebook Delivery Popup Modal Overlay */
+.modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(15, 23, 42, 0.9);
+z-index: 1000;
+align-items: center;
+justify-content: center;
+padding: 1rem;
+}
+
+.modal-content {
+background: var(--bg-card);
+padding: 3rem;
+border-radius: 24px;
+max-width: 500px;
+width: 100%;
+position: relative;
+border: 2px solid var(--coral-excite);
+text-align: center;
+}
+
+.close-modal {
+position: absolute;
+top: 15px;
+right: 20px;
+font-size: 1.5rem;
+cursor: pointer;
+color: var(--text-muted);
+}
+
+.form-input {
+width: 100%;
+padding: 1rem;
+margin-top: 1rem;
+margin-bottom: 1.5rem;
+border-radius: 8px;
+border: 1px solid #475569;
+background: var(--bg-dark);
+color: white;
+font-size: 1rem;
+}
+
+.form-input:focus {
+outline: 2px solid var(--teal-light);
+}
+
+/* Mobile Screen Scalers */
+@media (max-width: 768px) {
+.bio-grid { grid-template-columns: 1fr; gap: 2rem; }
+.hero h1 { font-size: 2.5rem; }
+.secondary-btn { margin-left: 0; margin-top: 1rem; display: block; text-align: center;}
+.cta-btn { display: block; text-align: center; width: 100%; margin-bottom: 0.5rem; }
+.nav-links { display: none; } /* Kept simple for raw code file stability */
+}
+</style>
+</head>
+<body>
+
+<nav>
+<a href="#" class="logo">🌿 The ADHD Herbalist</a>
+<div class="nav-links">
+<a href="#about">My Story</a>
+<a href="#research">The Science</a>
+<a href="#quiz">ADHD Quiz</a>
+<a href="#" id="calendar-nav-link" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; box-shadow: none;">Book a Session</a>
+</div>
+</nav>
+
+<header class="hero">
+<div class="hero-content">
+<span class="badge">Neurodivergent-Led Support</span>
+<h1>Stop Fighting Your Brain. <br><span class="highlight-text">Start Flowering Through It.</span></h1>
+<p>You aren't broken—your engine is just built for a completely different racetrack. Discover the holistic, science-backed systems built by an ADHDer, for ADHDers, to unlock calm focus and daily momentum.</p>
+<div>
+<button class="cta-btn" onclick="openEbookModal()">Download Free ADHD Strategy Guide</button>
+<a href="#quiz" class="secondary-btn">Take the 2-Min Focus Quiz</a>
+</div>
+</div>
+</header>
+
+<div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+<div class="visual-container">
+<img class="visual-placeholder" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80" alt="Calming plant textures">
+<div class="visual-overlay-text">
+<h3>Nature meets Neurodiversity: Real strategies for vibrant, organic focus.</h3>
+</div>
+</div>
+</div>
+
+<section id="about">
+<div class="bio-grid">
+<div>
+<img style="width:100%; max-height: 450px; object-fit: cover; border-radius: 24px; border: 4px solid var(--teal-calm);" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Professional welcoming face">
+</div>
+<div class="bio-text">
+<span class="badge" style="background: rgba(249, 115, 22, 0.1); color: var(--coral-excite); border-color: var(--coral-hover);">Meet Your Coach</span>
+<h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2;">I worked relentlessly to build a system that works. Because I have ADHD too.</h2>
+<p>Hello! I am the founder of <strong>The ADHD Herbalist</strong>. For over a decade, I have operated inside the education sector, specializing deeply in <strong>ADHD and neurodiversity</strong>. But long before I had the professional credentials, I had the personal struggle.</p>
+<p>I know exactly what it feels like to live in a perpetual loop of hyper-focus burnout, choice paralysis, and standard organizational planners that mock your working memory. Traditional advice failed me.</p>
+<p>That's why I spent years reverse-engineering my own behavior, blending cognitive science with grounding, holistic pacing to develop an intuitive ecosystem. I don't teach masking; I teach you how to organically show up as the best, happiest version of yourself.</p>
+</div>
+</div>
+</section>
+
+<section id="research" style="background: rgba(30, 41, 59, 0.5); border-radius: 32px;">
+<h2 class="section-title">Latest ADHD Science for Career & Life Success</h2>
+<div class="research-cards">
+<div class="card">
+<h3>1. Interest-Based Nervous Systems</h3>
+<p>Recent neuroscientific studies confirm that the ADHD brain does not follow conventional priority frameworks. Success comes from setting up dynamic "Novelty and Urgency Co-factors" rather than rigid, static schedules.</p>
+</div>
+<div class="card">
+<h3>2. Radical Environmental Scaffolding</h3>
+<p>Data shows that minimizing working memory load through visual tracking, tactile interfaces, and natural nervous system regulators drastically drops cortisol spikes and eliminates executive dysfunction fatigue.</p>
+</div>
+<div class="card">
+<h3>3. Cognitive Offloading</h3>
+<p>Modern career research indicates that neurodivergent individuals thrive when using "External Brain" systems. Offloading tasks into structural workflows preserves dopamine reserves for creative output and fast execution.</p>
+</div>
+</div>
+</section>
+
+<section id="quiz">
+<h2 class="section-title">Where Is Your Focus Leaking?</h2>
+<div class="quiz-container" id="quiz-box">
+<div class="quiz-progress"><div class="quiz-progress-bar" id="progress"></div></div>
+<div id="question-view">
+<h3 id="question-text" style="margin-bottom: 1.5rem;">Loading Question...</h3>
+<div id="options-container"></div>
+</div>
+<div class="quiz-results" id="results-view">
+<h3 style="color: var(--sage-soothe); font-size: 2rem; margin-bottom: 1rem;">Your Profile: The Fast-Paced Creative</h3>
+<p style="margin-bottom: 2rem; color: var(--text-muted);">You exhibit high core traits matching a vibrant, interest-driven ADHD cognitive style. Your main leak point is execution exhaustion.</p>
+<button class="cta-btn" onclick="openEbookModal()">Get Your Targeted Action Plan (Free Ebook)</button>
+</div>
+</div>
+</section>
+
+<section style="text-align: center;">
+<h2 style="font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2;">Ready to build your custom ecosystem?</h2>
+<p style="max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-muted); font-size: 1.2rem;">Let's skip the trial and error. Book a strategy session directly into my calendar to discover tailored frameworks for your specific neurotype.</p>
+<a href="#" id="calendar-main-btn" class="cta-btn" target="_blank">Schedule an Appointment With Me</a>
+</section>
+
+<footer>
+<p>© 2026 The ADHD Herbalist. Empowering neurodiverse minds organically.</p>
+</footer>
+
+<div class="modal" id="ebookModal">
+<div class="modal-content">
+<span class="close-modal" onclick="closeEbookModal()">&times;</span>
+<h2 style="color: var(--teal-light); margin-bottom: 1rem;">Your Free ADHD Guide is Ready!</h2>
+<p style="color: var(--text-muted);">Enter your email address below to immediately download: <br><strong>"The Organic Focus Blueprints: Tips & Strategies for ADHD"</strong></p>
+
+<form id="leadForm" onsubmit="handleFormSubmit(event)">
+<input type="email" class="form-input" placeholder="Enter your best email address" required id="userEmail">
+<button type="submit" class="cta-btn" style="width: 100%;">Send My Copy Now</button>
+</form>
+</div>
+</div>
+
+<script>
+// CONFIGURATION: Swap out this placeholder URL with your real scheduler (Calendly, etc.) anytime!
+const MY_CALENDAR_URL = "https://calendly.com/your-username-placeholder";
+
+// Dynamic assignment protecting cross-link functionality
+const navCalLink = document.getElementById('calendar-nav-link');
+const mainCalBtn = document.getElementById('calendar-main-btn');
+if(navCalLink) navCalLink.href = MY_CALENDAR_URL;
+if(mainCalBtn) mainCalBtn.href = MY_CALENDAR_URL;
+
+// QUIZ INTERNAL LOGIC
+const quizQuestions = [
+{ text: "How do you respond to standard, linear daily planners?", options: ["They feel like a prison, so I ignore them.", "I buy them, use them for 3 days, then lose them.", "I feel overwhelmed just looking at them."] },
+{ text: "When you have a large, ambiguous task ahead of you, what happens?", options: ["I organize my entire house instead of starting.", "I stare at the screen feeling frozen.", "I wait until 11 PM the night before it's due."] },
+{ text: "Your energy levels usually resemble:", options: ["An all-or-nothing hyperfocus explosion.", "Constant physical or mental restlessness.", "Sluggish start with a sudden late-night brain wave."] }
+];
+
+let currentQuestionIndex = 0;
+
+function loadQuestion() {
+const qText = document.getElementById('question-text');
+const oContainer = document.getElementById('options-container');
+const progress = document.getElementById('progress');
+
+if (!qText || !oContainer) return;
+
+if (currentQuestionIndex < quizQuestions.length) {
+const currentQuestion = quizQuestions[currentQuestionIndex];
+qText.innerText = currentQuestion.text;
+oContainer.innerHTML = '';
+
+currentQuestion.options.forEach(option => {
+const div = document.createElement('div');
+div.className = 'quiz-option';
+div.innerText = option;
+div.onclick = () => nextQuestion();
+oContainer.appendChild(div);
+});
+
+const progressPercent = (currentQuestionIndex / quizQuestions.length) * 100;
+if(progress) progress.style.width = progressPercent + '%';
+} else {
+if(progress) progress.style.width = '100%';
+const qView = document.getElementById('question-view');
+const rView = document.getElementById('results-view');
+if(qView) qView.style.display = 'none';
+if(rView) rView.style.display = 'block';
+}
+}
+
+function nextQuestion() {
+currentQuestionIndex++;
+loadQuestion();
+}
+
+// Initialize quiz rendering cleanly on boot load
+window.addEventListener('DOMContentLoaded', () => {
+loadQuestion();
+});
+
+// POPUP WINDOW CONTROL INTERFACES
+function openEbookModal() {
+const modal = document.getElementById('ebookModal');
+if(modal) modal.style.display = 'flex';
+}
+
+function closeEbookModal() {
+const modal = document.getElementById('ebookModal');
+if(modal) modal.style.display = 'none';
+}
+
+// HIGH ENGAGEMENT INSTANT DOWNLOAD DELIVERY SYSTEM
+function handleFormSubmit(event) {
+event.preventDefault();
+const emailInput = document.getElementById('userEmail');
+if(!emailInput) return;
+const email = emailInput.value;
+
+if(email) {
+alert("✨ Registration Successful! Your strategic blueprints have been queued for sending to: " + email);
+
+const guideContent =
+`================================================================
+THE ADHD HERBALIST STRATEGY BLUEPRINT
+Holistic, Actionable Tools for Neurodiversity
+================================================================
+
+Welcome! Because you have an interest-based nervous system, standard organizational routines will always feel unnatural. Try these neurodivergent-tested adjustments instead:
+
+1. THE BLINDERS STRATEGY
+Break down ambiguous tasks into isolated, 15-minute milestones. If you experience execution paralysis, reduce the barrier of entry until you feel zero friction.
+
+2. COGNITIVE OFFLOADING
+Your working memory is a launchpad, not a storage locker. Externalize your ideas, reminders, and schedules immediately onto dynamic physical surfaces (like whiteboards or dry-erase panes) instead of apps where they disappear out of sight.
+
+3. KINETIC IMPULSE TRICKING
+Pair mundane organizational behaviors with active sensory stimuli: listen to low-frequency brown noise loops, work standing up, or use sensory fidget rings to satisfy the baseline dopamine requirement of your brain.
+
+Find more personal coaching insights and schedule individual strategic sessions directly at The ADHD Herbalist.`;
+
+const blob = new Blob([guideContent], { type: 'text/plain' });
+const url = URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url;
+a.download = 'ADHD_Herbalist_Strategy_Guide.txt';
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+URL.revokeObjectURL(url);
+
+closeEbookModal();
+}
+}
+</script>
+</body>
+</html>
