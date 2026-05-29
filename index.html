@@ -220,6 +220,15 @@ gap: 4rem;
 align-items: center;
 }
 
+.bio-image {
+width: 100%;
+max-height: 500px;
+object-fit: cover;
+border-radius: 24px;
+border: 4px solid var(--teal-calm);
+background-color: var(--bg-card);
+}
+
 .bio-text p {
 margin-bottom: 1.5rem;
 font-size: 1.1rem;
@@ -367,7 +376,7 @@ outline: 2px solid var(--teal-light);
 .hero h1 { font-size: 2.5rem; }
 .secondary-btn { margin-left: 0; margin-top: 1rem; display: block; text-align: center;}
 .cta-btn { display: block; text-align: center; width: 100%; margin-bottom: 0.5rem; }
-.nav-links { display: none; } /* Kept simple for raw code file stability */
+.nav-links { display: none; }
 }
 </style>
 </head>
@@ -407,7 +416,7 @@ outline: 2px solid var(--teal-light);
 <section id="about">
 <div class="bio-grid">
 <div>
-<img style="width:100%; max-height: 450px; object-fit: cover; border-radius: 24px; border: 4px solid var(--teal-calm);" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Professional welcoming face">
+<img class="bio-image" src="image.png" alt="Your Profile Picture - The ADHD Herbalist">
 </div>
 <div class="bio-text">
 <span class="badge" style="background: rgba(249, 115, 22, 0.1); color: var(--coral-excite); border-color: var(--coral-hover);">Meet Your Coach</span>
@@ -477,16 +486,13 @@ outline: 2px solid var(--teal-light);
 </div>
 
 <script>
-// CONFIGURATION: Swap out this placeholder URL with your real scheduler (Calendly, etc.) anytime!
 const MY_CALENDAR_URL = "https://calendly.com/your-username-placeholder";
 
-// Dynamic assignment protecting cross-link functionality
 const navCalLink = document.getElementById('calendar-nav-link');
 const mainCalBtn = document.getElementById('calendar-main-btn');
 if(navCalLink) navCalLink.href = MY_CALENDAR_URL;
 if(mainCalBtn) mainCalBtn.href = MY_CALENDAR_URL;
 
-// QUIZ INTERNAL LOGIC
 const quizQuestions = [
 { text: "How do you respond to standard, linear daily planners?", options: ["They feel like a prison, so I ignore them.", "I buy them, use them for 3 days, then lose them.", "I feel overwhelmed just looking at them."] },
 { text: "When you have a large, ambiguous task ahead of you, what happens?", options: ["I organize my entire house instead of starting.", "I stare at the screen feeling frozen.", "I wait until 11 PM the night before it's due."] },
@@ -531,12 +537,10 @@ currentQuestionIndex++;
 loadQuestion();
 }
 
-// Initialize quiz rendering cleanly on boot load
 window.addEventListener('DOMContentLoaded', () => {
 loadQuestion();
 });
 
-// POPUP WINDOW CONTROL INTERFACES
 function openEbookModal() {
 const modal = document.getElementById('ebookModal');
 if(modal) modal.style.display = 'flex';
@@ -547,7 +551,6 @@ const modal = document.getElementById('ebookModal');
 if(modal) modal.style.display = 'none';
 }
 
-// HIGH ENGAGEMENT INSTANT DOWNLOAD DELIVERY SYSTEM
 function handleFormSubmit(event) {
 event.preventDefault();
 const emailInput = document.getElementById('userEmail');
