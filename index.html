@@ -911,7 +911,7 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeEbookModal()">&times;</span>
             <h2 style="color: var(--teal-light); margin-bottom: 1rem;">Your Free ADHD Guide is Ready!</h2>
-            <p style="color: var(--text-muted);">Enter your email address below to immediately download: <br><strong>"The Organic Focus Blueprints: Tips & Strategies for ADHD"</strong></p>
+            <p style="color: var(--text-muted);">Enter your email address below to immediately download: <br><strong>"The Woman's Guide to Navigating Life with ADHD"</strong></p>
 
             <form id="leadForm" onsubmit="handleFormSubmit(event)">
                 <input type="email" class="form-input" placeholder="Enter your best email address" required id="userEmail">
@@ -1049,19 +1049,137 @@
             const email = emailInput.value;
 
             if(email) {
-                alert("✨ Registration Successful! Your strategic blueprints have been queued for sending to: " + email);
+                alert("✨ Registration Successful! Your strategic playbook has been queued for sending to: " + email);
 
+                // Fully custom, context-accurate guidebook text content populated directly from the user's attachment.
                 const guideContent = 
-`================================================================
-THE ADHD HERBALIST STRATEGY BLUEPRINT
-================================================================
-Your resources are on their way! Ensure you save this data panel.`;
+`================================================================================
+THE ADHD HERBALIST STRATEGY VAULT
+The Woman's Guide to Navigating Life with ADHD
+================================================================================
+A holistic roadmap and tactical toolkit balancing modern cognitive science 
+with natural botanical scaffolding.
+
+By Tez, The ADHD Herbalist
+--------------------------------------------------------------------------------
+
+PART 1: ADHD IN WOMEN - THE HIDDEN PRESENTATION
+ADHD symptoms last a lifetime, but for women, they look profoundly distinct.
+While males are frequently diagnosed as hyperactive children, girls and women
+are significantly more likely to exhibit inattentive or internally hyperactive
+symptoms. This means your struggles might manifest as chronic choices paralysis,
+an overactive internal dialogue, or masking your chaos behind an exhausting
+veneer of perfectionism.
+
+INTERNAL SYMPTOM CHECKLIST
+* Sustained Focus Blocks: Finding it hard to stay mentally present during long
+  conversations, formatting paperwork, or static tasks.
+* The Cognitive Tax: Frequently losing keys, wallets, phones, or critical
+  documentation due to an overloaded working memory.
+* The 80% Wall: Feeling exceptional at starting high-novelty projects, but
+  hitting an invisible barrier when trying to execute the final steps.
+* Internal Restlessness: A constant feeling of mental vibration, over-explaining,
+  or racing thoughts even when your body appears perfectly calm.
+
+EXECUTIVE FUNCTIONING & YOUR CYCLES
+Executive Functioning (EF) is your brain's management system - responsible for
+organizing data, regulating emotions, prioritizing steps, and maintaining momentum.
+For women, EF challenges are heavily linked with hormonal shifts. Fluctuations
+in estrogen directly modulate dopamine levels, meaning your symptoms may
+noticeably spike during your luteal phase right before your cycle.
+
+--------------------------------------------------------------------------------
+EF CORE COMPETENCY MATRIX
+--------------------------------------------------------------------------------
+1. WORKING MEMORY:
+   The "Out of Sight, Out of Mind" trap. Easily dropping tasks out of awareness
+   if tracking assets aren't kept visually present within your physical space.
+
+2. COGNITIVE FLEXIBILITY:
+   Overwhelm Freezing. Feeling completely paralyzed or locked in state-paralysis
+   when plans shift abruptly or sensory throughput overloads.
+
+3. TIME OPTIMIZATION:
+   Time Blindness. Struggling to accurately estimate operational duration,
+   leading to intense procrastination panic or hyper-focus burnout.
+--------------------------------------------------------------------------------
+
+YOUR RADIANT STRENGTHS
+Having ADHD means your mind operates on an interest-driven engine. This gives you
+access to profound hyperfocus channels, deep intuitive empathy, rapid creative
+pivot speeds, and a boundless multi-passionate capacity to invent original
+solutions to complex problems.
+
+
+PART 2: HOLISTIC LIFE MANAGEMENT - BOTANICAL SUPPORT & HEALTHY RHYTHMS
+Engineering a reliable environmental routine protects your baseline dopamine reserve.
+
+1. RESTORATIVE SLEEP SCAFFOLDING
+Quality rest dictates morning emotional resilience. Replace late-night sensory
+overload with a strict digital curfew. Incorporate calming nervines like 
+Chamomile, Passionflower, or Valerian Root into your evening ritual to quiet an
+overactive motor and prepare your nervous system for rejuvenation.
+
+2. LOW-FRICTION NUTRITION
+ADHD brains require stable, steady fuel profiles to prevent executive focus crashes.
+Skip multi-step cooking preparation that causes choice fatigue. Instead, utilize
+quick assembly protocols paired with targeted brain supporters: Lion's Mane Mushroom
+for cognitive clarity, and Ashwagandha to buffer the cortisol response that drives
+neurodivergent anxiety.
+
+
+PART 3: WORK, CAREER, & RELATIONSHIPS
+
+THE POMODORO FLOW MATRIX
+[ 25 MIN ISOLATED FOCUS ] ---> [ 5 MIN HERBAL TEA BREAK ]
+Avoid the exhausting sequence of procrastination followed by all-night burnout.
+Break large, ambiguous assignments into isolated 15-minute micro-milestones.
+Map your final goals using backward planning techniques, working in reverse from
+your final deadline so you preserve cognitive momentum.
+
+AUTHENTIC COMMUNICATION & SAFE INTIMACY
+Women are heavily socialized to prioritize people-pleasing, which often causes
+ADHDers to over-commit until they hit absolute sensory collapse. Practice clear,
+assertive boundary-setting frameworks that protect your structural capacity.
+
+
+PART 4: RADICAL SCAFFOLDING APPLICATIONS (ACT ON TODAY)
+
+THE OUT-OF-SIGHT TRAP FIX
+Object permanence doesn't just apply to physical items. If you cannot physically
+see your ongoing priorities, they cease to exist in your working memory. Ensure
+active tasks are given visual real estate in your working zone.
+
+THE 2-MINUTE PEPPERMINT RESET
+Buy an essential oil diffuser for your workspace and stock it with premium
+Peppermint or Rosemary oils. When your mind begins to drift or enter a state-paralysis
+"freeze," turn the diffuser on. Sensory tracking data shows that strong olfactory 
+cues provide immediate, sharp nervous system grounding, cutting through mental
+fog and signaling to your brain that it is time to transition tasks.
+
+TIME BLINDNESS HACKS
+* The Audio-Paced Pomodoro Workflow: Traditional silent or ticking timers can
+  increase anxiety. Instead, select an energetic, instrumental playlist or a
+  low-fi jazz track that lasts exactly 20 to 25 minutes. Commit to working only
+  until the music stops. This turns time into a rhythmic, audible landscape rather
+  than an invisible concept, allowing your brain to anchor its pacing naturally.
+
+* Double Your Time Estimates (The Buffer Metric): Before your next task, write
+  down how long you honestly think it will take you. Now, instantly double that
+  number on your planner. This immediately defeats the built-in "ADHD optimism bias"
+  and protects you from the stressful cortisol spike of racing against chronic lateness.
+
+--------------------------------------------------------------------------------
+You are not broken, lazy, or incapable. 
+You are a neurodivergent woman learning to cultivate an ecosystem built natively 
+for your exact mind. Step into your creative power.
+================================================================================`;
 
                 const blob = new Blob([guideContent], { type: 'text/plain' });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = 'ADHD_Herbalist_Strategy_Guide.txt';
+                a.download = 'The_ADHD_Herbalist_Womans_Guide.txt';
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
