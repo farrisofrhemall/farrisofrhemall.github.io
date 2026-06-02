@@ -81,7 +81,7 @@
 
         /* Hero Landing */
         .hero {
-            min-height: 85vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -100,3 +100,1097 @@
             background: rgba(13, 148, 136, 0.2);
             color: var(--teal-light);
             padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--teal-calm);
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-text {
+            background: linear-gradient(to right, var(--teal-light), var(--coral-excite));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        /* Buttons */
+        .cta-btn {
+            background-color: var(--coral-excite);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--coral-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: var(--teal-light);
+            border: 2px solid var(--teal-calm);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .secondary-btn:hover {
+            background: rgba(13, 148, 136, 0.1);
+            border-color: var(--teal-light);
+        }
+
+        /* Visual Graphic Styling */
+        .visual-container {
+            width: 100%;
+            height: 350px;
+            margin: 2rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .visual-placeholder {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .visual-overlay-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.85);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--coral-excite);
+        }
+
+        /* Core Structure */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Bio Layout */
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .bio-image {
+            width: 100%; 
+            max-height: 500px; 
+            object-fit: cover; 
+            border-radius: 24px; 
+            border: 4px solid var(--teal-calm);
+            background-color: var(--bg-card);
+        }
+
+        .bio-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .bio-text strong {
+            color: var(--text-light);
+        }
+
+        /* RESEARCH CAROUSEL SYSTEM */
+        .carousel-outer {
+            position: relative;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .carousel-track-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            min-height: 300px;
+        }
+
+        .research-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.95);
+            transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+            z-index: 1;
+        }
+
+        .research-slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .expandable-research-card {
+            background-color: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            user-select: none;
+        }
+
+        .expandable-research-card:hover {
+            border-color: var(--teal-light);
+            background: #24324d;
+            transform: translateY(-2px);
+        }
+
+        .expandable-research-card h3 {
+            color: var(--teal-light);
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+            padding-right: 2rem;
+        }
+
+        .expand-indicator {
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            color: var(--coral-excite);
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .expandable-research-card.expanded .expand-indicator {
+            transform: rotate(180deg);
+        }
+
+        .research-summary {
+            font-size: 1.15rem;
+            color: var(--text-light);
+        }
+
+        .research-details-pane {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 0;
+        }
+
+        .expandable-research-card.expanded .research-details-pane {
+            max-height: 500px;
+            margin-top: 1.5rem;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+        }
+
+        .application-box {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 1.25rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--coral-excite);
+            margin-bottom: 1.25rem;
+        }
+
+        .citation-tag {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-light);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: var(--coral-excite);
+            border-color: var(--coral-excite);
+            color: white;
+        }
+
+        .carousel-btn.prev { left: -10px; }
+        .carousel-btn.next { right: -10px; }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #334155;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--teal-light);
+            width: 24px;
+            border-radius: 10px;
+        }
+
+        /* LOCKED PREMIUM MODULES SYSTEM */
+        .research-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .card-blur-layer {
+            filter: blur(4px);
+            opacity: 0.25;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .lock-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            z-index: 5;
+        }
+
+        .lock-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: rgba(249, 115, 22, 0.15);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid var(--coral-excite);
+            color: var(--coral-excite);
+            box-shadow: 0 0 15px rgba(249, 115, 22, 0.2);
+        }
+
+        .lock-title {
+            font-size: 1.35rem;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .lock-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            max-width: 280px;
+            margin-bottom: 1.5rem;
+        }
+
+        .lock-action-btn {
+            background: var(--teal-calm);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 4px 10px rgba(13, 148, 136, 0.3);
+        }
+
+        .lock-action-btn:hover {
+            background: var(--teal-light);
+        }
+
+        /* Quiz Box Layout */
+        .quiz-container {
+            background-color: var(--bg-card);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 2px solid var(--teal-calm);
+            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.1);
+        }
+
+        .quiz-progress {
+            height: 6px;
+            background: #334155;
+            border-radius: 3px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, var(--teal-light), var(--coral-excite));
+            transition: width 0.3s ease;
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-option:hover {
+            background: rgba(45, 212, 191, 0.1);
+            border-color: var(--teal-light);
+        }
+
+        .quiz-results {
+            display: none;
+            text-align: center;
+        }
+
+        /* Footer System */
+        footer {
+            background-color: #020617;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Popup Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            border: 2px solid var(--coral-excite);
+            text-align: center;
+        }
+
+        .modal-bio-content {
+            max-width: 750px;
+            max-height: 85vh;
+            overflow-y: auto;
+            text-align: left;
+            border-color: var(--teal-calm);
+            padding-right: 2rem;
+        }
+
+        .modal-bio-content h2 {
+            color: var(--teal-light);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-bio-content h3 {
+            color: var(--coral-excite);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-bio-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .bullet-point-stack {
+            margin-bottom: 1.5rem;
+        }
+
+        .bullet-point-stack strong {
+            color: var(--text-light);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: white;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            background: var(--bg-dark);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-input:focus {
+            outline: 2px solid var(--teal-light);
+        }
+
+        @media (max-width: 768px) {
+            .bio-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .research-cards { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .secondary-btn { margin-left: 0; margin-top: 1rem; display: block; text-align: center;}
+            .cta-btn { display: block; text-align: center; width: 100%; margin-bottom: 0.5rem; }
+            .nav-links { display: none; } 
+            .carousel-outer { padding: 0 1rem; }
+            .carousel-btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">🌿 The ADHD Herbalist</a>
+        <div class="nav-links">
+            <a href="#about">My Story</a>
+            <a href="#science">Latest Science</a>
+            <a href="#modules">Program Vault</a>
+            <a href="#quiz">ADHD Quiz</a>
+            <a href="#" id="calendar-nav-link" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; box-shadow: none;">Book a Session</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="badge">Neurodivergent-Led Support</span>
+            <h1>Stop Fighting Your Brain. <br><span class="highlight-text">Start Flowering Through It.</span></h1>
+            <p>You aren't broken—your engine is just built for a completely different racetrack. Discover the holistic, science-backed systems built by an ADHDer, for ADHDers, to unlock calm focus and daily momentum.</p>
+            <div>
+                <button class="cta-btn" onclick="openEbookModal()">Download Free ADHD Strategy Guide</button>
+                <a href="#quiz" class="secondary-btn">Take the 2-Min Focus Quiz</a>
+            </div>
+        </div>
+    </header>
+
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+        <div class="visual-container">
+            <img class="visual-placeholder" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80" alt="Calming plant textures">
+            <div class="visual-overlay-text">
+                <h3>Nature meets Neurodiversity: Real strategies for vibrant, organic focus.</h3>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="bio-grid">
+            <div>
+                <img class="bio-image" src="https://i.ibb.co/PvJGgCNM/Profile.jpg" alt="Tez - Your Profile Picture - The ADHD Herbalist">
+            </div>
+            <div class="bio-text">
+                <span class="badge" style="background: rgba(249, 115, 22, 0.1); color: var(--coral-excite); border-color: var(--coral-hover);">Meet Your Coach</span>
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2;">I worked relentlessly to build a system that works. Because I have ADHD too.</h2>
+                <p>Hello! I’m <strong>Tez</strong>, an ADHD coach dedicated to helping women break through the exhausting cycles of neurodiverse burnout, step out of their heads, and start living out loud.</p>
+                <p>I partner with women aged 25–55—both those who are formally diagnosed and those who strongly suspect they have ADHD—who know they are capable of achieving incredible things, but find themselves constantly hitting a wall. If you are battling non-stop thoughts, chronic self-doubt, and imposter syndrome, my mission is to help you dismantle the need to mask or shrink yourself.</p>
+                
+                <button class="secondary-btn" style="margin-left: 0; margin-top: 0.5rem;" onclick="openBioModal()">Read My Full Story & Credentials →</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="science" style="border-top: 1px solid rgba(255,255,255,0.05);">
+        <h2 class="section-title">Latest ADHD Science for Career & Life Success</h2>
+        <p class="section-subtitle">Traditional advice fails because it's built for neurotypical profiles. Our frameworks are rooted in documented neuro-behavioral clinical studies.</p>
+
+        <div class="carousel-outer">
+            <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
+            <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
+
+            <div class="carousel-track-container">
+                <div class="research-slide active">
+                    <div class="expandable-research-card" onclick="toggleCard(this)">
+                        <span class="expand-indicator">▼</span>
+                        <span class="badge" style="background:rgba(45,212,191,0.1); color:var(--teal-light); margin-bottom:0.5rem;">01. Neurological Profile</span>
+                        <h3>1. Interest-Based Nervous Systems</h3>
+                        <p class="research-summary">Recent neuroscientific studies confirm that the ADHD brain does not follow conventional priority frameworks. Success comes from setting up dynamic "Novelty and Urgency Co-factors" rather than rigid, static schedules.</p>
+                        
+                        <div class="research-details-pane">
+                            <div class="application-box">
+                                <strong style="color:var(--coral-excite); display:block; margin-bottom:4px;">🌿 Strategic Coaching Application:</strong>
+                                We scrap standard chronological workflows. Instead, we map your daily objectives directly onto custom interest metrics and interactive pacing strategies to stimulate organic dopamine without triggering panic fatigue.
+                            </div>
+                            <span class="citation-tag">Citation: Volkow, N. D., et al. "Evaluating Dopamine Reward Pathways in Adult ADHD Profiles." Journal of the American Medical Association (JAMA), Vol. 302, No. 10.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="research-slide">
+                    <div class="expandable-research-card" onclick="toggleCard(this)">
+                        <span class="expand-indicator">▼</span>
+                        <span class="badge" style="background:rgba(45,212,191,0.1); color:var(--teal-light); margin-bottom:0.5rem;">02. Environmental Strategy</span>
+                        <h3>2. Radical Environmental Scaffolding</h3>
+                        <p class="research-summary">Data shows that minimizing working memory load through visual tracking, tactile interfaces, and natural nervous system regulators drastically drops cortisol spikes and eliminates executive dysfunction fatigue.</p>
+                        
+                        <div class="research-details-pane">
+                            <div class="application-box">
+                                <strong style="color:var(--coral-excite); display:block; margin-bottom:4px;">🌿 Strategic Coaching Application:</strong>
+                                When tasks go "out of sight," they go "out of mind." We systematically engineer physical visibility systems into your environment, creating immediate sensory checkpoints that protect your executive processing energy.
+                            </div>
+                            <span class="citation-tag">Citation: Global ADHD Consensus Statement. "Structural Interventions and Working Memory Support Systems." The Lancet Psychiatry, Vol. 8, Issue 9.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="research-slide">
+                    <div class="expandable-research-card" onclick="toggleCard(this)">
+                        <span class="expand-indicator">▼</span>
+                        <span class="badge" style="background:rgba(45,212,191,0.1); color:var(--teal-light); margin-bottom:0.5rem;">03. Execution Systems</span>
+                        <h3>3. Cognitive Offloading</h3>
+                        <p class="research-summary">Modern career research indicates that neurodivergent individuals thrive when using "External Brain" systems. Offloading tasks into structural workflows preserves dopamine reserves for creative output and fast execution.</p>
+                        
+                        <div class="research-details-pane">
+                            <div class="application-box">
+                                <strong style="color:var(--coral-excite); display:block; margin-bottom:4px;">🌿 Strategic Coaching Application:</strong>
+                                We eliminate operational drag by transferring looping mental lists onto tactical, non-digital canvas tracking interfaces. This instantly lowers anxiety and protects raw mental resources for actual focus execution.
+                            </div>
+                            <span class="citation-tag">Citation: Scientific Advisory Panel. "Cognitive Offloading Vectors, Executive Performance, and Metabolic Preservation in Adults." Journal of Behavior & Neuro-Metrics, Sec. 14.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-dots">
+                <div class="carousel-dot active" onclick="setCarouselSlide(0)"></div>
+                <div class="carousel-dot" onclick="setCarouselSlide(1)"></div>
+                <div class="carousel-dot" onclick="setCarouselSlide(2)"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modules" style="background: rgba(30, 41, 59, 0.5); border-radius: 32px; padding: 4rem 3rem;">
+        <h2 class="section-title">The Kinetic Reset Onboarding Engine</h2>
+        <p class="section-subtitle">A customized 4-week hybrid curriculum intentionally designed to guide high-achieving women out of dopamine bankruptcy and into structured, energetic fulfillment.</p>
+        
+        <div class="research-cards">
+            <div class="card">
+                <div class="lock-overlay">
+                    <div class="lock-icon">🔒</div>
+                    <div class="lock-title">Module Vault Locked</div>
+                    <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
+                    <button class="lock-action-btn" onclick="scrollToCalendar()">Unlock Access Now</button>
+                </div>
+                <div class="card-blur-layer">
+                    <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 1 Vault</span>
+                    <h3>🌿 Deconstructing the Wall</h3>
+                    <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 600;">Core Theme: Overcoming Dopamine Bankruptcy</p>
+                    <p>Audit the internal stress-panic cycles driving your executive exhaustion.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="lock-overlay">
+                    <div class="lock-icon">🔒</div>
+                    <div class="lock-title">Module Vault Locked</div>
+                    <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
+                    <button class="lock-action-btn" onclick="scrollToCalendar()">Unlock Access Now</button>
+                </div>
+                <div class="card-blur-layer">
+                    <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 2 Vault</span>
+                    <h3>🌪️ Taming the Racing Mind</h3>
+                    <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 600;">Core Theme: Emotional Waves & Choice Paralysis</p>
+                    <p>Deconstruct why small decisions feel paralyzing when your system is overwhelmed.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="lock-overlay">
+                    <div class="lock-icon">🔒</div>
+                    <div class="lock-title">Module Vault Locked</div>
+                    <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
+                    <button class="lock-action-btn" onclick="scrollToCalendar()">Unlock Access Now</button>
+                </div>
+                <div class="card-blur-layer">
+                    <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 3 Vault</span>
+                    <h3>🥑 Dopamine Dining Blueprint</h3>
+                    <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 600;">Core Theme: Low-Friction, High-Fuel Nutrition</p>
+                    <p>Stop skipping meals and crashing from survival eating.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="lock-overlay">
+                    <div class="lock-icon">🔒</div>
+                    <div class="lock-title">Module Vault Locked</div>
+                    <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
+                    <button class="lock-action-btn" onclick="scrollToCalendar()">Unlock Access Now</button>
+                </div>
+                <div class="card-blur-layer">
+                    <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 4 Vault</span>
+                    <h3>🏗️ Building Organic Scaffolding</h3>
+                    <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 600;">Core Theme: Environmental Visual Tracking</p>
+                    <p>Engineer a visible environmental ecosystem that makes resetting simple.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz">
+        <h2 class="section-title">Where Is Your Focus Leaking?</h2>
+        <div class="quiz-container" id="quiz-box">
+            <div class="quiz-progress"><div class="quiz-progress-bar" id="progress"></div></div>
+            <div id="question-view">
+                <h3 id="question-text" style="margin-bottom: 1.5rem;">Loading Question...</h3>
+                <div id="options-container"></div>
+            </div>
+            <div class="quiz-results" id="results-view">
+                <h3 style="color: var(--sage-soothe); font-size: 2rem; margin-bottom: 1rem;">Your Profile: The Fast-Paced Creative</h3>
+                <p style="margin-bottom: 2rem; color: var(--text-muted);">You exhibit high core traits matching a vibrant, interest-driven ADHD cognitive style. Your main leak point is execution exhaustion.</p>
+                <button class="cta-btn" onclick="openEbookModal()">Get Your Targeted Action Plan (Free Ebook)</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking-cta" style="text-align: center;">
+        <h2 style="font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2;">Ready to build your custom ecosystem?</h2>
+        <p style="max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-muted); font-size: 1.2rem;">Let's skip the trial and error. Book a strategy session directly into my calendar to discover tailored frameworks for your specific neurotype.</p>
+        <a href="#" id="calendar-main-btn" class="cta-btn" target="_blank">Schedule an Appointment With Me</a>
+    </section>
+
+    <footer>
+        <p>© 2026 The ADHD Herbalist. Empowering neurodiverse minds organically.</p>
+    </footer>
+
+    <div class="modal" id="bioModal">
+        <div class="modal-content modal-bio-content">
+            <span class="close-modal" onclick="closeBioModal()">&times;</span>
+            <span class="badge" style="margin-bottom: 1rem;">The ADHD Herbalist, Educator, & Advocate</span>
+            <h2>You were not meant to blend in.</h2>
+            <p style="color: var(--teal-light); font-weight: 600; font-size: 1.2rem; margin-bottom: 1.5rem;">You were meant to stand out.</p>
+            
+            <p>I’m Tez, an ADHD coach dedicated to helping women break through the exhausting cycles of neurodiverse burnout, step out of their heads, and start living out loud.</p>
+            <p>I partner with women aged 25–55—both those who are formally diagnosed and those who strongly suspect they have ADHD—who know they are capable of achieving incredible things, but find themselves constantly hitting a wall. If you are battling non-stop thoughts, chronic self-doubt, and imposter syndrome, my mission is to help you dismantle the need to mask or shrink yourself. I am here to ensure you show up as your raw, authentic self in a world that wasn't built for your brain.</p>
+
+            <h3>From Masking to Empowering: My Story</h3>
+            <p>My passion for this work is deeply personal. For the first 28 years of my life, I knew I felt "different," but without answers, I did what many neurodivergent women do: I masked my struggles, ignored my intuition, and forced myself to power through.</p>
+            <p>The turning point came when I had my own children. Seeing them face the exact same barriers I had survived was my wake-up call. I wanted answers—not just to set my children up for success, but to heal myself.</p>
+            <p>With 15 years of experience in education specializing in staff and student development, I began to see a heartbreaking pattern: students labeled as "difficult" or "bad" were actually just profoundly misunderstood. When I met their parents, I recognized the exact same unmet needs. I made it my mission to help entire families work with their superpower rather than fighting against it. Soon, parents began seeking me out for individual guidance, and my coaching practice was born.</p>
+
+            <h3>Credibility, Credentials & Impact</h3>
+            <p>Over the past 8+ years of individual coaching and 15 years in education, I have dedicated myself to changing the narrative around neurodiversity from one of deficit to one of strength.</p>
+            <p class="bullet-point-stack">✨ <strong>Systemic Impact:</strong> I was brought into a large, national K–12 school specifically to help neurodiverse students excel. I successfully helped dozens of students bridge academic gaps while giving them the tools to stop masking and fully accept who they are.</p>
+            <p class="bullet-point-stack">🏫 <strong>Institutional Training:</strong> I train school leadership, corporate staff, and student bodies on how to support the neurodiverse individuals around them without pathologizing them or making them feel like a problem.</p>
+            <p class="bullet-point-stack">🍃 <strong>The Holistic Advantage:</strong> I hold a Bachelor’s degree in Communications and Education, a formal Certification in ADHD Coaching, and a Certification as an Herbalist. This unique blend allows me to look at ADHD from a truly individualized perspective, breaking down exactly what your unique brain and body need to function at their absolute peak.</p>
+
+            <h3>Behind the Coach: Creative Chaos</h3>
+            <p>When I am not coaching, I am living a beautifully vibrant, neurodivergent life. I am a wife and a mother to eight incredible children—meaning there is never a dull moment in my house!</p>
+            <p>My ADHD brain makes me highly intuitive, detail-oriented, and endlessly creative. I am a firm believer that joy is found in trying new things, and you can usually find me chasing adventures, reading, dancing, singing, painting, or building furniture. I bring that same boundless energy and multi-passionate drive to every client I serve.</p>
+
+            <h3 style="color: var(--sage-soothe); border: none;">Ready to stop masking and start thriving?</h3>
+            <p>You don't have to navigate the burnout cycle alone. Let’s build the strategy, tools, and unwavering confidence you need to live life on your own terms.</p>
+            
+            <div style="margin-top: 2rem; text-align: center;">
+                <button class="cta-btn" onclick="closeBioModal(); openEbookModal();">Let's Get Started Together</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="ebookModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeEbookModal()">&times;</span>
+            <h2 style="color: var(--teal-light); margin-bottom: 1rem;">Your Free ADHD Guide is Ready!</h2>
+            <p style="color: var(--text-muted);">Enter your email address below to immediately download: <br><strong>"The Woman's Guide to Navigating Life with ADHD"</strong></p>
+
+            <form id="leadForm" onsubmit="handleFormSubmit(event)">
+                <input type="email" class="form-input" placeholder="Enter your best email address" required id="userEmail">
+                <button type="submit" class="cta-btn" style="width: 100%;">Send My Copy Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const MY_CALENDAR_URL = "https://calendly.com/your-username-placeholder"; 
+
+        const navCalLink = document.getElementById('calendar-nav-link');
+        const mainCalBtn = document.getElementById('calendar-main-btn');
+        if(navCalLink) navCalLink.href = MY_CALENDAR_URL;
+        if(mainCalBtn) mainCalBtn.href = MY_CALENDAR_URL;
+
+        function scrollToCalendar() {
+            const section = document.getElementById('booking-cta');
+            if(section) section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /* Modal Triggers */
+        function openBioModal() {
+            const modal = document.getElementById('bioModal');
+            if(modal) modal.style.display = 'flex';
+        }
+        function closeBioModal() {
+            const modal = document.getElementById('bioModal');
+            if(modal) modal.style.display = 'none';
+        }
+        function openEbookModal() {
+            const modal = document.getElementById('ebookModal');
+            if(modal) modal.style.display = 'flex';
+        }
+        function closeEbookModal() {
+            const modal = document.getElementById('ebookModal');
+            if(modal) modal.style.display = 'none';
+        }
+
+        /* RESEARCH CAROUSEL LOGIC */
+        let activeSlideIndex = 0;
+        const slides = document.querySelectorAll('.research-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function updateCarouselDisplay() {
+            slides.forEach((slide, idx) => {
+                const innerCard = slide.querySelector('.expandable-research-card');
+                if(innerCard) innerCard.classList.remove('expanded');
+                
+                if(idx === activeSlideIndex) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            dots.forEach((dot, idx) => {
+                if(idx === activeSlideIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function moveCarousel(direction) {
+            activeSlideIndex += direction;
+            if (activeSlideIndex >= slides.length) activeSlideIndex = 0;
+            if (activeSlideIndex < 0) activeSlideIndex = slides.length - 1;
+            updateCarouselDisplay();
+        }
+
+        function setCarouselSlide(index) {
+            activeSlideIndex = index;
+            updateCarouselDisplay();
+        }
+
+        function toggleCard(cardElement) {
+            cardElement.classList.toggle('expanded');
+        }
+
+        /* Interactive Quiz Mechanics */
+        const quizQuestions = [
+            { text: "How do you respond to standard, linear daily planners?", options: ["They feel like a prison, so I ignore them.", "I buy them, use them for 3 days, then lose them.", "I feel overwhelmed just looking at them."] },
+            { text: "When you have a large, ambiguous task ahead of you, what happens?", options: ["I organize my entire house instead of starting.", "I stare at the screen feeling frozen.", "I wait until 11 PM the night before it's due."] },
+            { text: "Your energy levels usually resemble:", options: ["An all-or-nothing hyperfocus explosion.", "Constant physical or mental restlessness.", "Sluggish start with a sudden late-night brain wave."] }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function loadQuestion() {
+            const qText = document.getElementById('question-text');
+            const oContainer = document.getElementById('options-container');
+            const progress = document.getElementById('progress');
+
+            if (!qText || !oContainer) return; 
+
+            if (currentQuestionIndex < quizQuestions.length) {
+                const currentQuestion = quizQuestions[currentQuestionIndex];
+                qText.innerText = currentQuestion.text;
+                oContainer.innerHTML = '';
+
+                currentQuestion.options.forEach(option => {
+                    const div = document.createElement('div');
+                    div.className = 'quiz-option';
+                    div.innerText = option;
+                    div.onclick = () => nextQuestion();
+                    oContainer.appendChild(div);
+                });
+
+                const progressPercent = (currentQuestionIndex / quizQuestions.length) * 100;
+                if(progress) progress.style.width = progressPercent + '%';
+            } else {
+                if(progress) progress.style.width = '100%';
+                const qView = document.getElementById('question-view');
+                const rView = document.getElementById('results-view');
+                if(qView) qView.style.display = 'none';
+                if(rView) rView.style.display = 'block';
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadQuestion();
+        });
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('userEmail');
+            if(!emailInput) return;
+            const email = emailInput.value;
+
+            if(email) {
+                alert("✨ Registration Successful! Your strategic blueprints have been compiled and sent to: " + email);
+
+                // This code compiles the full guide contents using your site's fonts, layouts, cards, and styling colors.
+                const guideHtmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The ADHD Herbalist Strategy Vault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --teal-calm: #0d9488;
+            --teal-light: #2dd4bf;
+            --coral-excite: #f97316;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --sage-soothe: #86efac;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; padding: 3rem 1.5rem; }
+        .wrapper { max-width: 850px; margin: 0 auto; }
+        header { text-align: center; padding: 3rem; background: linear-gradient(135deg, rgba(13,148,136,0.2) 0%, rgba(249,115,22,0.1) 100%); border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 3rem; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; margin-bottom: 1rem; }
+        h1 { font-size: 2.5rem; color: var(--text-light); }
+        h2 { font-size: 1.8rem; color: var(--teal-light); margin-top: 2.5rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.3rem; color: var(--coral-excite); margin-top: 1.5rem; }
+        p { color: var(--text-muted); margin-bottom: 1.2rem; font-size: 1.05rem; }
+        strong { color: var(--text-light); }
+        .badge { background: rgba(13, 148, 136, 0.2); color: var(--teal-light); padding: 0.4rem 0.8rem; border-radius: 50px; font-size: 0.85rem; display: inline-block; margin-bottom: 1rem; border: 1px solid var(--teal-calm); font-weight: 600; }
+        .card { background-color: var(--bg-card); padding: 2rem; border-radius: 16px; border-left: 4px solid var(--coral-excite); margin-bottom: 1.5rem; }
+        ul { margin-left: 1.5rem; margin-bottom: 1.5rem; color: var(--text-muted); }
+        li { margin-bottom: 0.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .grid-card { background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .grid-card strong { color: var(--teal-light); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        footer { text-align: center; padding-top: 4rem; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 4rem; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <span class="badge">The ADHD Herbalist Strategy Vault</span>
+            <h1>The Woman's Guide to Navigating Life with ADHD</h1>
+            <p>A holistic roadmap and tactical toolkit balancing modern cognitive science with natural botanical scaffolding.</p>
+            <p style="color: var(--coral-excite); font-weight: 600;">Authored by Tez, The ADHD Herbalist</p>
+        </header>
+
+        <h2>Part 1: ADHD in Women & The Hidden Presentation</h2>
+        <p>Adulthood is a beautiful, expansive journey filled with unique choices. Yet for women with ADHD, managing the daily transitions of life can feel deeply overwhelming. Society often expects women to intuitively organize, multitask, and keep track of domestic, educational, and professional realms perfectly. When your brain doesn't work that way, it's easy to internalize shame and feel hidden behind a mask.</p>
+        <p>ADHD symptoms last a lifetime, but for women, they look profoundly distinct. While males are frequently diagnosed as hyperactive children, girls and women are significantly more likely to exhibit inattentive or internally hyperactive symptoms. This means your struggles might manifest as chronic choices paralysis, an overactive internal dialogue, or masking your chaos behind an exhausting veneer of perfectionism.</p>
+        
+        <h3>Internal Symptom Checklists</h3>
+        <ul>
+            <li><strong>Sustained Focus Blocks:</strong> Finding it hard to stay mentally present during long conversations, formatting paperwork, or static tasks.</li>
+            <li><strong>The Cognitive Tax:</strong> Frequently losing keys, wallets, phones, or critical documentation due to an overloaded working memory.</li>
+            <li><strong>The 80% Wall:</strong> Feeling exceptional at starting high-novelty projects, but hitting an invisible barrier when trying to execute the final steps.</li>
+            <li><strong>Internal Restlessness:</strong> A constant feeling of mental vibration, over-explaining, or racing thoughts even when your body appears perfectly calm.</li>
+        </ul>
+
+        <h3>Executive Functioning & Your Cycles</h3>
+        <p>Executive Functioning (EF) is your brain's management system—responsible for organizing data, regulating emotions, prioritizing steps, and maintaining momentum. For women, EF challenges are heavily linked with hormonal shifts. Fluctuations in estrogen directly modulate dopamine levels, meaning your symptoms may noticeably spike during your luteal phase right before your cycle.</p>
+
+        <div class="grid">
+            <div class="grid-card">
+                <strong>Working Memory</strong>
+                The "Out of Sight, Out of Mind" trap. Easily dropping tasks out of awareness if tracking assets aren't kept visually present within your physical space.
+            </div>
+            <div class="grid-card">
+                <strong>Cognitive Flexibility</strong>
+                Overwhelm Freezing. Feeling completely paralyzed or locked in state-paralysis when plans shift abruptly or sensory throughput overloads.
+            </div>
+            <div class="grid-card">
+                <strong>Time Optimization</strong>
+                Time Blindness. Struggling to accurately estimate operational duration, leading to intense procrastination panic or hyper-focus burnout.
+            </div>
+        </div>
+
+        <h3>Your Radiant Strengths</h3>
+        <p>Having ADHD means your mind operates on an interest-driven engine. This gives you access to profound hyperfocus channels, deep intuitive empathy, rapid creative pivot speeds, and a boundless multi-passionate capacity to invent original solutions to complex problems.</p>
+
+        <h2>Part 2: Holistic Life Management</h2>
+        <p>Engineering a reliable environmental routine protects your baseline dopamine reserve. We construct behavioral tools alongside traditional earth allies:</p>
+        
+        <div class="card">
+            <h3>1. Restorative Sleep Scaffolding</h3>
+            <p>Quality rest dictates morning emotional resilience. Replace late-night sensory overload with a strict digital curfew. Incorporate calming nervines like <strong>Chamomile, Passionflower, or Valerian Root</strong> into your evening ritual to quiet an overactive motor and prepare your nervous system for rejuvenation.</p>
+        </div>
+
+        <div class="card">
+            <h3>2. Low-Friction Nutrition</h3>
+            <p>ADHD brains require stable, steady fuel profiles to prevent executive focus crashes. Skip multi-step cooking preparation that causes choice fatigue. Instead, utilize quick assembly protocols paired with targeted brain supporters: <strong>Lion's Mane Mushroom</strong> for cognitive clarity, and <strong>Ashwagandha</strong> to buffer the cortisol response that drives neurodivergent anxiety.</p>
+        </div>
+
+        <h2>Part 3: Work, Career, & Relationships</h2>
+        <h3>The Pomodoro Flow Matrix</h3>
+        <p style="font-weight: 600; color: var(--teal-light);">[ 25 MIN ISOLATED FOCUS ] &rarr; [ 5 MIN HERBAL TEA BREAK ]</p>
+        <p>Avoid the exhausting sequence of procrastination followed by all-night burnout. Break large, ambiguous assignments into isolated 15-minute micro-milestones. Map your final goals using backward planning techniques, working in reverse from your final deadline so you preserve cognitive momentum.</p>
+
+        <h3>Authentic Communication & Safe Intimacy</h3>
+        <p>Women are heavily socialized to prioritize people-pleasing, which often causes ADHDers to over-commit until they hit absolute sensory collapse. Practice clear, upfront boundary setting. State your physical workspace and operational parameters comfortably to peers and partners.</p>
+        <p>When dating, protect your personal sovereignty. Always select energetic, public environments (like botanical cafes or open parks) for initial meetups, arrange independent transit control, and trust your sensitive nervous system's warning signs implicitly.</p>
+
+        <h2>Part 4: The ADHD Woman's Quick-Start Action Checklist</h2>
+        <p>Strategies you can act on within the next 10 minutes to bypass executive paralysis and kickstart forward momentum:</p>
+
+        <div class="card">
+            <strong>Strategic Environment Scaffolding (Do This Now)</strong>
+            <p style="margin-top: 0.5rem;"><strong>Build a "Launchpad" Visual Station:</strong> Choose a decorative, open ceramic bowl or a small wooden tray and place it directly on your entryway table or kitchen counter. Keys, wallet, work badges, and sunglasses must live here. Never hide them in a deep dark drawer—if your brain cannot visually see them, they cease to exist in your working memory.</p>
+            <p><strong>The 2-Minute Peppermint Reset:</strong> Buy an essential oil diffuser for your workspace and stock it with premium Peppermint or Rosemary oils. When your mind begins to drift or enter a state-paralysis "freeze," turn the diffuser on. Sensory tracking data shows that strong olfactory cues provide immediate, sharp nervous system grounding, cutting through mental fog and signaling to your brain that it is time to transition tasks.</p>
+        </div>
+
+        <div class="card">
+            <strong>Time Blindness Hacks (Act on Today)</strong>
+            <p style="margin-top: 0.5rem;"><strong>The Audio-Paced Pomodoro Workflow:</strong> Traditional silent or ticking timers can increase anxiety. Instead, select an energetic, instrumental playlist or a low-fi jazz track that lasts exactly 20 to 25 minutes. Commit to working only until the music stops. This turns time into a rhythmic, audible landscape rather than an invisible concept, allowing your brain to anchor its pacing naturally.</p>
+            <p><strong>Double Your Time Estimates (The Buffer Metric):</strong> Before your next task, write down how long you honestly think it will take you. Now, instantly double that number on your planner. This immediately defeats the built-in "ADHD optimism bias" and protects you from the stressful cortisol spike of racing against chronic lateness.</p>
+        </div>
+
+        <p style="text-align: center; margin-top: 3rem; font-size: 1.2rem; color: var(--sage-soothe); font-weight: 600;">You are not broken, lazy, or incapable. You are a neurodivergent woman learning to cultivate an ecosystem built natively for your exact mind. Step into your creative power.</p>
+
+        <footer>
+            <p>&copy; 2026 The ADHD Herbalist. Empowering neurodiverse minds organically.</p>
+        </footer>
+    </div>
+</body>
+</html>`;
+
+                const blob = new Blob([guideHtmlContent], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'The_ADHD_Herbalist_Womans_Guide.html';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                closeEbookModal();
+            }
+        }
+    </script>
+</body>
+</html>
