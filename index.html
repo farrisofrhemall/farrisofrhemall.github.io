@@ -250,7 +250,7 @@
             color: var(--text-light);
         }
 
-        /* RESEARCH CAROUSEL SYSTEM */
+        /* EXPANDABLE RESEARCH CAROUSEL */
         .carousel-outer {
             position: relative;
             max-width: 850px;
@@ -636,8 +636,8 @@
         .form-input {
             width: 100%;
             padding: 1rem;
-            margin-top: 1rem;
-            margin-bottom: 1.5rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
             border-radius: 8px;
             border: 1px solid #475569;
             background: var(--bg-dark);
@@ -647,6 +647,60 @@
 
         .form-input:focus {
             outline: 2px solid var(--teal-light);
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .sms-optin-box {
+            background: rgba(13, 148, 136, 0.1);
+            border: 1px solid rgba(13, 148, 136, 0.3);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .sms-checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .sms-checkbox-container input {
+            margin-top: 3px;
+        }
+
+        /* Mock Phone Notification UI */
+        .mock-notification {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1c2541;
+            border-left: 5px solid var(--teal-light);
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            max-width: 320px;
+            z-index: 2000;
+            animation: slideInUp 0.4s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         @media (max-width: 768px) {
@@ -704,7 +758,7 @@
                 <span class="badge" style="background: rgba(249, 115, 22, 0.1); color: var(--coral-excite); border-color: var(--coral-hover);">Meet Your Coach</span>
                 <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2;">I worked relentlessly to build a system that works. Because I have ADHD too.</h2>
                 <p>Hello! I’m <strong>Tez</strong>, an ADHD coach dedicated to helping women break through the exhausting cycles of neurodiverse burnout, step out of their heads, and start living out loud.</p>
-                <p>I partner with women aged 25–55—both those who are formally diagnosed and those who strongly suspect they have ADHD—who know they are capable of achieving incredible things, but find themselves constantly hitting a wall. If you are battling non-stop thoughts, chronic self-doubt, and imposter syndrome, my mission is to help you dismantle the need to mask or shrink yourself.</p>
+                <p>I partner with women aged 25–55—both those who are formally diagnosed and those who strongly suspect they have ADHD—who know they are capable of achieving incredible things, but find themselves constantly hitting a wall.</p>
                 
                 <button class="secondary-btn" style="margin-left: 0; margin-top: 0.5rem;" onclick="openBioModal()">Read My Full Story & Credentials →</button>
             </div>
@@ -795,7 +849,6 @@
                 <div class="card-blur-layer">
                     <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 1 Vault</span>
                     <h3>🌿 Deconstructing the Wall</h3>
-                    <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 600;">Core Theme: Overcoming Dopamine Bankruptcy</p>
                     <p>Audit the internal stress-panic cycles driving your executive exhaustion.</p>
                 </div>
             </div>
@@ -810,7 +863,6 @@
                 <div class="card-blur-layer">
                     <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 2 Vault</span>
                     <h3>🌪️ Taming the Racing Mind</h3>
-                    <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 600;">Core Theme: Emotional Waves & Choice Paralysis</p>
                     <p>Deconstruct why small decisions feel paralyzing when your system is overwhelmed.</p>
                 </div>
             </div>
@@ -825,7 +877,6 @@
                 <div class="card-blur-layer">
                     <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 3 Vault</span>
                     <h3>🥑 Dopamine Dining Blueprint</h3>
-                    <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 600;">Core Theme: Low-Friction, High-Fuel Nutrition</p>
                     <p>Stop skipping meals and crashing from survival eating.</p>
                 </div>
             </div>
@@ -840,7 +891,6 @@
                 <div class="card-blur-layer">
                     <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 4 Vault</span>
                     <h3>🏗️ Building Organic Scaffolding</h3>
-                    <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 600;">Core Theme: Environmental Visual Tracking</p>
                     <p>Engineer a visible environmental ecosystem that makes resetting simple.</p>
                 </div>
             </div>
@@ -881,25 +931,8 @@
             <p style="color: var(--teal-light); font-weight: 600; font-size: 1.2rem; margin-bottom: 1.5rem;">You were meant to stand out.</p>
             
             <p>I’m Tez, an ADHD coach dedicated to helping women break through the exhausting cycles of neurodiverse burnout, step out of their heads, and start living out loud.</p>
-            <p>I partner with women aged 25–55—both those who are formally diagnosed and those who strongly suspect they have ADHD—who know they are capable of achieving incredible things, but find themselves constantly hitting a wall. If you are battling non-stop thoughts, chronic self-doubt, and imposter syndrome, my mission is to help you dismantle the need to mask or shrink yourself. I am here to ensure you show up as your raw, authentic self in a world that wasn't built for your brain.</p>
-
-            <h3>From Masking to Empowering: My Story</h3>
-            <p>My passion for this work is deeply personal. For the first 28 years of my life, I knew I felt "different," but without answers, I did what many neurodivergent women do: I masked my struggles, ignored my intuition, and forced myself to power through.</p>
-            <p>The turning point came when I had my own children. Seeing them face the exact same barriers I had survived was my wake-up call. I wanted answers—not just to set my children up for success, but to heal myself.</p>
-            <p>With 15 years of experience in education specializing in staff and student development, I began to see a heartbreaking pattern: students labeled as "difficult" or "bad" were actually just profoundly misunderstood. When I met their parents, I recognized the exact same unmet needs. I made it my mission to help entire families work with their superpower rather than fighting against it. Soon, parents began seeking me out for individual guidance, and my coaching practice was born.</p>
-
-            <h3>Credibility, Credentials & Impact</h3>
-            <p>Over the past 8+ years of individual coaching and 15 years in education, I have dedicated myself to changing the narrative around neurodiversity from one of deficit to one of strength.</p>
-            <p class="bullet-point-stack">✨ <strong>Systemic Impact:</strong> I was brought into a large, national K–12 school specifically to help neurodiverse students excel. I successfully helped dozens of students bridge academic gaps while giving them the tools to stop masking and fully accept who they are.</p>
-            <p class="bullet-point-stack">🏫 <strong>Institutional Training:</strong> I train school leadership, corporate staff, and student bodies on how to support the neurodiverse individuals around them without pathologizing them or making them feel like a problem.</p>
-            <p class="bullet-point-stack">🍃 <strong>The Holistic Advantage:</strong> I hold a Bachelor’s degree in Communications and Education, a formal Certification in ADHD Coaching, and a Certification as an Herbalist. This unique blend allows me to look at ADHD from a truly individualized perspective, breaking down exactly what your unique brain and body need to function at their absolute peak.</p>
-
             <h3>Behind the Coach: Creative Chaos</h3>
             <p>When I am not coaching, I am living a beautifully vibrant, neurodivergent life. I am a wife and a mother to eight incredible children—meaning there is never a dull moment in my house!</p>
-            <p>My ADHD brain makes me highly intuitive, detail-oriented, and endlessly creative. I am a firm believer that joy is found in trying new things, and you can usually find me chasing adventures, reading, dancing, singing, painting, or building furniture. I bring that same boundless energy and multi-passionate drive to every client I serve.</p>
-
-            <h3 style="color: var(--sage-soothe); border: none;">Ready to stop masking and start thriving?</h3>
-            <p>You don't have to navigate the burnout cycle alone. Let’s build the strategy, tools, and unwavering confidence you need to live life on your own terms.</p>
             
             <div style="margin-top: 2rem; text-align: center;">
                 <button class="cta-btn" onclick="closeBioModal(); openEbookModal();">Let's Get Started Together</button>
@@ -910,14 +943,39 @@
     <div class="modal" id="ebookModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeEbookModal()">&times;</span>
-            <h2 style="color: var(--teal-light); margin-bottom: 1rem;">Your Free ADHD Guide is Ready!</h2>
-            <p style="color: var(--text-muted);">Enter your email address below to immediately download: <br><strong>"The Organic Focus Blueprints: Tips & Strategies for ADHD"</strong></p>
+            <h2 style="color: var(--teal-light); margin-bottom: 0.5rem;">Your ADHD Guide is Ready!</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Enter your contact information below to instantly receive your onboarding strategy email and resources.</p>
 
             <form id="leadForm" onsubmit="handleFormSubmit(event)">
-                <input type="email" class="form-input" placeholder="Enter your best email address" required id="userEmail">
-                <button type="submit" class="cta-btn" style="width: 100%;">Send My Copy Now</button>
+                <div class="form-group">
+                    <label for="userEmail">Primary Email Address *</label>
+                    <input type="email" class="form-input" placeholder="name@example.com" required id="userEmail">
+                </div>
+
+                <div class="form-group">
+                    <label for="userPhone">Mobile Phone Number (Optional)</label>
+                    <input type="tel" class="form-input" placeholder="(555) 000-0000" id="userPhone">
+                </div>
+
+                <div class="sms-optin-box" id="smsOptInWrapper">
+                    <label class="sms-checkbox-container">
+                        <input type="checkbox" id="smsConsent" checked>
+                        <span><strong>⚡ Optional Brain Boost:</strong> Check this box to also get bite-sized ADHD alignment quotes texted to you 2x a week randomly drawn from our clinical resource library. Unsubscribe anytime.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="cta-btn" style="width: 100%;">Unlock Access & Send Guide</button>
             </form>
         </div>
+    </div>
+
+    <div class="mock-notification" id="mockPhoneAlert">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 0.8rem; font-weight: 800; color: var(--teal-light); letter-spacing: 0.5px;">💬 NEW TEXT MESSAGE</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Just Now</span>
+        </div>
+        <p style="font-size: 0.9rem; font-weight: 600; color: white; margin-bottom: 2px;">🌿 The ADHD Herbalist</p>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.3;" id="mockSmsBody">"Your engine isn't broken—it's simply built for a different racetrack." Reply STOP to opt out.</p>
     </div>
 
     <script>
@@ -993,6 +1051,66 @@
             cardElement.classList.toggle('expanded');
         }
 
+        /* INTERACTIVE ONLINE QUOTE SYSTEM (SIMULATION DATASTREAM) */
+        const adhdQuotesLibrary = [
+            "Your brain is an executive racing car with bicycle brakes. Don't shrink the engine—let's upgrade your anchoring systems.",
+            "Consistency is a neurotypical construction metric. Aim instead for low-friction velocity and rapid visual realignments.",
+            "An interest-based nervous system requires clarity of meaning, novelty, or clear parameters—not arbitrary task weights.",
+            "Stop hiding your creative deviations. High sensory throughput demands complex processing workflows, not simpler lists.",
+            "Hyperfocus is a structural superpower when configured within visible physical anchors. Externalize your processing data!"
+        ];
+
+        /* Form Processing System */
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('userEmail');
+            const phoneInput = document.getElementById('userPhone');
+            const smsConsent = document.getElementById('smsConsent');
+
+            const email = emailInput ? emailInput.value : "";
+            const phone = phoneInput ? phoneInput.value : "";
+            const isSmsOptedIn = smsConsent ? smsConsent.checked : false;
+
+            if(email) {
+                // Trigger Simulated Automated E-mail Workflow
+                alert(`✨ WELCOME EMAIL DISPATCHED SUCCESSFULLY!\n\nA customized confirmation strategy module has been routed to: ${email}.\nCheck your junk/promotions tab if it does not land in 2 minutes.`);
+
+                // Verify and Trigger Text Engine Logic
+                if(phone.trim() !== "" && isSmsOptedIn) {
+                    // Randomly select initialization quote from data block
+                    const randomIndex = Math.floor(Math.random() * adhdQuotesLibrary.length);
+                    const selectedQuote = adhdQuotesLibrary[randomIndex];
+
+                    // Display text mock notification popup
+                    const alertBox = document.getElementById('mockPhoneAlert');
+                    const smsBody = document.getElementById('mockSmsBody');
+                    
+                    if(alertBox && smsBody) {
+                        smsBody.innerText = `"${selectedQuote}" - Twice weekly alerts successfully scheduled for ${phone}. Reply STOP to cancel.`;
+                        alertBox.style.display = 'block';
+                        
+                        setTimeout(() => {
+                            alertBox.style.display = 'none';
+                        }, 8500);
+                    }
+                }
+
+                // File Retrieval Protocol Execution
+                const guideContent = `THE ADHD HERBALIST STRATEGY BLUEPRINT\n\nYour resources are securely online! Balance your system accordingly.`;
+                const blob = new Blob([guideContent], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'ADHD_Herbalist_Strategy_Guide.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                closeEbookModal();
+            }
+        }
+
         /* Interactive Quiz Mechanics */
         const quizQuestions = [
             { text: "How do you respond to standard, linear daily planners?", options: ["They feel like a prison, so I ignore them.", "I buy them, use them for 3 days, then lose them.", "I feel overwhelmed just looking at them."] },
@@ -1041,35 +1159,6 @@
         window.addEventListener('DOMContentLoaded', () => {
             loadQuestion();
         });
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const emailInput = document.getElementById('userEmail');
-            if(!emailInput) return;
-            const email = emailInput.value;
-
-            if(email) {
-                alert("✨ Registration Successful! Your strategic blueprints have been queued for sending to: " + email);
-
-                const guideContent = 
-`================================================================
-THE ADHD HERBALIST STRATEGY BLUEPRINT
-================================================================
-Your resources are on their way! Ensure you save this data panel.`;
-
-                const blob = new Blob([guideContent], { type: 'text/plain' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'ADHD_Herbalist_Strategy_Guide.txt';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-
-                closeEbookModal();
-            }
-        }
     </script>
 </body>
 </html>
