@@ -359,75 +359,34 @@
             border-color: var(--teal-calm);
         }
 
-        .safety-disclaimer-text {
-            text-align: center;
-            max-width: 800px;
-            margin: 3rem auto 0;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 1rem 1.5rem;
+        /* Strategic Guide Table Styling */
+        .guide-table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
             border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .guide-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        .guide-table th, .guide-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .guide-table th {
+            background: rgba(13, 148, 136, 0.2);
+            color: var(--teal-light);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .guide-table td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-muted);
         }
 
-        /* Quiz Box Layout */
-        .quiz-container {
-            background-color: var(--bg-card);
-            border-radius: 24px;
-            padding: 3rem;
-            max-width: 700px;
-            margin: 0 auto;
-            border: 2px solid var(--teal-calm);
-            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.1);
-        }
-
-        .quiz-progress {
-            height: 6px;
-            background: #334155;
-            border-radius: 3px;
-            margin-bottom: 2rem;
-            overflow: hidden;
-        }
-
-        .quiz-progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(to right, var(--teal-light), var(--coral-excite));
-            transition: width 0.3s ease;
-        }
-
-        .quiz-option {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 1.2rem;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .quiz-option:hover {
-            background: rgba(45, 212, 191, 0.1);
-            border-color: var(--teal-light);
-        }
-
-        .quiz-results {
-            display: none;
-            text-align: center;
-        }
-
-        /* Footer System */
-        footer {
-            background-color: #020617;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        /* Popup Modals */
+        /* Popups & Lead Capture Modals */
         .modal {
             display: none;
             position: fixed;
@@ -446,13 +405,21 @@
             background: var(--bg-card);
             padding: 2.5rem;
             border-radius: 24px;
-            max-width: 800px;
+            max-width: 550px;
             width: 100%;
+            position: relative;
+            border: 2px solid var(--coral-excite);
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .modal-guide-viewer {
+            max-width: 850px;
             max-height: 85vh;
             overflow-y: auto;
-            position: relative;
-            border: 2px solid var(--teal-light);
             text-align: left;
+            border-color: var(--teal-light);
+            padding: 3rem;
         }
 
         .close-modal {
@@ -463,85 +430,39 @@
             cursor: pointer;
             color: var(--text-muted);
             transition: color 0.2s;
-            z-index: 10;
+            line-height: 1;
         }
 
         .close-modal:hover {
             color: white;
         }
 
-        /* Email Form Capture Box Elements */
-        .email-capture-box {
-            text-align: center;
-            padding: 1rem 0;
-        }
-        .email-input {
-            width: 100%;
-            max-width: 400px;
-            padding: 1rem;
-            border-radius: 12px;
-            border: 2px solid rgba(255,255,255,0.1);
-            background: #0f172a;
-            color: white;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        .email-input:focus {
-            border-color: var(--teal-light);
-        }
-
-        /* Strategy Guide Content Panels */
-        .ebook-header {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .ebook-header h2 {
-            font-size: 2.2rem;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-        }
-
-        .ebook-section-title {
-            font-size: 1.5rem;
-            color: var(--teal-light);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--coral-excite);
-            padding-left: 0.75rem;
-        }
-
-        .ebook-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .ebook-table th, .ebook-table td {
-            padding: 1rem;
+        .form-group {
             text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 1.5rem;
+            width: 100%;
         }
 
-        .ebook-table th {
-            background: rgba(13, 148, 136, 0.3);
+        .form-label {
+            font-size: 0.9rem;
+            font-weight: 600;
             color: var(--text-light);
         }
 
-        .ebook-bullet {
-            margin-left: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-muted);
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            background: var(--bg-dark);
+            color: white;
+            font-size: 1rem;
         }
 
-        .ebook-bullet strong {
-            color: var(--text-light);
+        .form-input:focus {
+            outline: 2px solid var(--teal-light);
         }
 
         @media (max-width: 768px) {
@@ -550,6 +471,7 @@
             .secondary-btn { margin-left: 0; margin-top: 1rem; display: block; text-align: center;}
             .cta-btn { display: block; text-align: center; width: 100%; margin-bottom: 0.5rem; }
             .nav-links { display: none; } 
+            .modal-guide-viewer { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -560,8 +482,7 @@
         <div class="nav-links">
             <a href="#about">My Story</a>
             <a href="#modules">6-Week Blueprint</a>
-            <a href="javascript:void(0)" onclick="openEbookModal()">Strategy Guide</a>
-            <a href="#quiz">ADHD Quiz</a>
+            <a href="javascript:void(0)" onclick="openEbookModal()">Free Strategy Guide</a>
             <button onclick="openCalendlyPopup()" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; box-shadow: none;">Book a Session</button>
         </div>
     </nav>
@@ -573,7 +494,7 @@
             <p>You aren't broken—your engine is just built for a completely different racetrack. Discover the holistic, science-backed systems built by an ADHDer, for ADHDers, to unlock calm focus and daily momentum.</p>
             <div>
                 <button class="cta-btn" onclick="openEbookModal()">Download Free ADHD Strategy Guide</button>
-                <a href="#quiz" class="secondary-btn">Take the 2-Min Focus Quiz</a>
+                <a href="#modules" class="secondary-btn">Explore Curriculum Blueprint</a>
             </div>
         </div>
     </header>
@@ -599,7 +520,7 @@
                 <p>I partner with women aged 25–55—both those who are formally diagnosed and those who strongly suspect they have ADHD—who know they are capable of achieving incredible things, but find themselves constantly hitting a wall.</p>
                 
                 <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button class="cta-btn" style="padding: 0.8rem 1.5rem; font-size: 1rem;" onclick="openEbookModal()">Read Strategy Guide Content</button>
+                    <button class="cta-btn" style="padding: 0.8rem 1.5rem; font-size: 1rem;" onclick="openEbookModal()">Get the Free Roadmap & Playbook</button>
                 </div>
             </div>
         </div>
@@ -616,12 +537,13 @@
                     <h3>Dopamine Mapping</h3>
                     <span class="module-focus-tag">🎯 Focus: Breaking Procrastination Loops</span>
                     <p>Stop waiting for "motivation" that never comes. Learn how to track your personal neurological spikes and design tiny novelty triggers that make starting boring tasks easy.</p>
+                    
                     <div class="herbal-protocol-box">
                         <div class="herbal-title">🌱 Botanical Ally: Rosemary </div>
                         <div class="herbal-instruction"><strong>The Benefit:</strong> Rich in 1,8-cineole, proven to increase memory speed and focus.<br><strong>Protocol:</strong> Steep 1 tbsp fresh leaves covered for 10 mins. Sip during your morning planning hour.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="openEbookModal()">⬇️ Download Week 1 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="openEbookModal()">⬇️ Unlock Strategy Playbook Access</button>
             </div>
 
             <div class="module-card">
@@ -630,12 +552,13 @@
                     <h3>The Kinetic Canvas</h3>
                     <span class="module-focus-tag">🎯 Focus: Mental Offloading & Clarity</span>
                     <p>If a task is trapped out-of-sight inside an app or notebook, it ceases to exist. We build a physical, sensory-rich wall layout to keep your priorities safely visible without causing eye strain.</p>
+                    
                     <div class="herbal-protocol-box">
                         <div class="herbal-title">🌱 Botanical Ally: Gotu Kola</div>
                         <div class="herbal-instruction"><strong>The Benefit:</strong> Improves mental clarity and cognitive capacity under stress.<br><strong>Protocol:</strong> Add 1-2 tsp dried herb to hot water. Cover tightly for 15 minutes to preserve brain-soothing compounds.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="openEbookModal()">⬇️ Download Week 2 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="openEbookModal()">⬇️ Unlock Strategy Playbook Access</button>
             </div>
 
             <div class="module-card">
@@ -644,23 +567,197 @@
                     <h3>Environmental Scaffolding</h3>
                     <span class="module-focus-tag">🎯 Focus: Defeating Task Friction</span>
                     <p>Isolate and eliminate the micro-hurdles that trigger executive breakdown. We physically restructure your daily spaces so moving from idea to execution takes zero willpower.</p>
+                    
                     <div class="herbal-protocol-box">
                         <div class="herbal-title">🌱 Botanical Ally: Tulsi (Holy Basil)</div>
                         <div class="herbal-instruction"><strong>The Benefit:</strong> An adaptogen that lowers biological stress markers and balances energy response.<br><strong>Protocol:</strong> Decoction method: Lightly simmer 1 tbsp of leaves in a small pot for 5-10 minutes.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="openEbookModal()">⬇️ Download Week 3 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="openEbookModal()">⬇️ Unlock Strategy Playbook Access</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="emailGateModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('emailGateModal')">&times;</span>
+            <span class="badge">Exclusive Free Resource</span>
+            <h2 style="font-size: 2rem; margin-top: 0.5rem; margin-bottom: 1rem;">Unlock The Playbook Vault</h2>
+            <p style="color: var(--text-muted);">Enter your info below to instantly unlock <strong>"The Woman's Guide to Navigating Life with ADHD"</strong> playbook strategy guide.</p>
+            
+            <form id="leadCaptureForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label" for="userName">First Name</label>
+                    <input class="form-input" type="text" id="userName" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="userEmail">Email Address</label>
+                    <input class="form-input" type="email" id="userEmail" placeholder="name@domain.com" required>
+                </div>
+                <button type="submit" class="cta-btn" style="width: 100%; margin-top: 1rem; border-radius: 8px;">Gain Instant Access →</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="guideDashboardModal" class="modal">
+        <div class="modal-content modal-guide-viewer">
+            <span class="close-modal" onclick="closeModal('guideDashboardModal')">&times;</span>
+            
+            <div style="border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 1rem; margin-bottom: 2rem;">
+                <span class="badge" style="margin-bottom: 0.5rem;">THE ADHD HERBALIST STRATEGY VAULT</span>
+                <h1 style="font-size: 2.2rem; color: var(--teal-light);">The Woman's Guide to Navigating Life with ADHD</h1>
+                <p style="color: var(--sage-soothe); font-size: 1.05rem; font-weight: 600; margin-top: 0.5rem;">A holistic roadmap and tactical toolkit balancing modern cognitive science with natural botanical scaffolding.</p>
             </div>
 
-            <div class="module-card">
-                <div>
-                    <div class="module-num">Week 04</div>
-                    <h3>Taming the Time Blindness</h3>
-                    <span class="module-focus-tag">🎯 Focus: Stress-Free Pacing</span>
-                    <p>Traditional schedules run by numbers on a clock feel like a trap. We transition your calendar to intuitive, visual energy-blocks that naturally flex alongside your brain’s processing speed.</p>
-                    <div class="herbal-protocol-box">
-                        <div class="herbal-title">🌱 Botanical Ally: Lemon Balm</div>
-                        <div class="herbal-instruction"><strong>The Benefit:</strong> Inhibits GABA transaminase, lifting mood and soothing timeline-induced panic.<br><strong>Protocol:</strong> Steep 2 tsp dried leaves in boiling water for 12 mins. Drink when clock anxiety spikes.</div>
+            <div style="margin-bottom: 2.5rem;">
+                <h3 style="color: var(--coral-excite); font-size: 1.4rem; margin-bottom: 0.7rem;">Welcome, Sister!</h3>
+                <p style="margin-bottom: 1rem; color: var(--text-light);">Adulthood is a beautiful, expansive journey filled with unique choices. Yet for women with ADHD, managing the daily transitions of life can feel deeply overwhelming.</p>
+                <p style="margin-bottom: 1rem; color: var(--text-muted);">Society often expects women to intuitively organize, multitask, and keep track of domestic, educational, and professional realms perfectly. When your brain doesn't work that way, it's easy to internalize shame and feel hidden behind a mask.</p>
+                <p style="margin-bottom: 1rem; color: var(--text-light);">We wrote this playbook specifically for you: the woman with ADHD. As you build your path toward independent balance, your unique wiring will present distinct parameters. But by pairing modern lifestyle scaffolding with nature's botanical allies, you can smoothly stabilize your nervous system, reclaim your focus, and hit your target execution landmarks with total confidence.</p>
+            </div>
+
+            <div style="margin-bottom: 2.5rem; background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                <h3 style="color: var(--teal-light); font-size: 1.3rem; margin-bottom: 0.5rem;">Part 1: ADHD in Women — The Hidden Presentation</h3>
+                <p style="margin-bottom: 1.2rem; color: var(--text-muted);">ADHD symptoms last a lifetime, but for women, they look profoundly distinct. While males are frequently diagnosed as hyperactive children, girls and women are significantly more likely to exhibit inattentive or internally hyperactive symptoms. This means your struggles might manifest as chronic choices paralysis, an overactive internal dialogue, or masking your chaos behind an exhausting veneer of perfectionism.</p>
+                
+                <h4 style="color: var(--text-light); margin-bottom: 0.5rem;">Internal Symptom Checklist:</h4>
+                <ul style="margin-left: 1.5rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+                    <li><strong>Sustained Focus Blocks:</strong> Finding it hard to stay mentally present during long conversations, formatting paperwork, or static tasks.</li>
+                    <li><strong>The Cognitive Tax:</strong> Frequently losing keys, wallets, phones, or critical documentation due to an overloaded working memory.</li>
+                    <li><strong>The 80% Wall:</strong> Feeling exceptional at starting high-novelty projects, but hitting an invisible barrier when trying to execute the final steps.</li>
+                    <li><strong>Internal Restlessness:</strong> A constant feeling of mental vibration, over-explaining, or racing thoughts even when your body appears perfectly calm.</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 2.5rem;">
+                <h3 style="color: var(--coral-excite); font-size: 1.3rem; margin-bottom: 0.5rem;">Executive Functioning & Your Cycles</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">Executive Functioning (EF) is your brain's management system—responsible for organizing data, regulating emotions, prioritizing steps, and maintaining momentum. For women, EF challenges are heavily linked with hormonal shifts. Fluctuations in estrogen directly modulate dopamine levels, meaning your symptoms may noticeably spike during your luteal phase right before your cycle.</p>
+                
+                <div class="guide-table-container">
+                    <table class="guide-table">
+                        <thead>
+                            <tr>
+                                <th>EF Core Competency</th>
+                                <th>The ADHD Woman's Challenge & Dynamic Reality</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Working Memory</strong></td>
+                                <td>The "Out of Sight, Out of Mind" trap. Easily dropping tasks out of awareness if tracking assets aren't kept visually present within your physical space.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cognitive Flexibility</strong></td>
+                                <td>Overwhelm Freezing. Feeling completely paralyzed or locked in state-paralysis when plans shift abruptly or sensory throughput overloads.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Time Optimization</strong></td>
+                                <td>Time Blindness. Struggling to accurately estimate operational duration, leading to intense procrastination panic or hyper-focus burnout.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 1rem; background: rgba(45, 212, 191, 0.1); border-left: 4px solid var(--teal-light); padding: 1rem; border-radius: 0 8px 8px 0;">
+                    <p style="color: var(--text-light); margin: 0;"><strong>Your Radiant Strengths:</strong> Having ADHD means your mind operates on an interest-driven engine. This gives you access to profound hyperfocus channels, deep intuitive empathy, rapid creative pivot speeds, and a boundless multi-passionate capacity to invent original solutions to complex problems.</p>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 2.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;">
+                <h3 style="color: var(--teal-light); font-size: 1.3rem; margin-bottom: 0.5rem;">Part 2: Holistic Life Management</h3>
+                <h4 style="color: var(--text-light); margin-bottom: 0.3rem;">Botanical Support & Healthy Rhythms</h4>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">Engineering a reliable environmental routine protects your baseline dopamine reserve. At The ADHD Herbalist, we construct behavioral tools alongside traditional earth allies:</p>
+                
+                <p style="color: var(--text-light); margin-bottom: 0.5rem;"><strong>1. Restorative Sleep Scaffolding:</strong> Quality rest dictates morning emotional resilience. Replace late-night sensory overload with a strict digital curfew. Incorporate calming nervines like <em>Chamomile, Passionflower, or Valerian Root</em> into your evening ritual to quiet an overactive motor and prepare your nervous system for rejuvenation.</p>
+                
+                <p style="color: var(--text-light); margin-bottom: 0.5rem;"><strong>2. Low-Friction Nutrition:</strong> ADHD brains require stable, steady fuel profiles to prevent executive focus crashes. Skip multi-step cooking preparation that causes choice fatigue. Instead, utilize quick assembly protocols paired with targeted brain supporters: <em>Lion's Mane Mushroom</em> for cognitive clarity, and <em>Ashwagandha</em> to buffer the cortisol response that drives neurodivergent anxiety.</p>
+            </div>
+
+            <div style="margin-bottom: 2.5rem; background: rgba(249, 115, 22, 0.05); border: 1px solid rgba(249, 115, 22, 0.15); padding: 1.5rem; border-radius: 16px;">
+                <h3 style="color: var(--coral-excite); font-size: 1.3rem; margin-bottom: 0.5rem;">Part 3: Work, Career, & Relationships</h3>
+                <h4 style="color: var(--text-light); margin-bottom: 0.5rem;">The Pomodoro Flow Matrix</h4>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; font-weight: bold; font-family: 'Space Grotesk', sans-serif;">
+                    <span style="background: var(--coral-excite); padding: 0.4rem 0.8rem; border-radius: 4px; color: white;">[25 MIN ISOLATED FOCUS]</span>
+                    <span style="background: var(--teal-calm); padding: 0.4rem 0.8rem; border-radius: 4px; color: white;">[5 MIN HERBAL TEA BREAK]</span>
+                </div>
+                <p style="color: var(--text-muted); margin-bottom: 1.2rem;">Avoid the exhausting sequence of procrastination followed by all-night burnout. Break large, ambiguous assignments into isolated 15-minute micro-milestones. Map your final goals using backward planning techniques, working in reverse from your final deadline so you preserve cognitive momentum.</p>
+                
+                <h4 style="color: var(--text-light); margin-bottom: 0.3rem;">Authentic Communication & Safe Intimacy</h4>
+                <p style="color: var(--text-muted);">Women are heavily socialized to prioritize people-pleasing, which often causes ADHDers to over-commit until they hit absolute sensory collapse. Practice clear, upfront boundary setting. State your physical workspace and operational parameters comfortably to peers and partners. When dating, protect your personal sovereignty. Always select energetic, public environments (like botanical cafes or open parks) for initial meetups, arrange independent transit control, and trust your sensitive nervous system's warning signs implicitly.</p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;">
+                <h3 style="color: var(--sage-soothe); font-size: 1.4rem; margin-bottom: 1rem;">Part 4: The ADHD Woman's Quick-Start Action Checklist</h3>
+                <p style="color: var(--text-light); font-style: italic; margin-bottom: 1.5rem;">Strategies you can act on within the next 10 minutes to bypass executive paralysis and kickstart forward momentum:</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                    <div>
+                        <h4 style="color: var(--teal-light);">1. Strategic Environment Scaffolding (Do This Now)</h4>
+                        <p style="color: var(--text-muted); margin-left: 1rem;"><strong>Build a "Launchpad" Visual Station:</strong> Choose a decorative, open ceramic bowl or a small wooden tray and place it directly on your entryway table or kitchen counter. Keys, wallet, work badges, and sunglasses must live here. Never hide them in a deep dark drawer—if your brain cannot visually see them, they cease to exist in your working memory.</p>
+                        <p style="color: var(--text-muted); margin-left: 1rem; margin-top: 0.5rem;"><strong>The 2-Minute Peppermint Reset:</strong> Buy an essential oil diffuser for your workspace and stock it with premium Peppermint or Rosemary oils. When your mind begins to drift or enter a state-paralysis "freeze," turn the diffuser on. Sensory tracking data shows that strong olfactory cues provide immediate, sharp nervous system grounding, cutting through mental fog and signaling to your brain that it is time to transition tasks.</p>
+                    </div>
+
+                    <div>
+                        <h4 style="color: var(--coral-excite);">2. Time Blindness Hacks (Act on Today)</h4>
+                        <p style="color: var(--text-muted); margin-left: 1rem;"><strong>The Audio-Paced Pomodoro Workflow:</strong> Traditional silent or ticking timers can increase anxiety. Instead, select an energetic, instrumental playlist or a low-fi jazz track that lasts exactly 20 to 25 minutes. Commit to working only until the music stops. This turns time into a rhythmic, audible landscape rather than an invisible concept, allowing your brain to anchor its pacing naturally.</p>
+                        <p style="color: var(--text-muted); margin-left: 1rem; margin-top: 0.5rem;"><strong>Double Your Time Estimates (The Buffer Metric):</strong> Before your next task, write down how long you honestly think it will take you. Now, instantly double that number on your planner. This immediately defeats the built-in "ADHD optimism bias" and protects you from the stressful cortisol spike of racing against chronic lateness.</p>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="openEbookModal()">⬇️ Download Week 4 Workbook Guide</
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, rgba(13,148,136,0.1), rgba(249,115,22,0.1)); border-radius: 16px;">
+                <h2 style="color: var(--text-light); font-size: 1.8rem; margin-bottom: 0.5rem;">You are not broken, lazy, or incapable.</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem;">You are a neurodivergent woman learning to cultivate an ecosystem built natively for your exact mind. Step into your creative power.</p>
+                <span style="font-family: 'Space Grotesk', sans-serif; font-weight: bold; color: var(--teal-light); letter-spacing: 1px;">— Tez The ADHD Herbalist</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 The ADHD Herbalist. Crafted for neurodivergent minds.</p>
+    </footer>
+
+    <script>
+        function openEbookModal() {
+            document.getElementById('emailGateModal').style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+
+            if (name && email) {
+                // 1. Hide lead capture form
+                closeModal('emailGateModal');
+                // 2. Open up the guide visual dashboard directly inside dashboard
+                document.getElementById('guideDashboardModal').style.display = 'flex';
+            }
+        }
+
+        function openCalendlyPopup() {
+            Calendly.initPopupWidget({url: 'https://calendly.com'});
+            return false;
+        }
+
+        // Close modal if user clicks background container
+        window.onclick = function(event) {
+            const gateModal = document.getElementById('emailGateModal');
+            const dashboardModal = document.getElementById('guideDashboardModal');
+            if (event.target == gateModal) {
+                gateModal.style.display = "none";
+            }
+            if (event.target == dashboardModal) {
+                dashboardModal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+
+```
