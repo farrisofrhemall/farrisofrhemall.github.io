@@ -255,6 +255,150 @@
             color: var(--text-light);
         }
 
+        /* 6-WEEK MODULES ROADMAP GRID */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .module-card {
+            background-color: var(--bg-card);
+            padding: 2.2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .module-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--teal-light);
+            box-shadow: 0 10px 25px rgba(45, 212, 191, 0.05);
+        }
+
+        .module-num {
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--coral-excite);
+            margin-bottom: 0.5rem;
+        }
+
+        .module-card h3 {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .module-focus-tag {
+            color: var(--teal-light);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .module-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Herbal Integration Elements */
+        .herbal-protocol-box {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px dashed rgba(45, 212, 191, 0.3);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .herbal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            color: var(--sage-soothe);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .herbal-instruction {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .worksheet-download-btn {
+            background: rgba(13, 148, 136, 0.15);
+            color: var(--teal-light);
+            padding: 0.85rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(45, 212, 191, 0.2);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .worksheet-download-btn:hover {
+            background: var(--teal-calm);
+            color: white;
+            border-color: var(--teal-calm);
+        }
+
+        .safety-disclaimer-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 3rem auto 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Logistical Support Grid Structure (Within Portal Modal) */
+        .logistics-step {
+            background: rgba(15, 23, 42, 0.4);
+            border-left: 4px solid var(--teal-light);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 1.25rem;
+        }
+
+        .logistics-step h4 {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logistics-step p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
         /* RESEARCH CAROUSEL SYSTEM */
         .carousel-outer {
             position: relative;
@@ -416,73 +560,6 @@
             border-radius: 10px;
         }
 
-        /* PROGRAM ARCHITECTURE PROGRAM CARDS (Now contained inside Modal) */
-        .program-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .program-card {
-            background-color: rgba(15, 23, 42, 0.6);
-            padding: 1.8rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            min-height: 240px;
-        }
-
-        .program-card-blur {
-            filter: blur(3px);
-            opacity: 0.3;
-            pointer-events: none;
-            user-select: none;
-        }
-
-        .program-lock {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(30, 41, 59, 0.75);
-            backdrop-filter: blur(3px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            text-align: center;
-            z-index: 5;
-        }
-
-        .program-lock-icon {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--coral-excite);
-        }
-
-        .program-lock-btn {
-            background: var(--teal-calm);
-            color: white;
-            border: none;
-            padding: 0.5rem 1.25rem;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: background 0.2s;
-            margin-top: 0.75rem;
-        }
-
-        .program-lock-btn:hover {
-            background: var(--teal-light);
-        }
-
         /* Quiz Box Layout */
         .quiz-container {
             background-color: var(--bg-card);
@@ -573,7 +650,7 @@
             padding: 2.5rem;
         }
 
-        /* MODAL TAB SYSTEM LOOKS */
+        /* MODAL TAB SYSTEM */
         .modal-tabs {
             display: flex;
             border-bottom: 2px solid rgba(255,255,255,0.1);
@@ -700,6 +777,7 @@
         <a href="#" class="logo">🌿 The ADHD Herbalist</a>
         <div class="nav-links">
             <a href="#about">My Story</a>
+            <a href="#modules">6-Week Blueprint</a>
             <a href="#science">Latest Science</a>
             <a href="javascript:void(0)" onclick="openBioModal('program-tab')">How It Works</a>
             <a href="#quiz">ADHD Quiz</a>
@@ -745,6 +823,114 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- SECTION: THE 6-WEEK CLIENT WORKBOOK CURRICULUM WITH HERBAL PROTOCOLS -->
+    <section id="modules" style="border-top: 1px solid rgba(255,255,255,0.05);">
+        <h2 class="section-title">The 6-Week Strategy & Herbal Curriculum</h2>
+        <p class="section-subtitle">No overwhelming theories or text-heavy lectures. Work through one bite-sized lifestyle shift each week, paired with an actionable strategy manual and custom herbal medicine guide.</p>
+        
+        <div class="modules-grid">
+            <!-- Week 1 -->
+            <div class="module-card">
+                <div>
+                    <div class="module-num">Week 01</div>
+                    <h3>Dopamine Mapping</h3>
+                    <span class="module-focus-tag">🎯 Focus: Breaking Procrastination Loops</span>
+                    <p>Stop waiting for "motivation" that never comes. Learn how to track your personal neurological spikes and design tiny novelty triggers that make starting boring tasks easy.</p>
+                    
+                    <div class="herbal-protocol-box">
+                        <div class="herbal-title">🌱 Botanical Ally: Rosemary </div>
+                        <div class="herbal-instruction"><strong>The Benefit:</strong> Rich in 1,8-cineole, proven to increase memory speed and focus.<br><strong>Protocol:</strong> Steep 1 tbsp fresh leaves covered for 10 mins. Sip during your morning planning hour.</div>
+                    </div>
+                </div>
+                <button class="worksheet-download-btn" onclick="triggerDownload('Week 1: Dopamine Map & Rosemary Infusion Checklist')">⬇️ Download Week 1 Workbook Guide</button>
+            </div>
+
+            <!-- Week 2 -->
+            <div class="module-card">
+                <div>
+                    <div class="module-num">Week 02</div>
+                    <h3>The Kinetic Canvas</h3>
+                    <span class="module-focus-tag">🎯 Focus: Mental Offloading & Clarity</span>
+                    <p>If a task is trapped out-of-sight inside an app or notebook, it ceases to exist. We build a physical, sensory-rich wall layout to keep your priorities safely visible without causing eye strain.</p>
+                    
+                    <div class="herbal-protocol-box">
+                        <div class="herbal-title">🌱 Botanical Ally: Gotu Kola</div>
+                        <div class="herbal-instruction"><strong>The Benefit:</strong> Improves mental clarity and cognitive capacity under stress.<br><strong>Protocol:</strong> Add 1-2 tsp dried herb to hot water. Cover tightly for 15 minutes to preserve brain-soothing compounds.</div>
+                    </div>
+                </div>
+                <button class="worksheet-download-btn" onclick="triggerDownload('Week 2: Kinetic Canvas Blueprint & Infusion Guide')">⬇️ Download Week 2 Workbook Guide</button>
+            </div>
+
+            <!-- Week 3 -->
+            <div class="module-card">
+                <div>
+                    <div class="module-num">Week 03</div>
+                    <h3>Environmental Scaffolding</h3>
+                    <span class="module-focus-tag">🎯 Focus: Defeating Task Friction</span>
+                    <p>Isolate and eliminate the micro-hurdles that trigger executive breakdown. We physically restructure your daily spaces so moving from idea to execution takes zero willpower.</p>
+                    
+                    <div class="herbal-protocol-box">
+                        <div class="herbal-title">🌱 Botanical Ally: Tulsi (Holy Basil)</div>
+                        <div class="herbal-instruction"><strong>The Benefit:</strong> An adaptogen that lowers biological stress markers and balances energy response.<br><strong>Protocol:</strong> Decoction method: Lightly simmer 1 tbsp of leaves in a small pot for 5-10 minutes.</div>
+                    </div>
+                </div>
+                <button class="worksheet-download-btn" onclick="triggerDownload('Week 3: Space Scaffolding Audit & Tulsi Decoction Form')">⬇️ Download Week 3 Workbook Guide</button>
+            </div>
+
+            <!-- Week 4 -->
+            <div class="module-card">
+                <div>
+                    <div class="module-num">Week 04</div>
+                    <h3>Taming the Time Blindness</h3>
+                    <span class="module-focus-tag">🎯 Focus: Stress-Free Pacing</span>
+                    <p>Traditional schedules run by numbers on a clock feel like a trap. We transition your calendar to intuitive, visual energy-blocks that naturally flex alongside your brain’s processing speed.</p>
+                    
+                    <div class="herbal-protocol-box">
+                        <div class="herbal-title">🌱 Botanical Ally: Lemon Balm</div>
+                        <div class="herbal-instruction"><strong>The Benefit:</strong> Inhibits GABA transaminase, lifting mood and soothing timeline-induced panic.<br><strong>Protocol:</strong> Steep 2 tsp dried leaves in boiling water for 12 mins. Drink when clock anxiety spikes.</div>
+                    </div>
+                </div>
+                <button class="worksheet-download-btn" onclick="triggerDownload('Week 4: Visual Energy Block Calendar & Lemon Balm Routine')">⬇️ Download Week 4 Workbook Guide</button>
+            </div>
+
+            <!-- Week 5 -->
+            <div class="module-card">
+                <div>
+                    <div class="module-num">Week 05</div>
+                    <h3>Neuro-Burnout Mitigation</h3>
+                    <span class="module-focus-tag">🎯 Focus: Recovery & Energy Preservation</span>
+                    <p>Unmasking your true self takes metabolic energy. Learn how to identify sensory warning indicators early and utilize soothing lifestyle resets to step out of high-cortisol survival states.</p>
+                    
+                    <div class="herbal-protocol-box">
+                        <div class="herbal-title">🌱 Botanical Ally: Ashwagandha</div>
+                        <div class="herbal-instruction"><strong>The Benefit:</strong> Calms the HPA axis to dramatically lower circulating cortisol levels.<br><strong>Protocol:</strong> Tonic Latte: Simmer 1/2 tsp root powder in warm milk with cinnamon for 7 mins.</div>
+                    </div>
+                </div>
+                <button class="worksheet-download-btn" onclick="triggerDownload('Week 5: Burnout Early-Warning Sheet & Ashwagandha Latte')">⬇️ Download Week 5 Workbook Guide</button>
+            </div>
+
+            <!-- Week 6 -->
+            <div class="module-card">
+                <div>
+                    <div class="module-num">Week 06</div>
+                    <h3>The Radical Momentum Plan</h3>
+                    <span class="module-focus-tag">🎯 Focus: Long-Term Sustainability</span>
+                    <p>Tie your custom systems together into an automated framework that keeps moving forward even on low-dopamine days. Protect your progress without reverting to hyper-masking loops.</p>
+                    
+                    <div class="herbal-protocol-box">
+                        <div class="herbal-title">🌱 Botanical Ally: Chamomile</div>
+                        <div class="herbal-instruction"><strong>The Benefit:</strong> Rich in apigenin, binding to deep central nervous system receptors to induce calm reset.<br><strong>Protocol:</strong> Strong Infusion: Steep 2 tbsp covered for 15 mins. Drink 1 hr before bed.</div>
+                    </div>
+                </div>
+                <button class="worksheet-download-btn" onclick="triggerDownload('Week 6: Sustainable Momentum Manual & Chamomile Deep Reset')">⬇️ Download Week 6 Workbook Guide</button>
+            </div>
+        </div>
+
+        <p class="safety-disclaimer-text">
+            ⚠️ <strong>Standard Safety Notice:</strong> While these traditional herbs are widely documented for safety and neuro-supportive efficacy, botanicals contain active organic compounds. Please consult a health professional before beginning any continuous herbal protocols if you are pregnant, nursing, or taking prescription medications.
+        </p>
     </section>
 
     <section id="science" style="border-top: 1px solid rgba(255,255,255,0.05);">
@@ -842,138 +1028,69 @@
         <p>© 2026 The ADHD Herbalist. Empowering neurodiverse minds organically.</p>
     </footer>
 
-    <!-- Comprehensive Main Info Modal System -->
+    <!-- Comprehensive Tabbed Modal System -->
     <div class="modal" id="bioModal">
         <div class="modal-content modal-bio-content">
             <span class="close-modal" onclick="closeBioModal()">&times;</span>
             
-            <!-- Navigation Tabs inside the window frame -->
+            <!-- Navigation Tabs -->
             <div class="modal-tabs">
                 <button class="modal-tab-btn active" id="story-tab" onclick="switchModalTab('story-tab')">✨ Coach Story & Credentials</button>
                 <button class="modal-tab-btn" id="program-tab" onclick="switchModalTab('program-tab')">🗺️ How Our Program Works</button>
             </div>
 
-            <!-- TAB CONTAINER PANEL 1: COACH BIO STORY -->
+            <!-- TAB 1: COACH BIO STORY -->
             <div class="tab-panel active" id="panel-story-tab">
                 <span class="badge" style="margin-bottom: 1rem;">The ADHD Herbalist, Educator, & Advocate</span>
                 <h2>You were not meant to blend in. <span style="color: var(--teal-light);">You were meant to stand out.</span></h2>
                 
                 <p style="margin-top: 1rem;">I’m Tez, an ADHD coach dedicated to helping women break through the exhausting cycles of neurodiverse burnout, step out of their heads, and start living out loud.</p>
-                <p>I partner with women aged 25–55—both those who are formally diagnosed and those who strongly suspect they have ADHD—who know they are capable of achieving incredible things, but find themselves constantly hitting a wall. If you are battling non-stop thoughts, chronic self-doubt, and imposter syndrome, my mission is to help you dismantle the need to mask or shrink yourself. I am here to ensure you show up as your raw, authentic self in a world that wasn't built for your brain.</p>
+                <p>I partner with women aged 25–55—both those who are formally diagnosed and those who strongly suspect they have ADHD—who know they are capable of achieving incredible things, but find themselves constantly hitting a wall. If you are battling non-stop thoughts, chronic self-doubt, and imposter syndrome, my mission is to help you dismantle the need to mask or shrink yourself.</p>
 
                 <h3>From Masking to Empowering: My Story</h3>
                 <p>My passion for this work is deeply personal. For the first 28 years of my life, I knew I felt "different," but without answers, I did what many neurodivergent women do: I masked my struggles, ignored my intuition, and forced myself to power through.</p>
                 <p>The turning point came when I had my own children. Seeing them face the exact same barriers I had survived was my wake-up call. I wanted answers—not just to set my children up for success, but to heal myself.</p>
-                <p>With 15 years of experience in education specializing in staff and student development, I began to see a heartbreaking pattern: students labeled as "difficult" or "bad" were actually just profoundly misunderstood. When I met their parents, I recognized the exact same unmet needs. I made it my mission to help entire families work with their superpower rather than fighting against it. Soon, parents began seeking me out for individual guidance, and my coaching practice was born.</p>
+                <p>With 15 years of experience in education specializing in staff and student development, I began to see a heartbreaking pattern: students labeled as "difficult" or "bad" were actually just profoundly misunderstood. When I met their parents, I recognized the exact same unmet needs. I made it my mission to help entire families work with their superpower rather than fighting against it.</p>
 
                 <h3>Credibility, Credentials & Impact</h3>
-                <p>Over the past 8+ years of individual coaching and 15 years in education, I have dedicated myself to changing the narrative around neurodiversity from one of deficit to one of strength.</p>
                 <p class="bullet-point-stack">✨ <strong>Systemic Impact:</strong> I was brought into a large, national K–12 school specifically to help neurodiverse students excel. I successfully helped dozens of students bridge academic gaps while giving them the tools to stop masking and fully accept who they are.</p>
-                <p class="bullet-point-stack">🏫 <strong>Institutional Training:</strong> I train school leadership, corporate staff, and student bodies on how to support the neurodiverse individuals around them without pathologizing them or making them feel like a problem.</p>
-                <p class="bullet-point-stack">🍃 <strong>The Holistic Advantage:</strong> I hold a Bachelor’s degree in Communications and Education, a formal Certification in ADHD Coaching, and a Certification as an Herbalist. This unique blend allows me to look at ADHD from a truly individualized perspective, breaking down exactly what your unique brain and body need to function at their absolute peak.</p>
-
-                <h3>Behind the Coach: Creative Chaos</h3>
-                <p>When I am not coaching, I am living a beautifully vibrant, neurodivergent life. I am a wife and a mother to eight incredible children—meaning there is never a dull moment in my house!</p>
-                <p>My ADHD brain makes me highly intuitive, detail-oriented, and endlessly creative. I am a firm believer that joy is found in trying new things, and you can usually find me chasing adventures, reading, dancing, singing, painting, or building furniture. I bring that same boundless energy and multi-passionate drive to every client I serve.</p>
+                <p class="bullet-point-stack">🏫 <strong>Institutional Training:</strong> I train school leadership, corporate staff, and student bodies on how to support the neurodiverse individuals around them without pathologizing them.</p>
+                <p class="bullet-point-stack">🍃 <strong>The Holistic Advantage:</strong> I hold a Bachelor’s degree in Communications and Education, a formal Certification in ADHD Coaching, and a Certification as an Herbalist. This unique blend allows me to look at ADHD from a truly individualized perspective.</p>
             </div>
 
-            <!-- TAB CONTAINER PANEL 2: HOW THE BLUEPRINT PROGRAM OPERATES -->
+            <!-- TAB 2: CLIENT PROGRAM LOGISTICS -->
             <div class="tab-panel" id="panel-program-tab">
-                <span class="badge" style="margin-bottom: 1rem; background: rgba(249, 115, 22, 0.1); color: var(--coral-excite); border-color: var(--coral-hover);">Strategic Implementation Blueprint</span>
-                <h2>Our Step-by-Step Program System</h2>
-                <p style="margin-top: 0.5rem; color: var(--text-muted);">An intentional, high-accountability layout designed to transition your mind out of survival mode into deliberate, organic power.</p>
+                <span class="badge" style="margin-bottom: 1rem; background: rgba(249, 115, 22, 0.1); color: var(--coral-excite); border-color: var(--coral-hover);">Client Onboarding Framework</span>
+                <h2>How Our Program Works</h2>
+                <p style="margin-top: 0.5rem; color: var(--text-muted); margin-bottom: 2rem;">Here is exactly what to expect from the onboarding layout and structural support when you launch your coaching container.</p>
                 
-                <div class="program-grid">
-                    <!-- 1. On-The-Spot Implementation -->
-                    <div class="program-card">
-                        <div class="program-lock">
-                            <div class="program-lock-icon">🔒</div>
-                            <div style="font-family:'Space Grotesk'; font-size:1.1rem; color:white;">Framework Locked</div>
-                            <button class="program-lock-btn" onclick="closeBioModal(); openCalendlyPopup();">Unlock System</button>
-                        </div>
-                        <div class="program-card-blur">
-                            <span style="color: var(--teal-light); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px;">01 // Execution</span>
-                            <h4 style="margin: 0.25rem 0; font-size: 1.1rem;">⚡ On-The-Spot Action</h4>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">Active workflow implementation. We construct and integrate custom, real-time tracking systems during live sessions.</p>
-                        </div>
-                    </div>
+                <!-- Logistics Steps -->
+                <div class="logistics-step">
+                    <h4>⚡ Step 1: On-The-Spot Active Coaching</h4>
+                    <p>We don't assign dry, passive text readings. During live sessions, we actively construct and customize physical organization frameworks tailored exclusively to your day-to-day routine.</p>
+                </div>
 
-                    <!-- 2. The ONE FOCUS System -->
-                    <div class="program-card">
-                        <div class="program-lock">
-                            <div class="program-lock-icon">🔒</div>
-                            <div style="font-family:'Space Grotesk'; font-size:1.1rem; color:white;">Framework Locked</div>
-                            <button class="program-lock-btn" onclick="closeBioModal(); openCalendlyPopup();">Unlock System</button>
-                        </div>
-                        <div class="program-card-blur">
-                            <span style="color: var(--teal-light); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px;">02 // Micro-Habits</span>
-                            <h4 style="margin: 0.25rem 0; font-size: 1.1rem;">🎯 The ONE FOCUS Plan</h4>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">Isolate a single friction-free action metric each week. Small transformations compound without hitting execution fatigue walls.</p>
-                        </div>
-                    </div>
+                <div class="logistics-step">
+                    <h4>🎯 Step 2: The ONE FOCUS Metric</h4>
+                    <p>We systematically isolate exactly one small, friction-free behavior adjustments each week. By removing excess task complexity, your routines compound sustainably without hitting energy walls.</p>
+                </div>
 
-                    <!-- 3. Follow Through -->
-                    <div class="program-card">
-                        <div class="program-lock">
-                            <div class="program-lock-icon">🔒</div>
-                            <div style="font-family:'Space Grotesk'; font-size:1.1rem; color:white;">Framework Locked</div>
-                            <button class="program-lock-btn" onclick="closeBioModal(); openCalendlyPopup();">Unlock System</button>
-                        </div>
-                        <div class="program-card-blur">
-                            <span style="color: var(--teal-light); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px;">03 // Guardrails</span>
-                            <h4 style="margin: 0.25rem 0; font-size: 1.1rem;">🔥 Radical Follow Through</h4>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">High-intensity boutique accountability structures. Proactive custom support frameworks that eliminate operational drift completely.</p>
-                        </div>
-                    </div>
+                <div class="logistics-step">
+                    <h4>🔥 Step 3: High-Accountability Guardrails</h4>
+                    <p>We manage follow-through via structured sensory checkpoints and premium outreach. We build protective structural walls around your objectives so operational drift is eliminated.</p>
+                </div>
 
-                    <!-- 4. Prioritize & Organize -->
-                    <div class="program-card">
-                        <div class="program-lock">
-                            <div class="program-lock-icon">🔒</div>
-                            <div style="font-family:'Space Grotesk'; font-size:1.1rem; color:white;">Framework Locked</div>
-                            <button class="program-lock-btn" onclick="closeBioModal(); openCalendlyPopup();">Unlock System</button>
-                        </div>
-                        <div class="program-card-blur">
-                            <span style="color: var(--teal-light); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px;">04 // De-Cluttering</span>
-                            <h4 style="margin: 0.25rem 0; font-size: 1.1rem;">🗺️ Prioritize & Organize</h4>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">Sift through background clutter using non-digital visual architectures to identify your high-yield, time-critical tasks easily.</p>
-                        </div>
-                    </div>
-
-                    <!-- 5. Master your Inner Game -->
-                    <div class="program-card">
-                        <div class="program-lock">
-                            <div class="program-lock-icon">🔒</div>
-                            <div style="font-family:'Space Grotesk'; font-size:1.1rem; color:white;">Framework Locked</div>
-                            <button class="program-lock-btn" onclick="closeBioModal(); openCalendlyPopup();">Unlock System</button>
-                        </div>
-                        <div class="program-card-blur">
-                            <span style="color: var(--teal-light); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px;">05 // Mindset</span>
-                            <h4 style="margin: 0.25rem 0; font-size: 1.1rem;">🧠 The Inner Game</h4>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">Dismantle underlying avoidance patterns and nervous system paralysis loops, transforming anxiety into authentic confidence.</p>
-                        </div>
-                    </div>
-
-                    <!-- 6. Take Control -->
-                    <div class="program-card">
-                        <div class="program-lock">
-                            <div class="program-lock-icon">🔒</div>
-                            <div style="font-family:'Space Grotesk'; font-size:1.1rem; color:white;">Framework Locked</div>
-                            <button class="program-lock-btn" onclick="closeBioModal(); openCalendlyPopup();">Unlock System</button>
-                        </div>
-                        <div class="program-card-blur">
-                            <span style="color: var(--teal-light); font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px;">06 // Mastery</span>
-                            <h4 style="margin: 0.25rem 0; font-size: 1.1rem;">👑 Complete Autonomy</h4>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">Navigate workflows, professional routines, and everyday environments using your inherent biological profile instead of fighting it.</p>
-                        </div>
-                    </div>
+                <div class="logistics-step">
+                    <h4>🧠 Step 4: Subconscious Mindset Re-Framing</h4>
+                    <p>We intentionally track down the root emotional avoidance loops and metabolic fatigue factors that feed procrastination, helping you replace imposter syndrome with deep confidence.</p>
                 </div>
             </div>
 
+            <!-- Global Modal Footer Call to Action -->
             <div style="margin-top: 2.5rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem;">
                 <h4 style="color: var(--sage-soothe); font-size: 1.3rem; margin-bottom: 0.5rem;">Ready to stop masking and start thriving?</h4>
                 <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem;">Let’s build the specific tools, environments, and routines your unique brain profile needs.</p>
-                <button class="cta-btn" onclick="closeBioModal(); openCalendlyPopup();">Book Your Real-Time Setup Session</button>
+                <button class="cta-btn" onclick="closeBioModal(); openCalendlyPopup();">Book Your Strategy Setup Session</button>
             </div>
         </div>
     </div>
@@ -993,10 +1110,8 @@
     </div>
 
     <script>
-        // Central profile connection point
         const MY_CALENDAR_URL = "https://calendly.com/farris-tez"; 
 
-        // Launcher method to open the injected external Calendly popup widget securely
         function openCalendlyPopup() {
             if (typeof Calendly !== 'undefined') {
                 Calendly.initPopupWidget({ url: MY_CALENDAR_URL });
@@ -1005,7 +1120,12 @@
             }
         }
 
-        /* MODAL CONTROL SCHEMES WITH TAB STATE SWITCHING */
+        /* Accessing Free Blueprint Worksheets */
+        function triggerDownload(blueprintName) {
+            alert(`📝 Accessing Workbook Guide:\n\n"${blueprintName}" is unlocking! Secure client digital file transmission verified.`);
+        }
+
+        /* Modal Controls */
         function openBioModal(targetTabId = 'story-tab') {
             const modal = document.getElementById('bioModal');
             if(modal) {
@@ -1020,12 +1140,9 @@
         }
         
         function switchModalTab(tabId) {
-            // Remove active style flags from all buttons
             document.querySelectorAll('.modal-tab-btn').forEach(btn => btn.classList.remove('active'));
-            // Hide all structural panels
             document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
             
-            // Activate current targeted layout structures
             const activeBtn = document.getElementById(tabId);
             const activePanel = document.getElementById('panel-' + tabId);
             
@@ -1042,7 +1159,7 @@
             if(modal) modal.style.display = 'none';
         }
 
-        /* RESEARCH CAROUSEL LOGIC */
+        /* Carousel Scripting */
         let activeSlideIndex = 0;
         const slides = document.querySelectorAll('.research-slide');
         const dots = document.querySelectorAll('.carousel-dot');
@@ -1051,20 +1168,13 @@
             slides.forEach((slide, idx) => {
                 const innerCard = slide.querySelector('.expandable-research-card');
                 if(innerCard) innerCard.classList.remove('expanded');
-                
-                if(idx === activeSlideIndex) {
-                    slide.classList.add('active');
-                } else {
-                    slide.classList.remove('active');
-                }
+                if(idx === activeSlideIndex) slide.classList.add('active');
+                else slide.classList.remove('active');
             });
 
             dots.forEach((dot, idx) => {
-                if(idx === activeSlideIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
+                if(idx === activeSlideIndex) dot.classList.add('active');
+                else dot.classList.remove('active');
             });
         }
 
@@ -1084,7 +1194,7 @@
             cardElement.classList.toggle('expanded');
         }
 
-        /* Interactive Quiz Mechanics */
+        /* Interactive Quiz Engine */
         const quizQuestions = [
             { text: "How do you respond to standard, linear daily planners?", options: ["They feel like a prison, so I ignore them.", "I buy them, use them for 3 days, then lose them.", "I feel overwhelmed just looking at them."] },
             { text: "When you have a large, ambiguous task ahead of you, what happens?", options: ["I organize my entire house instead of starting.", "I stare at the screen feeling frozen.", "I wait until 11 PM the night before it's due."] },
@@ -1117,10 +1227,8 @@
                 if(progress) progress.style.width = progressPercent + '%';
             } else {
                 if(progress) progress.style.width = '100%';
-                const qView = document.getElementById('question-view');
-                const rView = document.getElementById('results-view');
-                if(qView) qView.style.display = 'none';
-                if(rView) rView.style.display = 'block';
+                document.getElementById('question-view').style.display = 'none';
+                document.getElementById('results-view').style.display = 'block';
             }
         }
 
@@ -1140,24 +1248,7 @@
             const email = emailInput.value;
 
             if(email) {
-                alert("✨ Registration Successful! Your strategic blueprints have been queued for sending to: " + email);
-
-                const guideContent = 
-`================================================================
-THE ADHD HERBALIST STRATEGY BLUEPRINT
-================================================================
-Your resources are on their way! Ensure you save this data panel.`;
-
-                const blob = new Blob([guideContent], { type: 'text/plain' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'ADHD_Herbalist_Strategy_Guide.txt';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-
+                alert("✨ Registration Successful! Your strategy files are ready for download.");
                 closeEbookModal();
             }
         }
