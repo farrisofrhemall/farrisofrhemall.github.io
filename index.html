@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
+    <!-- Calendly widget styles and script -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     
@@ -272,18 +273,6 @@
             margin-bottom: 0;
         }
 
-        /* Free Resource Hub Cards Section */
-        .resource-card {
-            background: var(--bg-card);
-            border-radius: 20px;
-            padding: 2.5rem;
-            border: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
         /* Conversion Modal Lock Box for Modules Button Click */
         .lock-overlay-container {
             display: none;
@@ -345,166 +334,6 @@
             gap: 1rem;
         }
 
-        /* INTERACTIVE EBOOK READER SYSTEM */
-        .book-reader-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(16px);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-        }
-
-        .book-container {
-            background: #111827;
-            width: 100%;
-            max-width: 900px;
-            height: 90vh;
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-        }
-
-        .book-header {
-            background: var(--bg-card);
-            padding: 1.25rem 2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .book-body {
-            flex: 1;
-            overflow-y: auto;
-            padding: 3rem;
-            color: #e2e8f0;
-        }
-
-        /* Document-Style Typography for the Embedded Guide */
-        .guide-page {
-            background: #1e293b;
-            padding: 3rem;
-            border-radius: 16px;
-            margin-bottom: 3rem;
-            border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-
-        .guide-title {
-            font-size: 2.5rem;
-            color: var(--teal-light);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .guide-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .guide-meta {
-            color: var(--coral-excite);
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid rgba(249, 115, 22, 0.2);
-            padding-bottom: 0.75rem;
-        }
-
-        .guide-section-heading {
-            font-size: 1.8rem;
-            color: var(--teal-light);
-            margin: 2rem 0 1rem 0;
-            border-left: 4px solid var(--teal-calm);
-            padding-left: 1rem;
-        }
-
-        .guide-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: #cbd5e1;
-        }
-
-        /* Matrix Elements inside eBook */
-        .ef-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            font-size: 1rem;
-        }
-
-        .ef-table th, .ef-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .ef-table th {
-            background-color: var(--teal-calm);
-            color: white;
-            font-weight: 700;
-        }
-
-        .ef-table tr:nth-child(even) {
-            background-color: rgba(255,255,255,0.02);
-        }
-
-        .pomodoro-matrix-row {
-            display: flex;
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .matrix-block {
-            flex: 1;
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 700;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .matrix-focus { background: rgba(249, 115, 22, 0.2); border: 1px solid var(--coral-excite); color: var(--coral-excite); }
-        .matrix-break { background: rgba(13, 148, 136, 0.2); border: 1px solid var(--teal-light); color: var(--teal-light); }
-
-        .guide-checklist {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .guide-checklist-item {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            align-items: flex-start;
-            background: rgba(15, 23, 42, 0.3);
-            padding: 1rem;
-            border-radius: 10px;
-        }
-
-        .guide-page-number {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 1rem;
-        }
-
         /* Visual Graphic Section styling */
         .visual-container {
             width: 100%;
@@ -545,9 +374,6 @@
             .cta-btn { display: block; text-align: center; width: 100%; margin-bottom: 0.5rem; }
             .nav-links { display: none; } 
             .lock-box-content { padding: 2rem 1.5rem; }
-            .book-body { padding: 1.5rem; }
-            .guide-page { padding: 1.5rem; }
-            .pomodoro-matrix-row { flex-direction: column; }
         }
     </style>
 </head>
@@ -557,8 +383,8 @@
         <a href="#" class="logo">🌿 The ADHD Herbalist</a>
         <div class="nav-links">
             <a href="#about">My Story</a>
+            <!-- Clicking Modules Link prompts user actions -->
             <a onclick="openLockGateway()" style="color: var(--teal-light); font-weight: 700;">Modules 🔒</a>
-            <a href="#resources">Free Guide 📖</a>
             <a href="#about-program">How It Works</a>
             <button onclick="openCalendly()" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; box-shadow: none;">Book Free Session</button>
         </div>
@@ -570,12 +396,138 @@
             <h1>Stop Fighting Your Brain. <br><span class="highlight-text">Start Flowering Through It.</span></h1>
             <p>You aren't broken—your engine is just built for a completely different racetrack. Discover the holistic, science-backed systems built by an ADHDer, for ADHDers, to unlock calm focus and daily momentum.</p>
             <div>
+                <!-- Clicking Hero button triggers the conversion popup options -->
                 <button class="cta-btn" onclick="openLockGateway()">View the 6-Week Blueprint 🔑</button>
-                <a href="#resources" class="secondary-btn">Download Free Strategy Guide 📥</a>
+                <a href="#about" class="secondary-btn">Read Client Testimonials</a>
             </div>
         </div>
     </header>
 
+    <!-- FULL BIOGRAPHY & PROGRAM DETAILS SECTION (100% Intact as requested) -->
     <section id="about">
         <div class="bio-grid">
-            <div class
+            <div class="bio-image-wrapper">
+                <img class="bio-image" src="https://i.ibb.co/PvJGgCNM/Profile.jpg" alt="Tez - The ADHD Herbalist Coach Portrait">
+            </div>
+            
+            <div class="bio-text">
+                <span class="badge" style="background: rgba(249, 115, 22, 0.1); color: var(--coral-excite); border-color: var(--coral-hover);">Meet Your Coach</span>
+                <h2 style="font-size: 2.6rem; margin-bottom: 1.5rem; line-height: 1.2;">I worked relentlessly to build a system that works. Because I have ADHD too.</h2>
+                
+                <p>Hello! I’m <strong>Tez</strong>, an ADHD coach dedicated to helping women break through the exhausting cycles of neurodiverse burnout, step out of their heads, and start living out loud.</p>
+                
+                <p>I partner with women aged 25–55—both those who are formally diagnosed and those who strongly suspect they have ADHD—who know they are capable of achieving incredible things, but find themselves constantly hitting a invisible wall.</p>
+                
+                <p>Before designing this curriculum, I spent years cycling through intense waves of hyper-fixation followed by absolute, crushing exhaustion. I bought every calendar planner layout on the market, tried strict corporate time-blocking, and copied standard neurotypical life hacks. None of it stuck because those frameworks were made for brains built completely different from ours.</p>
+                
+                <p>True transformation occurred when I stopped trying to patch over my executive gaps and started leaning into natural, biological supporting pathways instead. By pairing gentle nervous-system botanical actions with highly interactive physical workspace setups, I discovered how to cultivate consistent drive without forcing myself into masking loops.</p>
+
+                <!-- Program Information Content with Matching Emojis -->
+                <div class="program-info-box" id="about-program">
+                    <h3>💡 About Our Program Strategy</h3>
+                    <p style="margin-bottom: 1.5rem;">This personalized container isn't about teaching you how to sit perfectly still or follow an unyielding calendar. We collaborate together to construct an environment where your natural creative spikes are honored and captured easily.</p>
+                    
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <span class="emoji">🎯</span>
+                            <div>
+                                <strong>Customized Sensory Strategy Maps</strong>
+                                <p>We map out your individual dopaminergic triggers to dismantle long-term procrastination cycles before they freeze you in place.</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <span class="emoji">🌿</span>
+                            <div>
+                                <strong>Botanical Synergy Integrations</strong>
+                                <p>Discover exact plant allies that interact gently with focus and recovery pathways to steady your mind during heavy cognitive loads.</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <span class="emoji">🔄</span>
+                            <div>
+                                <strong>Executive Scaffolding Frameworks</strong>
+                                <p>Build tangible, physical systems in your office layout so your vital tasks stay clearly visible without overwhelming your eyes.</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <span class="emoji">👑</span>
+                            <div>
+                                <strong>Anti-Burnout Protective Protocols</strong>
+                                <p>Learn simple indicators to identify sensory overload ahead of time, ensuring you protect your daily energy reservoirs safely.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="cta-btn" onclick="openCalendly()">Book Your Free Discovery Call Now</button>
+                    <button class="secondary-btn" onclick="openLockGateway()" style="margin-left: 0;">Explore Core Pricing & Options</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Divider Graphic Display Layer -->
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+        <div class="visual-container">
+            <img class="visual-placeholder" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80" alt="Calming therapeutic green plant elements">
+            <div class="visual-overlay-text">
+                <h3>Nature meets Neurodiversity: Real strategies for vibrant, organic focus.</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODULE GATEWAY LOCK MODAL CONTAINER (Directs traffic immediately to Booking/Purchase) -->
+    <div id="lockGateway" class="lock-overlay-container">
+        <div class="lock-box-content">
+            <button class="close-lock-box" onclick="closeLockGateway()">✕</button>
+            <div style="font-size: 3.5rem; margin-bottom: 1rem;">🔒</div>
+            <h2>Unlock the 6-Week Blueprint Curriculum</h2>
+            <p>The step-by-step strategy curriculum, botanical daily protocols, and downloadable workbook guides are reserved for our active program members. Let's find out if this blueprint matches your unique brain chemistry.</p>
+            
+            <div class="lock-actions">
+                <!-- Action 1: Triggers the native Calendly script modal immediately -->
+                <button class="cta-btn" onclick="openCalendlyFromLock()">📅 Schedule Free 1:1 Strategy Application Call</button>
+                
+                <!-- Action 2: Direct Purchase Link placeholder (Can be updated to your Stripe/Checkout page URL easily) -->
+                <a href="https://buy.stripe.com/mock-link-placeholder" target="_blank" class="secondary-btn" style="margin-left: 0; background: rgba(255,255,255,0.05);">💳 Purchase the Full Blueprint Curriculum Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active JavaScript Engines -->
+    <script>
+        // Modal Gateway Toggle Controls
+        function openLockGateway() {
+            var gateway = document.getElementById("lockGateway");
+            gateway.style.display = "flex";
+        }
+
+        function closeLockGateway() {
+            var gateway = document.getElementById("lockGateway");
+            gateway.style.display = "none";
+        }
+
+        // Direct Integration triggers for your embedded Calendly popup scripts
+        function openCalendly() {
+            Calendly.initPopupWidget({
+                url: 'https://calendly.com/your-calendly-username-here'
+            });
+            return false;
+        }
+
+        function openCalendlyFromLock() {
+            closeLockGateway();
+            openCalendly();
+        }
+
+        // Close gateway if user clicks outside the modal inner background area box for better UX
+        window.onclick = function(event) {
+            var gateway = document.getElementById("lockGateway");
+            if (event.target == gateway) {
+                gateway.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
