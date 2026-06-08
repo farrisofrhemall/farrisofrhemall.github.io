@@ -8,6 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
+    <!-- Calendly asset injections begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <!-- Calendly asset injections end -->
+
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -670,7 +675,8 @@
             <a href="#science">Latest Science</a>
             <a href="#modules">Program Vault</a>
             <a href="#quiz">ADHD Quiz</a>
-            <a href="#" id="calendar-nav-link" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; box-shadow: none;">Book a Session</a>
+            <!-- Trigger integrated directly into button -->
+            <button onclick="openCalendlyPopup()" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; box-shadow: none;">Book a Session</button>
         </div>
     </nav>
 
@@ -790,7 +796,7 @@
                     <div class="lock-icon">🔒</div>
                     <div class="lock-title">Module Vault Locked</div>
                     <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
-                    <button class="lock-action-btn" onclick="scrollToCalendar()">Unlock Access Now</button>
+                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Access Now</button>
                 </div>
                 <div class="card-blur-layer">
                     <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 1 Vault</span>
@@ -805,7 +811,7 @@
                     <div class="lock-icon">🔒</div>
                     <div class="lock-title">Module Vault Locked</div>
                     <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
-                    <button class="lock-action-btn" onclick="scrollToCalendar()">Unlock Access Now</button>
+                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Access Now</button>
                 </div>
                 <div class="card-blur-layer">
                     <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 2 Vault</span>
@@ -820,7 +826,7 @@
                     <div class="lock-icon">🔒</div>
                     <div class="lock-title">Module Vault Locked</div>
                     <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
-                    <button class="lock-action-btn" onclick="scrollToCalendar()">Unlock Access Now</button>
+                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Access Now</button>
                 </div>
                 <div class="card-blur-layer">
                     <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 3 Vault</span>
@@ -835,7 +841,7 @@
                     <div class="lock-icon">🔒</div>
                     <div class="lock-title">Module Vault Locked</div>
                     <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
-                    <button class="lock-action-btn" onclick="scrollToCalendar()">Unlock Access Now</button>
+                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Access Now</button>
                 </div>
                 <div class="card-blur-layer">
                     <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 4 Vault</span>
@@ -866,7 +872,8 @@
     <section id="booking-cta" style="text-align: center;">
         <h2 style="font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2;">Ready to build your custom ecosystem?</h2>
         <p style="max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-muted); font-size: 1.2rem;">Let's skip the trial and error. Book a strategy session directly into my calendar to discover tailored frameworks for your specific neurotype.</p>
-        <a href="#" id="calendar-main-btn" class="cta-btn" target="_blank">Schedule an Appointment With Me</a>
+        <!-- Converted link into a button calling the popup logic directly -->
+        <button onclick="openCalendlyPopup()" class="cta-btn">Schedule an Appointment With Me</button>
     </section>
 
     <footer>
@@ -911,7 +918,7 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeEbookModal()">&times;</span>
             <h2 style="color: var(--teal-light); margin-bottom: 1rem;">Your Free ADHD Guide is Ready!</h2>
-            <p style="color: var(--text-muted);">Enter your email address below to immediately download: <br><strong>"The Woman's Guide to Navigating Life with ADHD"</strong></p>
+            <p style="color: var(--text-muted);">Enter your email address below to immediately download: <br><strong>"The Organic Focus Blueprints: Tips & Strategies for ADHD"</strong></p>
 
             <form id="leadForm" onsubmit="handleFormSubmit(event)">
                 <input type="email" class="form-input" placeholder="Enter your best email address" required id="userEmail">
@@ -921,16 +928,17 @@
     </div>
 
     <script>
-        const MY_CALENDAR_URL = "https://calendly.com/your-username-placeholder"; 
+        // Centralized configuration for Calendly
+        const MY_CALENDAR_URL = "https://calendly.com/farris-tez"; 
 
-        const navCalLink = document.getElementById('calendar-nav-link');
-        const mainCalBtn = document.getElementById('calendar-main-btn');
-        if(navCalLink) navCalLink.href = MY_CALENDAR_URL;
-        if(mainCalBtn) mainCalBtn.href = MY_CALENDAR_URL;
-
-        function scrollToCalendar() {
-            const section = document.getElementById('booking-cta');
-            if(section) section.scrollIntoView({ behavior: 'smooth' });
+        // Native Calendly modal popup launcher
+        function openCalendlyPopup() {
+            if (typeof Calendly !== 'undefined') {
+                Calendly.initPopupWidget({ url: MY_CALENDAR_URL });
+            } else {
+                // Safe structural fallback if the external Calendly script is blocked/failed to load
+                window.open(MY_CALENDAR_URL, '_blank');
+            }
         }
 
         /* Modal Triggers */
@@ -1049,140 +1057,19 @@
             const email = emailInput.value;
 
             if(email) {
-                alert("✨ Registration Successful! Your strategic blueprints have been compiled and sent to: " + email);
+                alert("✨ Registration Successful! Your strategic blueprints have been queued for sending to: " + email);
 
-                // This code compiles the full guide contents using your site's fonts, layouts, cards, and styling colors.
-                const guideHtmlContent = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The ADHD Herbalist Strategy Vault</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --teal-calm: #0d9488;
-            --teal-light: #2dd4bf;
-            --coral-excite: #f97316;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-            --sage-soothe: #86efac;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; padding: 3rem 1.5rem; }
-        .wrapper { max-width: 850px; margin: 0 auto; }
-        header { text-align: center; padding: 3rem; background: linear-gradient(135deg, rgba(13,148,136,0.2) 0%, rgba(249,115,22,0.1) 100%); border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 3rem; }
-        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; margin-bottom: 1rem; }
-        h1 { font-size: 2.5rem; color: var(--text-light); }
-        h2 { font-size: 1.8rem; color: var(--teal-light); margin-top: 2.5rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 0.5rem; }
-        h3 { font-size: 1.3rem; color: var(--coral-excite); margin-top: 1.5rem; }
-        p { color: var(--text-muted); margin-bottom: 1.2rem; font-size: 1.05rem; }
-        strong { color: var(--text-light); }
-        .badge { background: rgba(13, 148, 136, 0.2); color: var(--teal-light); padding: 0.4rem 0.8rem; border-radius: 50px; font-size: 0.85rem; display: inline-block; margin-bottom: 1rem; border: 1px solid var(--teal-calm); font-weight: 600; }
-        .card { background-color: var(--bg-card); padding: 2rem; border-radius: 16px; border-left: 4px solid var(--coral-excite); margin-bottom: 1.5rem; }
-        ul { margin-left: 1.5rem; margin-bottom: 1.5rem; color: var(--text-muted); }
-        li { margin-bottom: 0.5rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-        .grid-card { background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
-        .grid-card strong { color: var(--teal-light); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
-        footer { text-align: center; padding-top: 4rem; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 4rem; }
-    </style>
-</head>
-<body>
-    <div class="wrapper">
-        <header>
-            <span class="badge">The ADHD Herbalist Strategy Vault</span>
-            <h1>The Woman's Guide to Navigating Life with ADHD</h1>
-            <p>A holistic roadmap and tactical toolkit balancing modern cognitive science with natural botanical scaffolding.</p>
-            <p style="color: var(--coral-excite); font-weight: 600;">Authored by Tez, The ADHD Herbalist</p>
-        </header>
+                const guideContent = 
+`================================================================
+THE ADHD HERBALIST STRATEGY BLUEPRINT
+================================================================
+Your resources are on their way! Ensure you save this data panel.`;
 
-        <h2>Part 1: ADHD in Women & The Hidden Presentation</h2>
-        <p>Adulthood is a beautiful, expansive journey filled with unique choices. Yet for women with ADHD, managing the daily transitions of life can feel deeply overwhelming. Society often expects women to intuitively organize, multitask, and keep track of domestic, educational, and professional realms perfectly. When your brain doesn't work that way, it's easy to internalize shame and feel hidden behind a mask.</p>
-        <p>ADHD symptoms last a lifetime, but for women, they look profoundly distinct. While males are frequently diagnosed as hyperactive children, girls and women are significantly more likely to exhibit inattentive or internally hyperactive symptoms. This means your struggles might manifest as chronic choices paralysis, an overactive internal dialogue, or masking your chaos behind an exhausting veneer of perfectionism.</p>
-        
-        <h3>Internal Symptom Checklists</h3>
-        <ul>
-            <li><strong>Sustained Focus Blocks:</strong> Finding it hard to stay mentally present during long conversations, formatting paperwork, or static tasks.</li>
-            <li><strong>The Cognitive Tax:</strong> Frequently losing keys, wallets, phones, or critical documentation due to an overloaded working memory.</li>
-            <li><strong>The 80% Wall:</strong> Feeling exceptional at starting high-novelty projects, but hitting an invisible barrier when trying to execute the final steps.</li>
-            <li><strong>Internal Restlessness:</strong> A constant feeling of mental vibration, over-explaining, or racing thoughts even when your body appears perfectly calm.</li>
-        </ul>
-
-        <h3>Executive Functioning & Your Cycles</h3>
-        <p>Executive Functioning (EF) is your brain's management system—responsible for organizing data, regulating emotions, prioritizing steps, and maintaining momentum. For women, EF challenges are heavily linked with hormonal shifts. Fluctuations in estrogen directly modulate dopamine levels, meaning your symptoms may noticeably spike during your luteal phase right before your cycle.</p>
-
-        <div class="grid">
-            <div class="grid-card">
-                <strong>Working Memory</strong>
-                The "Out of Sight, Out of Mind" trap. Easily dropping tasks out of awareness if tracking assets aren't kept visually present within your physical space.
-            </div>
-            <div class="grid-card">
-                <strong>Cognitive Flexibility</strong>
-                Overwhelm Freezing. Feeling completely paralyzed or locked in state-paralysis when plans shift abruptly or sensory throughput overloads.
-            </div>
-            <div class="grid-card">
-                <strong>Time Optimization</strong>
-                Time Blindness. Struggling to accurately estimate operational duration, leading to intense procrastination panic or hyper-focus burnout.
-            </div>
-        </div>
-
-        <h3>Your Radiant Strengths</h3>
-        <p>Having ADHD means your mind operates on an interest-driven engine. This gives you access to profound hyperfocus channels, deep intuitive empathy, rapid creative pivot speeds, and a boundless multi-passionate capacity to invent original solutions to complex problems.</p>
-
-        <h2>Part 2: Holistic Life Management</h2>
-        <p>Engineering a reliable environmental routine protects your baseline dopamine reserve. We construct behavioral tools alongside traditional earth allies:</p>
-        
-        <div class="card">
-            <h3>1. Restorative Sleep Scaffolding</h3>
-            <p>Quality rest dictates morning emotional resilience. Replace late-night sensory overload with a strict digital curfew. Incorporate calming nervines like <strong>Chamomile, Passionflower, or Valerian Root</strong> into your evening ritual to quiet an overactive motor and prepare your nervous system for rejuvenation.</p>
-        </div>
-
-        <div class="card">
-            <h3>2. Low-Friction Nutrition</h3>
-            <p>ADHD brains require stable, steady fuel profiles to prevent executive focus crashes. Skip multi-step cooking preparation that causes choice fatigue. Instead, utilize quick assembly protocols paired with targeted brain supporters: <strong>Lion's Mane Mushroom</strong> for cognitive clarity, and <strong>Ashwagandha</strong> to buffer the cortisol response that drives neurodivergent anxiety.</p>
-        </div>
-
-        <h2>Part 3: Work, Career, & Relationships</h2>
-        <h3>The Pomodoro Flow Matrix</h3>
-        <p style="font-weight: 600; color: var(--teal-light);">[ 25 MIN ISOLATED FOCUS ] &rarr; [ 5 MIN HERBAL TEA BREAK ]</p>
-        <p>Avoid the exhausting sequence of procrastination followed by all-night burnout. Break large, ambiguous assignments into isolated 15-minute micro-milestones. Map your final goals using backward planning techniques, working in reverse from your final deadline so you preserve cognitive momentum.</p>
-
-        <h3>Authentic Communication & Safe Intimacy</h3>
-        <p>Women are heavily socialized to prioritize people-pleasing, which often causes ADHDers to over-commit until they hit absolute sensory collapse. Practice clear, upfront boundary setting. State your physical workspace and operational parameters comfortably to peers and partners.</p>
-        <p>When dating, protect your personal sovereignty. Always select energetic, public environments (like botanical cafes or open parks) for initial meetups, arrange independent transit control, and trust your sensitive nervous system's warning signs implicitly.</p>
-
-        <h2>Part 4: The ADHD Woman's Quick-Start Action Checklist</h2>
-        <p>Strategies you can act on within the next 10 minutes to bypass executive paralysis and kickstart forward momentum:</p>
-
-        <div class="card">
-            <strong>Strategic Environment Scaffolding (Do This Now)</strong>
-            <p style="margin-top: 0.5rem;"><strong>Build a "Launchpad" Visual Station:</strong> Choose a decorative, open ceramic bowl or a small wooden tray and place it directly on your entryway table or kitchen counter. Keys, wallet, work badges, and sunglasses must live here. Never hide them in a deep dark drawer—if your brain cannot visually see them, they cease to exist in your working memory.</p>
-            <p><strong>The 2-Minute Peppermint Reset:</strong> Buy an essential oil diffuser for your workspace and stock it with premium Peppermint or Rosemary oils. When your mind begins to drift or enter a state-paralysis "freeze," turn the diffuser on. Sensory tracking data shows that strong olfactory cues provide immediate, sharp nervous system grounding, cutting through mental fog and signaling to your brain that it is time to transition tasks.</p>
-        </div>
-
-        <div class="card">
-            <strong>Time Blindness Hacks (Act on Today)</strong>
-            <p style="margin-top: 0.5rem;"><strong>The Audio-Paced Pomodoro Workflow:</strong> Traditional silent or ticking timers can increase anxiety. Instead, select an energetic, instrumental playlist or a low-fi jazz track that lasts exactly 20 to 25 minutes. Commit to working only until the music stops. This turns time into a rhythmic, audible landscape rather than an invisible concept, allowing your brain to anchor its pacing naturally.</p>
-            <p><strong>Double Your Time Estimates (The Buffer Metric):</strong> Before your next task, write down how long you honestly think it will take you. Now, instantly double that number on your planner. This immediately defeats the built-in "ADHD optimism bias" and protects you from the stressful cortisol spike of racing against chronic lateness.</p>
-        </div>
-
-        <p style="text-align: center; margin-top: 3rem; font-size: 1.2rem; color: var(--sage-soothe); font-weight: 600;">You are not broken, lazy, or incapable. You are a neurodivergent woman learning to cultivate an ecosystem built natively for your exact mind. Step into your creative power.</p>
-
-        <footer>
-            <p>&copy; 2026 The ADHD Herbalist. Empowering neurodiverse minds organically.</p>
-        </footer>
-    </div>
-</body>
-</html>`;
-
-                const blob = new Blob([guideHtmlContent], { type: 'text/html' });
+                const blob = new Blob([guideContent], { type: 'text/plain' });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = 'The_ADHD_Herbalist_Womans_Guide.html';
+                a.download = 'ADHD_Herbalist_Strategy_Guide.txt';
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
