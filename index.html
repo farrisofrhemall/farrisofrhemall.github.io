@@ -372,7 +372,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Logistical Support Grid Structure Structure (Within Portal Modal) */
+        /* Logistical Support Structure */
         .logistics-step {
             background: rgba(15, 23, 42, 0.4);
             border-left: 4px solid var(--teal-light);
@@ -839,7 +839,7 @@
                         <div class="herbal-instruction"><strong>The Benefit:</strong> Rich in 1,8-cineole, proven to increase memory speed and focus.<br><strong>Protocol:</strong> Steep 1 tbsp fresh leaves covered for 10 mins. Sip during your morning planning hour.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('week-1-dopamine-mapping')">⬇️ Download Week 1 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="triggerDownload('week-1')">⬇️ Download Week 1 Workbook Guide</button>
             </div>
 
             <div class="module-card">
@@ -854,7 +854,7 @@
                         <div class="herbal-instruction"><strong>The Benefit:</strong> Improves mental clarity and cognitive capacity under stress.<br><strong>Protocol:</strong> Add 1-2 tsp dried herb to hot water. Cover tightly for 15 minutes to preserve brain-soothing compounds.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('week-2-kinetic-canvas')">⬇️ Download Week 2 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="triggerDownload('week-2')">⬇️ Download Week 2 Workbook Guide</button>
             </div>
 
             <div class="module-card">
@@ -869,7 +869,7 @@
                         <div class="herbal-instruction"><strong>The Benefit:</strong> An adaptogen that lowers biological stress markers and balances energy response.<br><strong>Protocol:</strong> Decoction method: Lightly simmer 1 tbsp of leaves in a small pot for 5-10 minutes.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('week-3-environmental-scaffolding')">⬇️ Download Week 3 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="triggerDownload('week-3')">⬇️ Download Week 3 Workbook Guide</button>
             </div>
 
             <div class="module-card">
@@ -884,7 +884,7 @@
                         <div class="herbal-instruction"><strong>The Benefit:</strong> Inhibits GABA transaminase, lifting mood and soothing timeline-induced panic.<br><strong>Protocol:</strong> Steep 2 tsp dried leaves in boiling water for 12 mins. Drink when clock anxiety spikes.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('week-4-time-blindness')">⬇️ Download Week 4 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="triggerDownload('week-4')">⬇️ Download Week 4 Workbook Guide</button>
             </div>
 
             <div class="module-card">
@@ -899,7 +899,7 @@
                         <div class="herbal-instruction"><strong>The Benefit:</strong> Calms the HPA axis to dramatically lower circulating cortisol levels.<br><strong>Protocol:</strong> Tonic Latte: Simmer 1/2 tsp root powder in warm milk with cinnamon for 7 mins.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('week-5-neuro-burnout-mitigation')">⬇️ Download Week 5 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="triggerDownload('week-5')">⬇️ Download Week 5 Workbook Guide</button>
             </div>
 
             <div class="module-card">
@@ -914,7 +914,7 @@
                         <div class="herbal-instruction"><strong>The Benefit:</strong> Rich in apigenin, binding to deep central nervous system receptors to induce calm reset.<br><strong>Protocol:</strong> Strong Infusion: Steep 2 tbsp covered for 15 mins. Drink 1 hr before bed.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('week-6-radical-momentum-plan')">⬇️ Download Week 6 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="triggerDownload('week-6')">⬇️ Download Week 6 Workbook Guide</button>
             </div>
         </div>
 
@@ -1103,20 +1103,248 @@
             }
         }
 
-        /* Accessing Free Blueprint Worksheets (Functional Update) */
-        function triggerDownload(fileNameBase) {
-            // This constructs a path pointing directly to a folders named 'worksheets' on your server
-            const fileUrl = '/worksheets/' + fileNameBase + '.pdf';
+        /* Database containing printable custom worksheet content definitions matching site aesthetic */
+        const worksheetData = {
+            "week-1": {
+                title: "Week 1: Dopamine Mapping Matrix",
+                focus: "Breaking Procrastination Loops & Stimulating Baseline Dopamine Levels",
+                herb: "Rosemary Infusion Protocol (Rich in 1,8-cineole for cognitive speed)",
+                exerciseTitle: "Exercise: Structural Task-Novelty Component Builder",
+                exerciseText: "List 2 boring operational goals you have been actively delaying. Next to each, design a small sensory co-factor (e.g., changes in lighting, background auditory frequencies, or immediate visual targets) to lower your cognitive activation threshold.",
+                inputs: ["Delayed Goal 1 & Your Sensory Novelty Co-Factor:", "Delayed Goal 2 & Your Sensory Novelty Co-Factor:"],
+                steps: [
+                    "Perform your Dopamine Spike Track tracking analysis during early hours.",
+                    "Prepare Rosemary Infusion: Steep 1 tbsp fresh leaves covered for 10 minutes to capture volatile brain-stimulating compounds.",
+                    "Sip consciously while executing your initial high-friction workspace tasks."
+                ]
+            },
+            "week-2": {
+                title: "Week 2: The Kinetic Canvas Structural Manual",
+                focus: "Physical Mental Offloading & Cognitive Resource Preservation",
+                herb: "Gotu Kola Cold-Steep Infusion (Preserves neurotransmitter pathways under stress)",
+                exerciseTitle: "Exercise: Spatial Priority Boundary Configuration",
+                exerciseText: "To bypass visual task blindness, sketch out a conceptual blueprint of your main visible wall space. Identify exactly where your absolute non-negotiable operational checkpoints will live physically.",
+                inputs: ["Describe your physical tracking canvas wall coordinates:", "What tactile tools (sticky notes, boards) will map your active priorities?"],
+                steps: [
+                    "Completely clear out hidden list containers or text threads that trigger visual avoidance loops.",
+                    "Add 1-2 tsp dried Gotu Kola to hot water. Cover tightly for 15 minutes to secure active compounds.",
+                    "Perform a complete physical offloading sequence onto your wall layout before checking your screens."
+                ]
+            },
+            "week-3": {
+                title: "Week 3: Environmental Scaffolding Audit",
+                focus: "Eliminating Micro-Hurdles & Automating Behavioral Transitions",
+                herb: "Simmered Tulsi Decoction (Adaptogenic balancing agent for cortisol production)",
+                exerciseTitle: "Exercise: Task-Friction Identification Matrix",
+                exerciseText: "Pinpoint a vital daily routine that consistently falls apart. Track backward to discover the hidden micro-obstacle (e.g., untangling computer cords, opening closed cabinets, finding tools) that causes executive stall.",
+                inputs: ["What specific habit or routine consistently stalls?", "What structural layout shift removes that workspace roadblock entirely?"],
+                steps: [
+                    "Restructure one workspace element so execution setups require zero active mental willpower.",
+                    "Prepare Tulsi Decoction: Lightly simmer 1 tbsp of leaves in a small covered pot for 5-10 minutes.",
+                    "Drink your warm decoction directly ahead of your trickiest daily transitions."
+                ]
+            },
+            "week-4": {
+                title: "Week 4: Taming Time Blindness Blueprint",
+                focus: "Replacing Rigid Pacing with Fluid Energy-Block Architecture",
+                herb: "Lemon Balm Infusion (Inhibits GABA-transaminase to ease clock-based worry)",
+                exerciseTitle: "Exercise: Visual Energy Allocation Setup",
+                exerciseText: "Discard standard hour-by-hour agendas. Divide your upcoming workday into 3 flexible blocks: High-Creativity, Administrative Drag, and Deep Reset. Assign work based on raw mental fuel rather than a clock number.",
+                inputs: ["Your Daily High-Creativity Energy Windows:", "Your Strategy for Managing Low-Energy Administrative Blocks:"],
+                steps: [
+                    "Transition your primary visual timer parameters onto a non-digital countdown setup.",
+                    "Steep 2 tsp dried Lemon Balm leaves in boiling water for 12 minutes to maximize soothing parameters.",
+                    "Consume your infusion immediately when schedule pressures begin to trigger physical panic loops."
+                ]
+            },
+            "week-5": {
+                title: "Week 5: Neuro-Burnout Mitigation Framework",
+                focus: "Preserving Metabolic Performance & Reversing Sensory Shutdown States",
+                herb: "Ashwagandha Tonic Latte (Calms the HPA axis to stabilize baseline cortisol)",
+                exerciseTitle: "Exercise: Early Sensory-Overload Warning Signals",
+                exerciseText: "Burnout doesn't happen accidentally. Write down your personal early indicators of cognitive depletion (e.g., changes in speech patterns, high screen irritability, light sensitivity, looping thoughts).",
+                inputs: ["My Top 3 Personal Sensory Overload Warning Indicators:", "My Immediate Emergency Environmental Unmasking Strategy:"],
+                steps: [
+                    "Establish a non-negotiable workspace environment reset protocol that requires zero social performance.",
+                    "Simmer 1/2 tsp Ashwagandha root powder in warm milk with cinnamon for 7 minutes to draw out adaptogens.",
+                    "Drink this grounding herbal tonic latte as an afternoon boundary shield between work and life."
+                ]
+            },
+            "week-6": {
+                title: "Week 6: The Radical Momentum Engine",
+                focus: "Constructing Long-Term Frameworks for Low-Dopamine Trajectories",
+                herb: "Concentrated Chamomile Reset (Binds to central nervous system receptors for deep recovery)",
+                exerciseTitle: "Exercise: Low-Fuel Operational Checklist",
+                exerciseText: "When your dopamine drops to zero, what are the absolute minimum foundational structures that must stay alive to protect your progress without burning you out? Build your automation contingency outline.",
+                inputs: ["My Automated Workflow Safeguards for Minimal Energy Days:", "How I Will Protect My Progress Without Reverting to Masking Loops:"],
+                steps: [
+                    "Review your compiled 6-week behavioral data profile to optimize environmental structures.",
+                    "Prepare a Strong Infusion: Steep 2 tbsp Chamomile flowers covered tightly for 15 full minutes.",
+                    "Sip this deep-reset protocol exactly 1 hour before sleep to lock in system performance recovery."
+                ]
+            }
+        };
+
+        /* Programmatic Printable Document Factory Generator */
+        function triggerDownload(weekKey) {
+            const data = worksheetData[weekKey];
+            if (!data) return;
+
+            // Generate beautifully customized HTML matching the site's dark slate and premium color tone palette
+            const docContent = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="utf-8">
+                <title>${data.title}</title>
+                <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+                <style>
+                    body {
+                        background-color: #0f172a;
+                        color: #f8fafc;
+                        font-family: 'Outfit', sans-serif;
+                        padding: 40px;
+                        max-width: 800px;
+                        margin: 0 auto;
+                        line-height: 1.6;
+                    }
+                    .header-container {
+                        border-bottom: 3px solid #0d9488;
+                        padding-bottom: 20px;
+                        margin-bottom: 30px;
+                    }
+                    h1 {
+                        font-family: 'Space Grotesk', sans-serif;
+                        color: #2dd4bf;
+                        font-size: 2.2rem;
+                        margin-bottom: 5px;
+                    }
+                    .focus-banner {
+                        font-weight: 600;
+                        color: #94a3b8;
+                        text-transform: uppercase;
+                        font-size: 0.9rem;
+                        letter-spacing: 1px;
+                    }
+                    .section-box {
+                        background-color: #1e293b;
+                        border: 1px solid rgba(255,255,255,0.05);
+                        border-radius: 16px;
+                        padding: 25px;
+                        margin-bottom: 25px;
+                    }
+                    h2 {
+                        font-family: 'Space Grotesk', sans-serif;
+                        font-size: 1.3rem;
+                        margin-bottom: 15px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                    .title-teal { color: #2dd4bf; }
+                    .title-coral { color: #f97316; }
+                    .title-sage { color: #86efac; }
+                    
+                    .input-area {
+                        margin-top: 15px;
+                    }
+                    label {
+                        display: block;
+                        font-size: 0.95rem;
+                        color: #e2e8f0;
+                        margin-bottom: 8px;
+                        font-weight: 600;
+                    }
+                    .text-box {
+                        width: 100%;
+                        height: 90px;
+                        background: #0f172a;
+                        border: 1px solid #475569;
+                        border-radius: 8px;
+                        margin-bottom: 15px;
+                    }
+                    ol {
+                        padding-left: 20px;
+                    }
+                    li {
+                        margin-bottom: 12px;
+                        color: #cbd5e1;
+                    }
+                    .print-btn-container {
+                        text-align: center;
+                        margin-top: 40px;
+                    }
+                    .print-button {
+                        background-color: #f97316;
+                        color: white;
+                        border: none;
+                        padding: 12px 30px;
+                        font-weight: 700;
+                        font-size: 1rem;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        font-family: 'Outfit', sans-serif;
+                    }
+                    @media print {
+                        .print-btn-container { display: none; }
+                        body { background: white; color: black; padding: 20px; }
+                        .section-box { background: #f8fafc; border: 1px solid #cbd5e1; }
+                        .text-box { background: white; border: 1px solid #94a3b8; }
+                        h1 { color: #0d9488; }
+                        .title-teal, .title-coral, .title-sage { color: black; }
+                        li { color: #334155; }
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="header-container">
+                    <h1>${data.title}</h1>
+                    <div class="focus-banner">🎯 Strategy Core Objective: ${data.focus}</div>
+                </div>
+
+                <div class="section-box">
+                    <h2 class="title-sage">🌱 Integration Protocol: My Herbal Medicine Blueprint</h2>
+                    <p><strong>Active Formulation Parameters:</strong> ${data.herb}</p>
+                </div>
+
+                <div class="section-box">
+                    <h2 class="title-coral">🧠 Behavioral Excavation Framework</h2>
+                    <p style="color: #cbd5e1; font-size: 1rem; margin-bottom: 15px;"><strong>${data.exerciseTitle}</strong><br>${data.exerciseText}</p>
+                    <div class="input-area">
+                        ${data.inputs.map(inputLabel => `
+                            <label>${inputLabel}</label>
+                            <div class="text-box"></div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <h2 class="title-teal">📋 Execution Checklist & Structural Guardrails</h2>
+                    <ol>
+                        ${data.steps.map(step => `<li>${step}</li>`).join('')}
+                    </ol>
+                </div>
+
+                <div class="print-btn-container">
+                    <button class="print-button" onclick="window.print()">Print Worksheet / Save as Local PDF</button>
+                    <p style="font-size:0.85rem; color:#94a3b8; margin-top:8px;">Tip: Select "Save as PDF" in your print window options to securely log changes inside your digital dashboard folder.</p>
+                </div>
+            </body>
+            </html>
+            `;
+
+            // Convert raw template string cleanly into a downloadable Blob data structure block
+            const fileBlob = new Blob([docContent], { type: 'text/html' });
+            const fileUrl = URL.createObjectURL(fileBlob);
             
-            // Create an invisible anchor link, attach it to the page, and trigger it
-            const downloadLink = document.createElement('a');
-            downloadLink.href = fileUrl;
-            downloadLink.target = '_blank';
-            downloadLink.setAttribute('download', fileNameBase + '.pdf');
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.href = fileUrl;
+            downloadAnchor.setAttribute('download', `${weekKey}-client-strategy-worksheet.html`);
             
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            document.body.removeChild(downloadAnchor);
+            URL.revokeObjectURL(fileUrl);
         }
 
         /* Modal Controls */
