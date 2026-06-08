@@ -3,1188 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The ADHD Herbalist | Thrive with Neurodiversity</title>
+    <title>Interactive Worksheets</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-
-    <!-- Calendly Badge Widget Assets Begin -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <!-- Calendly Badge Widget Assets End -->
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --teal-calm: #0d9488;
-            --teal-light: #2dd4bf;
-            --coral-excite: #f97316;
-            --coral-hover: #ea580c;
-            --sage-soothe: #86efac;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-        }
-
+        /* --- CSS RESET & VARIABLES --- */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Outfit', sans-serif;
-            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: rgba(79, 70, 229, 0.1);
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+            --radius: 12px;
+            --transition: all 0.2s ease-in-out;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
             line-height: 1.6;
-            overflow-x: hidden;
+            padding: 40px 20px;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-        }
-
-        /* Navigation Bar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 2rem;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--teal-light);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--coral-excite);
-        }
-
-        /* Hero Landing */
-        .hero {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 4rem 2rem;
-            position: relative;
-            background: radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 20% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .badge {
-            background: rgba(13, 148, 136, 0.2);
-            color: var(--teal-light);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--teal-calm);
-            font-weight: 600;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .highlight-text {
-            background: linear-gradient(to right, var(--teal-light), var(--coral-excite));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-        }
-
-        /* Buttons */
-        .cta-btn {
-            background-color: var(--coral-excite);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
-            transition: all 0.3s ease;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-btn:hover {
-            background-color: var(--coral-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
-        }
-
-        .secondary-btn {
-            background: transparent;
-            color: var(--teal-light);
-            border: 2px solid var(--teal-calm);
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-left: 1rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-            cursor: pointer;
-        }
-
-        .secondary-btn:hover {
-            background: rgba(13, 148, 136, 0.1);
-            border-color: var(--teal-light);
-        }
-
-        /* Visual Graphic Styling */
-        .visual-container {
-            width: 100%;
-            height: 350px;
-            margin: 2rem 0;
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-            background: #1e293b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .visual-placeholder {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.6;
-        }
-
-        .visual-overlay-text {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: rgba(15, 23, 42, 0.85);
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--coral-excite);
-        }
-
-        /* Core Structure */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-bottom: 4rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Bio Layout */
-        .bio-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .bio-image {
-            width: 100%; 
-            max-height: 500px; 
-            object-fit: cover; 
-            border-radius: 24px; 
-            border: 4px solid var(--teal-calm);
-            background-color: var(--bg-card);
-        }
-
-        .bio-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            color: var(--text-muted);
-        }
-
-        .bio-text strong {
-            color: var(--text-light);
-        }
-
-        /* 6-WEEK MODULES ROADMAP GRID */
-        .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .module-card {
-            background-color: var(--bg-card);
-            padding: 2.2rem;
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-        }
-
-        .module-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--teal-light);
-            box-shadow: 0 10px 25px rgba(45, 212, 191, 0.05);
-        }
-
-        .module-num {
-            font-size: 0.85rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--coral-excite);
-            margin-bottom: 0.5rem;
-        }
-
-        .module-card h3 {
-            color: var(--text-light);
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .module-focus-tag {
-            color: var(--teal-light);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .module-card p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
-        }
-
-        .worksheet-download-btn {
-            background: rgba(13, 148, 136, 0.15);
-            color: var(--teal-light);
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            border: 1px solid rgba(45, 212, 191, 0.2);
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            width: 100%;
-            margin-top: auto;
-        }
-
-        .worksheet-download-btn:hover {
-            background: var(--teal-calm);
-            color: white;
-            border-color: var(--teal-calm);
-        }
-
-        /* LOGISTICAL HOW IT WORKS ROW STRUCTURE (Within Portal Modal) */
-        .logistics-step {
-            background: rgba(15, 23, 42, 0.4);
-            border-left: 4px solid var(--teal-light);
-            padding: 1.5rem;
-            border-radius: 0 12px 12px 0;
-            margin-bottom: 1.25rem;
-        }
-
-        .logistics-step h4 {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 0.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logistics-step p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        /* RESEARCH CAROUSEL SYSTEM */
-        .carousel-outer {
-            position: relative;
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
-
-        .carousel-track-container {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            min-height: 300px;
-        }
-
-        .research-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(0.95);
-            transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
-            z-index: 1;
-        }
-
-        .research-slide.active {
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1);
-            position: relative;
-            z-index: 2;
-        }
-
-        .expandable-research-card {
-            background-color: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: 24px;
-            border: 2px solid rgba(255, 255, 255, 0.05);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            user-select: none;
-        }
-
-        .expandable-research-card:hover {
-            border-color: var(--teal-light);
-            background: #24324d;
-            transform: translateY(-2px);
-        }
-
-        .expandable-research-card h3 {
-            color: var(--teal-light);
-            font-size: 1.6rem;
-            margin-bottom: 0.75rem;
-            padding-right: 2rem;
-        }
-
-        .expand-indicator {
-            position: absolute;
-            top: 2.5rem;
-            right: 2.5rem;
-            color: var(--coral-excite);
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .expandable-research-card.expanded .expand-indicator {
-            transform: rotate(180deg);
-        }
-
-        .research-summary {
-            font-size: 1.15rem;
-            color: var(--text-light);
-        }
-
-        .research-details-pane {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-top: 0;
-        }
-
-        .expandable-research-card.expanded .research-details-pane {
-            max-height: 500px;
-            margin-top: 1.5rem;
-            border-top: 1px dashed rgba(255, 255, 255, 0.1);
-            padding-top: 1.5rem;
-        }
-
-        .application-box {
-            background: rgba(15, 23, 42, 0.6);
-            padding: 1.25rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--coral-excite);
-            margin-bottom: 1.25rem;
-        }
-
-        .citation-tag {
-            display: inline-block;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            background: rgba(0,0,0,0.2);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-style: italic;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(30, 41, 59, 0.8);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: var(--text-light);
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.2s ease;
-            z-index: 10;
-        }
-
-        .carousel-btn:hover {
-            background: var(--coral-excite);
-            border-color: var(--coral-excite);
-            color: white;
-        }
-
-        .carousel-btn.prev { left: -10px; }
-        .carousel-btn.next { right: -10px; }
-
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 1.5rem;
-        }
-
-        .carousel-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #334155;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .carousel-dot.active {
-            background: var(--teal-light);
-            width: 24px;
-            border-radius: 10px;
-        }
-
-        /* Quiz Box Layout */
-        .quiz-container {
-            background-color: var(--bg-card);
-            border-radius: 24px;
-            padding: 3rem;
+        .container {
             max-width: 700px;
             margin: 0 auto;
-            border: 2px solid var(--teal-calm);
-            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.1);
         }
 
-        .quiz-progress {
-            height: 6px;
-            background: #334155;
-            border-radius: 3px;
-            margin-bottom: 2rem;
-            overflow: hidden;
-        }
-
-        .quiz-progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(to right, var(--teal-light), var(--coral-excite));
-            transition: width 0.3s ease;
-        }
-
-        .quiz-option {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 1.2rem;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .quiz-option:hover {
-            background: rgba(45, 212, 191, 0.1);
-            border-color: var(--teal-light);
-        }
-
-        .quiz-results {
-            display: none;
+        /* --- HEADER --- */
+        header {
             text-align: center;
+            margin-bottom: 40px;
         }
 
-        /* Footer System */
-        footer {
-            background-color: #020617;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        /* Popup Modals */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.9);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-
-        .modal-content {
-            background: var(--bg-card);
-            padding: 3rem;
-            border-radius: 24px;
-            max-width: 500px;
-            width: 100%;
-            position: relative;
-            border: 2px solid var(--coral-excite);
-            text-align: center;
-        }
-
-        .modal-bio-content {
-            max-width: 850px;
-            max-height: 90vh;
-            overflow-y: auto;
-            text-align: left;
-            border-color: var(--teal-calm);
-            padding: 2.5rem;
-        }
-
-        /* MODAL TAB SYSTEM LOOKS */
-        .modal-tabs {
-            display: flex;
-            border-bottom: 2px solid rgba(255,255,255,0.1);
-            margin-bottom: 2rem;
-            gap: 1rem;
-        }
-
-        .modal-tab-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            padding: 0.75rem 1.5rem;
-            font-size: 1.1rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            cursor: pointer;
-            position: relative;
-            transition: color 0.2s;
-        }
-
-        .modal-tab-btn:hover {
-            color: var(--teal-light);
-        }
-
-        .modal-tab-btn.active {
-            color: var(--teal-light);
-        }
-
-        .modal-tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--teal-light);
-        }
-
-        .tab-panel {
-            display: none;
-        }
-
-        .tab-panel.active {
-            display: block;
-        }
-
-        .modal-bio-content h2 {
-            color: var(--text-light);
+        header h1 {
             font-size: 2.2rem;
-            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
-        .modal-bio-content h3 {
-            color: var(--coral-excite);
-            font-size: 1.5rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 0.5rem;
-        }
-
-        .modal-bio-content p {
-            color: var(--text-muted);
-            margin-bottom: 1.2rem;
+        header p {
+            color: var(--text-secondary);
             font-size: 1.1rem;
-            line-height: 1.7;
         }
 
-        .bullet-point-stack {
-            margin-bottom: 1.5rem;
+        /* --- WORKSHEET CARD --- */
+        .worksheet-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
         }
 
-        .bullet-point-stack strong {
-            color: var(--text-light);
+        .worksheet-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
         }
 
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--text-muted);
-            transition: color 0.2s;
+        .worksheet-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
         }
 
-        .close-modal:hover {
-            color: white;
+        /* --- FORM ELEMENTS --- */
+        .form-group {
+            margin-bottom: 24px;
         }
 
-        .form-input {
-            width: 100%;
-            padding: 1rem;
-            margin-top: 1rem;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid #475569;
-            background: var(--bg-dark);
-            color: white;
+        .form-group:last-of-type {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-primary);
             font-size: 1rem;
         }
 
-        .form-input:focus {
-            outline: 2px solid var(--teal-light);
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: #fafafa;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            resize: vertical;
+            transition: var(--transition);
         }
 
-        @media (max-width: 768px) {
-            .bio-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .hero h1 { font-size: 2.5rem; }
-            .secondary-btn { margin-left: 0; margin-top: 1rem; display: block; text-align: center;}
-            .cta-btn { display: block; text-align: center; width: 100%; margin-bottom: 0.5rem; }
-            .nav-links { display: none; } 
-            .carousel-outer { padding: 0 1rem; }
-            .carousel-btn { display: none; }
-            .modal-tabs { flex-direction: column; gap: 0; }
-            .modal-tab-btn { text-align: left; padding: 0.5rem 0; }
-            .modal-tab-btn.active::after { bottom: 0; left: 0; width: 40px; }
+        textarea:focus {
+            outline: none;
+            background-color: var(--card-bg);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+
+        textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        /* --- BUTTONS & ACTIONS --- */
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .status-message {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--success-color);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .status-message.show {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#" class="logo">🌿 The ADHD Herbalist</a>
-        <div class="nav-links">
-            <a href="#about">My Story</a>
-            <a href="javascript:void(0)" onclick="openBioModal('modules-tab')">Modules</a>
-            <a href="#modules">6-Week Blueprint</a>
-            <a href="#science">Latest Science</a>
-            <a href="javascript:void(0)" onclick="openBioModal('program-tab')">How It Works</a>
-            <a href="#quiz">ADHD Quiz</a>
-            <button onclick="openCalendlyPopup()" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; box-shadow: none;">Book a Session</button>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-content">
-            <span class="badge">Neurodivergent-Led Support</span>
-            <h1>Stop Fighting Your Brain. <br><span class="highlight-text">Start Flowering Through It.</span></h1>
-            <p>You aren't broken—your engine is just built for a completely different racetrack. Discover the holistic, science-backed systems built by an ADHDer, for ADHDers, to unlock calm focus and daily momentum.</p>
-            <div>
-                <button class="cta-btn" onclick="openEbookModal()">Download Free ADHD Strategy Guide</button>
-                <a href="#quiz" class="secondary-btn">Take the 2-Min Focus Quiz</a>
-            </div>
-        </div>
-    </header>
-
-    <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-        <div class="visual-container">
-            <img class="visual-placeholder" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80" alt="Calming plant textures">
-            <div class="visual-overlay-text">
-                <h3>Nature meets Neurodiversity: Real strategies for vibrant, organic focus.</h3>
-            </div>
-        </div>
-    </div>
-
-    <section id="about">
-        <div class="bio-grid">
-            <div>
-                <img class="bio-image" src="https://i.ibb.co/PvJGgCNM/Profile.jpg" alt="Tez - Your Profile Picture - The ADHD Herbalist">
-            </div>
-            <div class="bio-text">
-                <span class="badge" style="background: rgba(249, 115, 22, 0.1); color: var(--coral-excite); border-color: var(--coral-hover);">Meet Your Coach</span>
-                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2;">I worked relentlessly to build a system that works. Because I have ADHD too.</h2>
-                <p>Hello! I’m <strong>Tez</strong>, an ADHD coach dedicated to helping women break through the exhausting cycles of neurodiverse burnout, step out of their heads, and start living out loud.</p>
-                <p>I partner with women aged 25–55—both those who are formally diagnosed and those who strongly suspect they have ADHD—who know they are capable of achieving incredible things, but find themselves constantly hitting a wall.</p>
-                
-                <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button class="cta-btn" style="padding: 0.8rem 1.5rem; font-size: 1rem;" onclick="openBioModal('story-tab')">Read My Story & Credentials</button>
-                    <button class="secondary-btn" style="margin-left: 0; padding: 0.8rem 1.5rem; font-size: 1rem;" onclick="openBioModal('modules-tab')">Explore Strategy Modules</button>
-                    <button class="secondary-btn" style="margin-left: 0; padding: 0.8rem 1.5rem; font-size: 1rem;" onclick="openBioModal('program-tab')">See How Our Program Works →</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: THE 6-WEEK CLIENT WORKBOOK CURRICULUM -->
-    <section id="modules" style="border-top: 1px solid rgba(255,255,255,0.05);">
-        <h2 class="section-title">The 6-Week Strategy Curriculum</h2>
-        <p class="section-subtitle">No overwhelming theories or text heavy-lectures. Work through one bite-sized, easy-to-understand objective each week with a built-in actionable framework guide.</p>
+    <div class="container">
         
-        <div class="modules-grid">
-            <!-- Week 1 -->
-            <div class="module-card">
-                <div>
-                    <div class="module-num">Week 01</div>
-                    <h3>Dopamine Mapping</h3>
-                    <span class="module-focus-tag">🎯 Focus: Breaking Procrastination Loops</span>
-                    <p>Stop waiting for "motivation" that never comes. Learn how to track your personal neurological spikes and design tiny novelty triggers that make starting boring tasks easy.</p>
-                </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('Week 1: Dopamine Mapping Dashboard')">⬇️ Download Week 1 Blueprint</button>
-            </div>
+        <header>
+            <h1>Interactive Reflection</h1>
+            <p>Complete the modules below to save your progress.</p>
+        </header>
 
-            <!-- Week 2 -->
-            <div class="module-card">
-                <div>
-                    <div class="module-num">Week 02</div>
-                    <h3>The Kinetic Canvas</h3>
-                    <span class="module-focus-tag">🎯 Focus: Mental Offloading & Clarity</span>
-                    <p>If a task is trapped out-of-sight inside an app or notebook, it ceases to exist. We build a physical, sensory-rich wall layout to keep your priorities safely visible without causing eye strain.</p>
-                </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('Week 2: Kinetic Canvas Layout Sheet')">⬇️ Download Week 2 Blueprint</button>
-            </div>
-
-            <!-- Week 3 -->
-            <div class="module-card">
-                <div>
-                    <div class="module-num">Week 03</div>
-                    <h3>Environmental Scaffolding</h3>
-                    <span class="module-focus-tag">🎯 Focus: Defeating Task Friction</span>
-                    <p>Isolate and eliminate the micro-hurdles that trigger executive breakdown. We physically restructure your daily spaces so moving from idea to execution takes zero willpower.</p>
-                </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('Week 3: Space Scaffolding Audit Form')">⬇️ Download Week 3 Blueprint</button>
-            </div>
-
-            <!-- Week 4 -->
-            <div class="module-card">
-                <div>
-                    <div class="module-num">Week 04</div>
-                    <h3>Taming the Time Blindness</h3>
-                    <span class="module-focus-tag">🎯 Focus: Stress-Free Pacing</span>
-                    <p>Traditional schedules run by numbers on a clock feel like a trap. We transition your calendar to intuitive, visual energy-blocks that naturally flex alongside your brain’s processing speed.</p>
-                </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('Week 4: Visual Energy Block Calendar')">⬇️ Download Week 4 Blueprint</button>
-            </div>
-
-            <!-- Week 5 -->
-            <div class="module-card">
-                <div>
-                    <div class="module-num">Week 05</div>
-                    <h3>Neuro-Burnout Mitigation</h3>
-                    <span class="module-focus-tag">🎯 Focus: Recovery & Energy Preservation</span>
-                    <p>Unmasking your true self takes metabolic energy. Learn how to identify sensory warning indicators early and utilize soothing lifestyle resets to step out of high-cortisol survival states.</p>
-                </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('Week 5: Burnout Early-Warning Checklist')">⬇️ Download Week 5 Blueprint</button>
-            </div>
-
-            <!-- Week 6 -->
-            <div class="module-card">
-                <div>
-                    <div class="module-num">Week 06</div>
-                    <h3>The Radical Momentum Plan</h3>
-                    <span class="module-focus-tag">🎯 Focus: Long-Term Sustainability</span>
-                    <p>Tie your custom systems together into an automated framework that keeps moving forward even on low-dopamine days. Protect your progress without reverting to hyper-masking loops.</p>
-                </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('Week 6: Sustainable Momentum Manual')">⬇️ Download Week 6 Blueprint</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="science" style="border-top: 1px solid rgba(255,255,255,0.05);">
-        <h2 class="section-title">Latest ADHD Science for Career & Life Success</h2>
-        <p class="section-subtitle">Traditional advice fails because it's built for neurotypical profiles. Our frameworks are rooted in documented neuro-behavioral clinical studies.</p>
-
-        <div class="carousel-outer">
-            <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
-            <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
-
-            <div class="carousel-track-container">
-                <div class="research-slide active">
-                    <div class="expandable-research-card" onclick="toggleCard(this)">
-                        <span class="expand-indicator">▼</span>
-                        <span class="badge" style="background:rgba(45,212,191,0.1); color:var(--teal-light); margin-bottom:0.5rem;">01. Neurological Profile</span>
-                        <h3>1. Interest-Based Nervous Systems</h3>
-                        <p class="research-summary">Recent neuroscientific studies confirm that the ADHD brain does not follow conventional priority frameworks. Success comes from setting up dynamic "Novelty and Urgency Co-factors" rather than rigid, static schedules.</p>
-                        
-                        <div class="research-details-pane">
-                            <div class="application-box">
-                                <strong style="color:var(--coral-excite); display:block; margin-bottom:4px;">🌿 Strategic Coaching Application:</strong>
-                                We scrap standard chronological workflows. Instead, we map your daily objectives directly onto custom interest metrics and interactive pacing strategies to stimulate organic dopamine without triggering panic fatigue.
-                            </div>
-                            <span class="citation-tag">Citation: Volkow, N. D., et al. "Evaluating Dopamine Reward Pathways in Adult ADHD Profiles." Journal of the American Medical Association (JAMA), Vol. 302, No. 10.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="research-slide">
-                    <div class="expandable-research-card" onclick="toggleCard(this)">
-                        <span class="expand-indicator">▼</span>
-                        <span class="badge" style="background:rgba(45,212,191,0.1); color:var(--teal-light); margin-bottom:0.5rem;">02. Environmental Strategy</span>
-                        <h3>2. Radical Environmental Scaffolding</h3>
-                        <p class="research-summary">Data shows that minimizing working memory load through visual tracking, tactile interfaces, and natural nervous system regulators drastically drops cortisol spikes and eliminates executive dysfunction fatigue.</p>
-                        
-                        <div class="research-details-pane">
-                            <div class="application-box">
-                                <strong style="color:var(--coral-excite); display:block; margin-bottom:4px;">🌿 Strategic Coaching Application:</strong>
-                                We bypass complex task managers that stress your brain out. We build physical systems around your workspace so you always stay organically connected to your immediate workflow goals.
-                            </div>
-                            <span class="citation-tag">Citation: Barkley, R. A. "Executive Functions and the Nature of Visual Working Space Load in ADHD Adults." ADHD Report, Vol. 24.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: THE INTERACTIVE QUIZ BOX -->
-    <section id="quiz" style="border-top: 1px solid rgba(255,255,255,0.05);">
-        <h2 class="section-title">Discover Your Focus Profile</h2>
-        <p class="section-subtitle">Take this quick assessment to find out where your executive friction patterns live.</p>
-        <div class="quiz-container">
-            <div class="quiz-progress">
-                <div class="quiz-progress-bar" id="quizBar"></div>
-            </div>
-            <div id="quizBlock">
-                <h3 id="quizQuestion" style="margin-bottom: 1.5rem;">Loading question...</h3>
-                <div id="quizOptions"></div>
-            </div>
-            <div class="quiz-results" id="quizResults">
-                <h3 style="color: var(--teal-light); font-size: 2rem; margin-bottom: 1rem;">Your Profile: Dynamic Multi-Tasker</h3>
-                <p style="color: var(--text-muted); margin-bottom: 2rem;">Your brain loves novelty but hits a wall during execution cycles. The strategies inside Week 1 and Week 3 are tailormade to help fix this friction gap.</p>
-                <button class="cta-btn" onclick="openBioModal('modules-tab')">View Your Custom Blueprint Strategy Modules</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- MULTI-TAB UNIVERSAL BIO / PROGRAM / MODULES MODAL CONTAINER -->
-    <div class="modal" id="bioModal" onclick="closeModalOnBackground(event)">
-        <div class="modal-content modal-bio-content">
-            <span class="close-modal" onclick="closeBioModal()">&times;</span>
+        <div class="worksheet-card">
+            <h2 class="worksheet-title">Module 1: Goal Setting</h2>
+            <p class="worksheet-description">Define clarity for your upcoming objectives and identify immediate milestones.</p>
             
-            <div class="modal-tabs">
-                <button class="modal-tab-btn" id="story-tab-btn" onclick="switchModalTab('story-tab')">My Story & Bio</button>
-                <button class="modal-tab-btn" id="modules-tab-btn" onclick="switchModalTab('modules-tab')">Curriculum Modules</button>
-                <button class="modal-tab-btn" id="program-tab-btn" onclick="switchModalTab('program-tab')">About The Program</button>
-            </div>
-
-            <!-- Tab 1: Story Content -->
-            <div class="tab-panel" id="story-tab">
-                <h2>Behind the Systems</h2>
-                <p>For decades, I tried forcing my brain to fit into planner layouts and organizational methods built for neurotypical people. I ended up constantly falling behind, feeling broken, and entering deep burnout loops.</p>
-                <p>Everything shifted when I threw out standard time-management systems and built frameworks centered around human biology and neurodivergent reward spikes.</p>
-                <h3>Credentials & Focus Areas</h3>
-                <div class="bullet-point-stack">
-                    <p>• <strong>Certified Neurodiversity Coach Frameworks</strong> specializing in behavior modification strategies.</p>
-                    <p>• <strong>Over 500+ Hours</strong> of individual coaching partnership experience with women internationally.</p>
-                    <p>• <strong>Holistic Lifestyle Design Expert</strong> focusing on sensory soothing and custom workspace environments.</p>
+            <form id="worksheet-form-1" class="worksheet-form">
+                <div class="form-group">
+                    <label for="m1-q1">1. What is your primary objective for this month?</label>
+                    <textarea id="m1-q1" placeholder="Type your reflection here..."></textarea>
                 </div>
-            </div>
 
-            <!-- Tab 2: Modules Portal Content -->
-            <div class="tab-panel" id="modules-tab">
-                <h2>The Strategy Portal</h2>
-                <p style="margin-bottom: 2rem;">Explore the strategic frameworks built to bypass executive breakdown. Download your active blueprints below:</p>
-                
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div>
-                            <strong style="color: var(--coral-excite); display: block; font-size: 0.85rem;">WEEK 01</strong>
-                            <span style="font-weight: 700; color: white;">Dopamine Mapping Dashboard</span>
-                        </div>
-                        <button class="worksheet-download-btn" style="width: auto; margin-top: 0;" onclick="triggerDownload('Week 1: Dopamine Mapping Dashboard')">⬇️ Download Blueprint</button>
-                    </div>
-
-                    <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div>
-                            <strong style="color: var(--coral-excite); display: block; font-size: 0.85rem;">WEEK 02</strong>
-                            <span style="font-weight: 700; color: white;">The Kinetic Canvas Layout Sheet</span>
-                        </div>
-                        <button class="worksheet-download-btn" style="width: auto; margin-top: 0;" onclick="triggerDownload('Week 2: Kinetic Canvas Layout Sheet')">⬇️ Download Blueprint</button>
-                    </div>
-
-                    <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div>
-                            <strong style="color: var(--coral-excite); display: block; font-size: 0.85rem;">WEEK 03</strong>
-                            <span style="font-weight: 700; color: white;">Space Scaffolding Audit Form</span>
-                        </div>
-                        <button class="worksheet-download-btn" style="width: auto; margin-top: 0;" onclick="triggerDownload('Week 3: Space Scaffolding Audit Form')">⬇️ Download Blueprint</button>
-                    </div>
-
-                    <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div>
-                            <strong style="color: var(--coral-excite); display: block; font-size: 0.85rem;">WEEK 04</strong>
-                            <span style="font-weight: 700; color: white;">Visual Energy Block Calendar</span>
-                        </div>
-                        <button class="worksheet-download-btn" style="width: auto; margin-top: 0;" onclick="triggerDownload('Week 4: Visual Energy Block Calendar')">⬇️ Download Blueprint</button>
-                    </div>
-
-                    <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div>
-                            <strong style="color: var(--coral-excite); display: block; font-size: 0.85rem;">WEEK 05</strong>
-                            <span style="font-weight: 700; color: white;">Burnout Early-Warning Checklist</span>
-                        </div>
-                        <button class="worksheet-download-btn" style="width: auto; margin-top: 0;" onclick="triggerDownload('Week 5: Burnout Early-Warning Checklist')">⬇️ Download Blueprint</button>
-                    </div>
-
-                    <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div>
-                            <strong style="color: var(--coral-excite); display: block; font-size: 0.85rem;">WEEK 06</strong>
-                            <span style="font-weight: 700; color: white;">Sustainable Momentum Manual</span>
-                        </div>
-                        <button class="worksheet-download-btn" style="width: auto; margin-top: 0;" onclick="triggerDownload('Week 6: Sustainable Momentum Manual')">⬇️ Download Blueprint</button>
-                    </div>
+                <div class="form-group">
+                    <label for="m1-q2">2. What are three actionable steps you can take this week?</label>
+                    <textarea id="m1-q2" placeholder="1. &#10;2. &#10;3."></textarea>
                 </div>
-            </div>
 
-            <!-- Tab 3: Program Logistics Content -->
-            <div class="tab-panel" id="program-tab">
-                <h2>How The Program Works</h2>
-                <p>This is a completely custom 1:1 strategy deployment experience. We don't hand you generalized videos and leave you to drown in executive choice cycles.</p>
-                
-                <div class="logistics-step">
-                    <h4><span>01</span> Customized Focus Setup Session</h4>
-                    <p>We dissect your personal neurodivergent challenges, tracking your sensory and executive drop zones.</p>
+                <div class="card-actions">
+                    <button type="submit" class="submit-btn">Save Progress</button>
+                    <span id="status-1" class="status-message">Saved successfully!</span>
                 </div>
-                <div class="logistics-step">
-                    <h4><span>02</span> Weekly Micro-System Blueprint</h4>
-                    <p>Receive one highly optimized target tracking system each week. No heavy texts—just clean layouts built to work instantly.</p>
-                </div>
-                <div class="logistics-step">
-                    <h4><span>03</span> Direct Signal Slack Partnership</h4>
-                    <p>Get real-time workspace text adjustments, audio processing drops, and momentum accountability checks directly whenever you lose task initiation traction.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- FREE EBOOK DOWNLOAD MODAL -->
-    <div class="modal" id="ebookModal" onclick="closeModalOnBackground(event)">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeEbookModal()">&times;</span>
-            <h2 style="margin-bottom:1rem; font-size:2rem; color:var(--teal-light);">Get Your Free Strategy Guide</h2>
-            <p style="color:var(--text-muted); font-size:1.05rem;">Enter your email to instantly receive our foundational guide: <strong>The ADHD Strategy Toolkit: 5 Biomimetic Fixes for Chronic Executive Burnout</strong>.</p>
-            <form id="ebookForm" onsubmit="handleEbookSubmit(event)">
-                <input type="email" placeholder="Your primary email address" class="form-input" required id="ebookEmail">
-                <button type="submit" class="cta-btn" style="width:100%;">Send My Free Toolkit Guide 🌿</button>
             </form>
-            <div id="ebookSuccess" style="display:none; margin-top:1.5rem; color:var(--sage-soothe); font-weight:700;">
-                ✓ Strategy Guide Sent! Check your inbox folder.
-            </div>
         </div>
-    </div>
 
-    <footer>
-        <p style="font-weight:700; color:var(--text-light); margin-bottom:1rem;">🌿 The ADHD Herbalist & Coaching Systems</p>
-        <p style="font-size:0.9rem; color:var(--text-muted); max-width:600px; margin:0 auto;">Disclaimer: Our coaching strategies and frameworks are built using evidence-based scientific research, but they do not serve as professional mental health therapy or psychiatric medical treatments.</p>
-    </footer>
+        <div class="worksheet-card">
+            <h2 class="worksheet-title">Module 2: Obstacle Analysis</h2>
+            <p class="worksheet-description">Anticipate potential friction points and map out your strategic detours.</p>
+            
+            <form id="worksheet-form-2" class="worksheet-form">
+                <div class="form-group">
+                    <label for="m2-q1">1. What is the biggest barrier keeping you from making progress?</label>
+                    <textarea id="m2-q1" placeholder="Type your reflection here..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="m2-q2">2. How will you pivot or react when you encounter this barrier?</label>
+                    <textarea id="m2-q2" placeholder="Type your strategy here..."></textarea>
+                </div>
+
+                <div class="card-actions">
+                    <button type="submit" class="submit-btn">Save Progress</button>
+                    <span id="status-2" class="status-message">Saved successfully!</span>
+                </div>
+            </form>
+        </div>
+
+    </div>
 
     <script>
-        /* CAROUSEL SYSTEM CONTROLS */
-        let activeSlideIndex = 0;
-        const slides = document.querySelectorAll('.research-slide');
-
-        function updateCarouselDisplay() {
-            slides.forEach((slide, index) => {
-                if (index === activeSlideIndex) {
-                    slide.classList.add('active');
-                } else {
-                    slide.classList.remove('active');
-                    const innerCard = slide.querySelector('.expandable-research-card');
-                    if(innerCard) innerCard.classList.remove('expanded');
-                }
-            });
-        }
-
-        function moveCarousel(directionIndex) {
-            activeSlideIndex += directionIndex;
-            if (activeSlideIndex >= slides.length) activeSlideIndex = 0;
-            if (activeSlideIndex < 0) activeSlideIndex = slides.length - 1;
-            updateCarouselDisplay();
-        }
-
-        function toggleCard(cardElement) {
-            cardElement.classList.toggle('expanded');
-        }
-
-        /* MODAL WINDOW SYSTEM CONTROLS */
-        function openBioModal(targetTabId = 'story-tab') {
-            document.getElementById('bioModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            switchModalTab(targetTabId);
-        }
-
-        function closeBioModal() {
-            document.getElementById('bioModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        function switchModalTab(tabPanelId) {
-            const tabs = document.querySelectorAll('.modal-tab-btn');
-            const panels = document.querySelectorAll('.tab-panel');
+        document.addEventListener('DOMContentLoaded', () => {
             
-            tabs.forEach(tab => tab.classList.remove('active'));
-            panels.forEach(panel => panel.classList.remove('active'));
+            // Loop through forms to handle automatic loading and saving
+            const forms = document.querySelectorAll('.worksheet-form');
             
-            const selectedButton = document.getElementById(`${tabPanelId}-btn`);
-            if (selectedButton) selectedButton.classList.add('active');
-            
-            const selectedPanel = document.getElementById(tabPanelId);
-            if (selectedPanel) selectedPanel.classList.add('active');
-        }
+            forms.forEach((form) => {
+                const formId = form.id;
+                const textareas = form.querySelectorAll('textarea');
+                const statusMessage = form.querySelector('.status-message');
 
-        function openEbookModal() {
-            document.getElementById('ebookModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeEbookModal() {
-            document.getElementById('ebookModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-            document.getElementById('ebookForm').style.display = 'block';
-            document.getElementById('ebookSuccess').style.display = 'none';
-            document.getElementById('ebookEmail').value = '';
-        }
-
-        function closeModalOnBackground(event) {
-            if (event.target === document.getElementById('bioModal')) closeBioModal();
-            if (event.target === document.getElementById('ebookModal')) closeEbookModal();
-        }
-
-        function handleEbookSubmit(event) {
-            event.preventDefault();
-            document.getElementById('ebookForm').style.display = 'none';
-            document.getElementById('ebookSuccess').style.display = 'block';
-            setTimeout(() => { closeEbookModal(); }, 2500);
-        }
-
-        /* INTERACTIVE QUIZ ENGINE CODE */
-        const quizQuestions = [
-            { q: "When managing tedious projects, your focus usually:", a: ["Drops immediately into complete distraction", "Hyperfocuses intensely but burns out quickly", "Requires external anxiety to find momentum"] },
-            { q: "Your physical workflow setup or desk environment is:", a: ["Out of sight, out of mind (cluttered/hidden)", "Overwhelmingly messy, which paralyzes execution", "Too static and boring to keep you engaged"] }
-        ];
-        let currentQuizIndex = 0;
-
-        function runQuizSetup() {
-            if(currentQuizIndex < quizQuestions.length) {
-                document.getElementById('quizBar').style.width = `${(currentQuizIndex / quizQuestions.length) * 100}%`;
-                document.getElementById('quizQuestion').innerText = quizQuestions[currentQuizIndex].q;
-                let optHtml = '';
-                quizQuestions[currentQuizIndex].a.forEach(answer => {
-                    optHtml += `<div class="quiz-option" onclick="nextQuizStep()">${answer}</div>`;
+                // Load cached data from LocalStorage if it exists
+                textareas.forEach(textarea => {
+                    const savedValue = localStorage.getItem(`${formId}_${textarea.id}`);
+                    if (savedValue) {
+                        textarea.value = savedValue;
+                    }
                 });
-                document.getElementById('quizOptions').innerHTML = optHtml;
-            } else {
-                document.getElementById('quizBar').style.width = '100%';
-                document.getElementById('quizBlock').style.display = 'none';
-                document.getElementById('quizResults').style.display = 'block';
-            }
-        }
 
-        function nextQuizStep() {
-            currentQuizIndex++;
-            runQuizSetup();
-        }
+                // Handle Form submission
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
 
-        /* LIVE BLOB DOWNLOAD SYSTEM TRIGGER */
-        function triggerDownload(fileNameString) {
-            const dataString = `The ADHD Herbalist Workbook Resource - ${fileNameString}\n\nThis is your system guide blueprint for ${fileNameString}.\nUse this actionable framework layout sheet to organize your focus blocks and reduce task initialization friction.`;
-            const dataBlob = new Blob([dataString], { type: 'text/plain' });
-            const urlBlob = window.URL.createObjectURL(dataBlob);
-            const anchorElement = document.createElement('a');
-            anchorElement.style.display = 'none';
-            anchorElement.href = urlBlob;
-            anchorElement.download = `${fileNameString.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_blueprint.txt`;
-            document.body.appendChild(anchorElement);
-            anchorElement.click();
-            window.URL.revokeObjectURL(urlBlob);
-            document.body.removeChild(anchorElement);
-        }
+                    // Save values to LocalStorage
+                    textareas.forEach(textarea => {
+                        localStorage.setItem(`${formId}_${textarea.id}`, textarea.value);
+                    });
 
-        function openCalendlyPopup() {
-            if (typeof Calendly !== 'undefined') {
-                Calendly.initPopupWidget({ url: 'https://calendly.com/your-profile' });
-            } else {
-                alert('Calendly engine is currently initializing. Please try again in a brief moment!');
-            }
-            return false;
-        }
-
-        window.onload = function() {
-            runQuizSetup();
-        };
+                    // Trigger UI success indicator
+                    statusMessage.classList.add('show');
+                    setTimeout(() => {
+                        statusMessage.classList.remove('show');
+                    }, 3000);
+                });
+            });
+        });
     </script>
 </body>
 </html>
