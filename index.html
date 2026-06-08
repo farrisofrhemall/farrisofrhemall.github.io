@@ -8,10 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
-    <!-- Calendly asset injections begin -->
+    <!-- Calendly Badge Widget Assets Begin -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <!-- Calendly asset injections end -->
+    <!-- Calendly Badge Widget Assets End -->
 
     <style>
         :root {
@@ -419,13 +419,13 @@
         /* LOCKED PREMIUM MODULES SYSTEM */
         .research-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
         .card {
             background-color: var(--bg-card);
-            padding: 2.5rem;
+            padding: 2.2rem;
             border-radius: 24px;
             border: 1px solid rgba(255,255,255,0.05);
             position: relative;
@@ -433,6 +433,7 @@
             flex-direction: column;
             justify-content: space-between;
             overflow: hidden;
+            min-height: 320px;
         }
 
         .card-blur-layer {
@@ -460,11 +461,11 @@
         }
 
         .lock-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 0.75rem;
             background: rgba(249, 115, 22, 0.15);
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -673,9 +674,8 @@
         <div class="nav-links">
             <a href="#about">My Story</a>
             <a href="#science">Latest Science</a>
-            <a href="#modules">Program Vault</a>
+            <a href="#modules">How It Works</a>
             <a href="#quiz">ADHD Quiz</a>
-            <!-- Trigger integrated directly into button -->
             <button onclick="openCalendlyPopup()" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; box-shadow: none;">Book a Session</button>
         </div>
     </nav>
@@ -786,75 +786,106 @@
         </div>
     </section>
 
+    <!-- UPDATED: Program Architecture Section Built From Your Requirements -->
     <section id="modules" style="background: rgba(30, 41, 59, 0.5); border-radius: 32px; padding: 4rem 3rem;">
-        <h2 class="section-title">The Kinetic Reset Onboarding Engine</h2>
-        <p class="section-subtitle">A customized 4-week hybrid curriculum intentionally designed to guide high-achieving women out of dopamine bankruptcy and into structured, energetic fulfillment.</p>
+        <h2 class="section-title">How Our Program Works</h2>
+        <p class="section-subtitle">An intentional, high-accountability blueprint mapped out to transition your mind from defensive survival patterns into deliberate, organic power.</p>
         
         <div class="research-cards">
+            <!-- 1. On-The-Spot Implementation -->
             <div class="card">
                 <div class="lock-overlay">
                     <div class="lock-icon">🔒</div>
-                    <div class="lock-title">Module Vault Locked</div>
-                    <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
-                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Access Now</button>
+                    <div class="lock-title">Framework Locked</div>
+                    <p class="lock-text">Schedule your alignment workshop to unlock execution toolkits and interactive templates.</p>
+                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Strategy</button>
                 </div>
                 <div class="card-blur-layer">
-                    <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 1 Vault</span>
-                    <h3>🌿 Deconstructing the Wall</h3>
-                    <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 600;">Core Theme: Overcoming Dopamine Bankruptcy</p>
-                    <p>Audit the internal stress-panic cycles driving your executive exhaustion.</p>
+                    <span style="color: var(--teal-light); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">01 // Execution</span>
+                    <h3 style="margin: 0.5rem 0;">⚡ On-The-Spot Implementation</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted);">You won’t be sitting down and passive "talking" or just "learning about" our ADHD management frameworks—you'll actively build, launch, and execute them into your workflow in real time.</p>
                 </div>
             </div>
 
+            <!-- 2. The ONE FOCUS System -->
             <div class="card">
                 <div class="lock-overlay">
                     <div class="lock-icon">🔒</div>
-                    <div class="lock-title">Module Vault Locked</div>
-                    <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
-                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Access Now</button>
+                    <div class="lock-title">Framework Locked</div>
+                    <p class="lock-text">Schedule your alignment workshop to unlock execution toolkits and interactive templates.</p>
+                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Strategy</button>
                 </div>
                 <div class="card-blur-layer">
-                    <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 2 Vault</span>
-                    <h3>🌪️ Taming the Racing Mind</h3>
-                    <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 600;">Core Theme: Emotional Waves & Choice Paralysis</p>
-                    <p>Deconstruct why small decisions feel paralyzing when your system is overwhelmed.</p>
+                    <span style="color: var(--teal-light); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">02 // Micro-Habits</span>
+                    <h3 style="margin: 0.5rem 0;">🎯 The ONE FOCUS System</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted);">Manage YOUR specific ADHD traits by prioritizing one tiny, friction-free action each week. These bite-sized transformations compound quickly to engineer massive, permanent momentum.</p>
                 </div>
             </div>
 
+            <!-- 3. Follow Through -->
             <div class="card">
                 <div class="lock-overlay">
                     <div class="lock-icon">🔒</div>
-                    <div class="lock-title">Module Vault Locked</div>
-                    <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
-                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Access Now</button>
+                    <div class="lock-title">Framework Locked</div>
+                    <p class="lock-text">Schedule your alignment workshop to unlock execution toolkits and interactive templates.</p>
+                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Strategy</button>
                 </div>
                 <div class="card-blur-layer">
-                    <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 3 Vault</span>
-                    <h3>🥑 Dopamine Dining Blueprint</h3>
-                    <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 600;">Core Theme: Low-Friction, High-Fuel Nutrition</p>
-                    <p>Stop skipping meals and crashing from survival eating.</p>
+                    <span style="color: var(--teal-light); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">03 // Structural Guardrails</span>
+                    <h3 style="margin: 0.5rem 0;">🔥 Radical Follow Through</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted);">We eliminate operational drift with high-intensity, boutique-level accountability. This proactive scaffolding ensures you confidently execute exactly what you intend to achieve.</p>
                 </div>
             </div>
 
+            <!-- 4. Prioritize & Organize -->
             <div class="card">
                 <div class="lock-overlay">
                     <div class="lock-icon">🔒</div>
-                    <div class="lock-title">Module Vault Locked</div>
-                    <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
-                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Access Now</button>
+                    <div class="lock-title">Framework Locked</div>
+                    <p class="lock-text">Schedule your alignment workshop to unlock execution toolkits and interactive templates.</p>
+                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Strategy</button>
                 </div>
                 <div class="card-blur-layer">
-                    <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 4 Vault</span>
-                    <h3>🏗️ Building Organic Scaffolding</h3>
-                    <p style="font-size: 1rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 600;">Core Theme: Environmental Visual Tracking</p>
-                    <p>Engineer a visible environmental ecosystem that makes resetting simple.</p>
+                    <span style="color: var(--teal-light); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">04 // De-Cluttering</span>
+                    <h3 style="margin: 0.5rem 0;">🗺️ Prioritize & Organize</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted);">Define your highest-value, time-critical tasks with crystal clarity. Clear away mental noise and physical roadblocks using custom organization arrays to systematically accomplish EVERYTHING you want.</p>
+                </div>
+            </div>
+
+            <!-- 5. Master your Inner Game -->
+            <div class="card">
+                <div class="lock-overlay">
+                    <div class="lock-icon">🔒</div>
+                    <div class="lock-title">Framework Locked</div>
+                    <p class="lock-text">Schedule your alignment workshop to unlock execution toolkits and interactive templates.</p>
+                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Strategy</button>
+                </div>
+                <div class="card-blur-layer">
+                    <span style="color: var(--teal-light); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">05 // Mindset</span>
+                    <h3 style="margin: 0.5rem 0;">🧠 Master Your Inner Game</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted);">Uncover the subconscious emotional patterns and biological wiring driving avoidance, paralysis, and procrastination—allowing you to dismantle anxiety and foster authentic change.</p>
+                </div>
+            </div>
+
+            <!-- 6. Take Control -->
+            <div class="card">
+                <div class="lock-overlay">
+                    <div class="lock-icon">🔒</div>
+                    <div class="lock-title">Framework Locked</div>
+                    <p class="lock-text">Schedule your alignment workshop to unlock execution toolkits and interactive templates.</p>
+                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Strategy</button>
+                </div>
+                <div class="card-blur-layer">
+                    <span style="color: var(--teal-light); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">06 // Mastery</span>
+                    <h3 style="margin: 0.5rem 0;">👑 Take Complete Control</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted);">Step entirely into the driver's seat. Learn how to guide your neurological traits intentionally so they work for you, rather than against you, across your career, relationships, and everyday routines.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="quiz">
-        <h2 class="section-title">Where Is Your Focus Leaking?</h2>
+        <h2 class="section-title">Where Is Your Focus Leak Point?</h2>
         <div class="quiz-container" id="quiz-box">
             <div class="quiz-progress"><div class="quiz-progress-bar" id="progress"></div></div>
             <div id="question-view">
@@ -872,7 +903,6 @@
     <section id="booking-cta" style="text-align: center;">
         <h2 style="font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2;">Ready to build your custom ecosystem?</h2>
         <p style="max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-muted); font-size: 1.2rem;">Let's skip the trial and error. Book a strategy session directly into my calendar to discover tailored frameworks for your specific neurotype.</p>
-        <!-- Converted link into a button calling the popup logic directly -->
         <button onclick="openCalendlyPopup()" class="cta-btn">Schedule an Appointment With Me</button>
     </section>
 
@@ -880,6 +910,7 @@
         <p>© 2026 The ADHD Herbalist. Empowering neurodiverse minds organically.</p>
     </footer>
 
+    <!-- Bio Modal Systems -->
     <div class="modal" id="bioModal">
         <div class="modal-content modal-bio-content">
             <span class="close-modal" onclick="closeBioModal()">&times;</span>
@@ -914,6 +945,7 @@
         </div>
     </div>
 
+    <!-- Free Ebook Download Modal -->
     <div class="modal" id="ebookModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeEbookModal()">&times;</span>
@@ -928,15 +960,14 @@
     </div>
 
     <script>
-        // Centralized configuration for Calendly
+        // Set up central profile connection point
         const MY_CALENDAR_URL = "https://calendly.com/farris-tez"; 
 
-        // Native Calendly modal popup launcher
+        // Launcher method to open the injected external Calendly popup widget securely
         function openCalendlyPopup() {
             if (typeof Calendly !== 'undefined') {
                 Calendly.initPopupWidget({ url: MY_CALENDAR_URL });
             } else {
-                // Safe structural fallback if the external Calendly script is blocked/failed to load
                 window.open(MY_CALENDAR_URL, '_blank');
             }
         }
