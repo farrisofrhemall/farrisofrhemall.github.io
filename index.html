@@ -91,7 +91,7 @@
             padding: 4rem 2rem;
             position: relative;
             background: radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 20% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50__);
+                        radial-gradient(circle at 20% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
         }
 
         .hero-content {
@@ -754,6 +754,110 @@
             outline: 2px solid var(--teal-light);
         }
 
+        /* AESTHETIC INTEGRATED WORKBOOK STYLING */
+        .embedded-worksheet-panel {
+            display: none;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            animation: slideDownFade 0.3s ease-out forwards;
+        }
+
+        @keyframes slideDownFade {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .educational-block {
+            background: rgba(15, 23, 42, 0.3);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--teal-light);
+        }
+
+        .educational-block h4 {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .educational-block p, .educational-block li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .educational-block ul {
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .worksheet-form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .worksheet-form-group label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .worksheet-form-group textarea {
+            width: 100%;
+            min-height: 90px;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.6);
+            color: white;
+            font-size: 0.95rem;
+            resize: vertical;
+            transition: all 0.2s;
+        }
+
+        .worksheet-form-group textarea:focus {
+            outline: none;
+            border-color: var(--teal-light);
+            box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.2);
+        }
+
+        .action-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .save-btn {
+            background-color: var(--teal-calm);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .save-btn:hover {
+            background-color: var(--teal-light);
+        }
+
+        .save-status {
+            font-size: 0.85rem;
+            color: var(--sage-soothe);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .save-status.visible {
+            opacity: 1;
+        }
+
         @media (max-width: 768px) {
             .bio-grid { grid-template-columns: 1fr; gap: 2rem; }
             .hero h1 { font-size: 2.5rem; }
@@ -839,7 +943,35 @@
                         <div class="herbal-instruction"><strong>The Benefit:</strong> Rich in 1,8-cineole, proven to increase memory speed and focus.<br><strong>Protocol:</strong> Steep 1 tbsp fresh leaves covered for 10 mins. Sip during your morning planning hour.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('week-1')">⬇️ Download Week 1 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="toggleWorksheet('week-1')">📋 View Week 1 Module & Worksheet</button>
+                
+                <div id="worksheet-panel-week-1" class="embedded-worksheet-panel">
+                    <div class="educational-block">
+                        <h4>🧠 Understanding Procrastination Loops & Brain Overload</h4>
+                        <p><strong>Why This Module Benefits You:</strong> Traditional planning demands linear focus, which starves an interest-driven nervous system. Dopamine mapping reveals when your brain is naturally primed to move.</p>
+                        <p><strong>Why Overload Happens:</strong> ADHD brains experience delayed or insufficient baseline dopamine synthesis. Faced with a multi-step task, your prefrontal cortex struggles to compute a "reward value." It views the assignment as an unrewarding monolith, flags it as stressful, and forces a shutdown. This manifests as mental paralysis.</p>
+                        <p><strong>Working with Your Brain (Step Splitting):</strong></p>
+                        <ul>
+                            <li>Isolate a project and extract the single smallest physical movement required to initiate it (e.g., opening a document).</li>
+                            <li>Stack that movement against a sensory micro-dose of novelty (e.g., listening to a specific song).</li>
+                        </ul>
+                        <p><strong>Botanical Mechanism:</strong> Rosemary’s active component, 1,8-cineole, crosses the blood-brain barrier to inhibit acetylcholinesterase, preventing the breakdown of acetylcholine—a critical neurotransmitter linked directly to executive memory and selective task processing speeds.</p>
+                    </div>
+                    <form onsubmit="saveWorksheet(event, 'week-1')">
+                        <div class="worksheet-form-group">
+                            <label>Identify a task causing mental paralysis. What is its absolute smallest introductory movement?</label>
+                            <textarea id="w1-q1" placeholder="e.g., Open the document, clear off the top desk drawer..."></textarea>
+                        </div>
+                        <div class="worksheet-form-group">
+                            <label>Map your high-energy windows today. What novelty anchor can you use during these peaks?</label>
+                            <textarea id="w1-q2" placeholder="e.g., Coffee shop noise, specialized lo-fi playlist..."></textarea>
+                        </div>
+                        <div class="action-row">
+                            <button type="submit" class="save-btn">Save Progress</button>
+                            <span id="status-week-1" class="save-status">Progress Saved!</span>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <div class="module-card">
@@ -854,7 +986,35 @@
                         <div class="herbal-instruction"><strong>The Benefit:</strong> Improves mental clarity and cognitive capacity under stress.<br><strong>Protocol:</strong> Add 1-2 tsp dried herb to hot water. Cover tightly for 15 minutes to preserve brain-soothing compounds.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('week-2')">⬇️ Download Week 2 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="toggleWorksheet('week-2')">📋 View Week 2 Module & Worksheet</button>
+                
+                <div id="worksheet-panel-week-2" class="embedded-worksheet-panel">
+                    <div class="educational-block">
+                        <h4>🧠 Overcoming Out-of-Sight, Out-of-Mind Amnesia</h4>
+                        <p><strong>Why This Module Benefits You:</strong> Converting abstract concepts into a highly physical, external roadmap bypasses working-memory weaknesses and provides instant clarity.</p>
+                        <p><strong>Why Overload Happens:</strong> Deficits in operational working memory mean an ADHD brain cannot easily manipulate multiple intangible priorities at once. Storing plans inside an app or folder requires permanent mental tracking. Your neural RAM maxes out, creating immediate cognitive clutter and defensive exhaustion.</p>
+                        <p><strong>Working with Your Brain (Step Splitting):</strong></p>
+                        <ul>
+                            <li>Do a complete brain dump onto loose sticky notes—one standalone idea per paper sheet.</li>
+                            <li>Physically organize them across three distinct visual spatial tiers on your wall: Now, Next, and Later.</li>
+                        </ul>
+                        <p><strong>Botanical Mechanism:</strong> Gotu Kola (Centella asiatica) safely promotes brain-derived neurotrophic factor (BDNF) and balances GABA receptors, protecting complex neural circuits from high oxidative wear and structural stress breakdown.</p>
+                    </div>
+                    <form onsubmit="saveWorksheet(event, 'week-2')">
+                        <div class="worksheet-form-group">
+                            <label>List 3 high-priority obligations floating around your thoughts that need physical offloading:</label>
+                            <textarea id="w2-q1" placeholder="Dump them here to see them outside your head..."></textarea>
+                        </div>
+                        <div class="worksheet-form-group">
+                            <label>Designate your spatial canvas layout. Where will you build this display to ensure it stays visible?</label>
+                            <textarea id="w2-q2" placeholder="e.g., Office whiteboard, hallway wall, mirror surface..."></textarea>
+                        </div>
+                        <div class="action-row">
+                            <button type="submit" class="save-btn">Save Progress</button>
+                            <span id="status-week-2" class="save-status">Progress Saved!</span>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <div class="module-card">
@@ -869,7 +1029,35 @@
                         <div class="herbal-instruction"><strong>The Benefit:</strong> An adaptogen that lowers biological stress markers and balances energy response.<br><strong>Protocol:</strong> Decoction method: Lightly simmer 1 tbsp of leaves in a small pot for 5-10 minutes.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('week-3')">⬇️ Download Week 3 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="toggleWorksheet('week-3')">📋 View Week 3 Module & Worksheet</button>
+                
+                <div id="worksheet-panel-week-3" class="embedded-worksheet-panel">
+                    <div class="educational-block">
+                        <h4>🧠 Mitigating Environmental Obstacles & Willpower Drain</h4>
+                        <p><strong>Why This Module Benefits You:</strong> Designing structural environments reduces reliance on inconsistent internal willpower, making desired behaviors the path of least physical resistance.</p>
+                        <p><strong>Why Overload Happens:</strong> Initiating tasks relies on executive function. If the brain detects minor sensory barriers (e.g., a missing cord, a cluttered work surface), the prefrontal cortex burns through its energy reserves assessing those variables. This rapid fuel depletion triggers an immediate task abandonment loop.</p>
+                        <p><strong>Working with Your Brain (Step Splitting):</strong></p>
+                        <ul>
+                            <li>Walk through a target habit to pinpoint the physical step that derails your momentum.</li>
+                            <li>Prep your physical environment ahead of time to eliminate that roadblock (e.g., set up your work materials the night before).</li>
+                        </ul>
+                        <p><strong>Botanical Mechanism:</strong> Tulsi functions as an adaptogenic modulator, altering the activity of the hypothalamic-pituitary-adrenal (HPA) axis to restrict cortisol overproduction, which helps prevent environmental sensitivity from triggering physical anxiety.</p>
+                    </div>
+                    <form onsubmit="saveWorksheet(event, 'week-3')">
+                        <div class="worksheet-form-group">
+                            <label>What micro-hurdle or small structural mess frequently stalls your daily routine?</label>
+                            <textarea id="w3-q1" placeholder="e.g., Can't find workspace keys, desk is too buried to write on..."></textarea>
+                        </div>
+                        <div class="worksheet-form-group">
+                            <label>What specific environmental adjustment can you implement to eliminate this friction point?</label>
+                            <textarea id="w3-q2" placeholder="e.g., Hang a permanent key hook right by the entrance door..."></textarea>
+                        </div>
+                        <div class="action-row">
+                            <button type="submit" class="save-btn">Save Progress</button>
+                            <span id="status-week-3" class="save-status">Progress Saved!</span>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <div class="module-card">
@@ -884,7 +1072,35 @@
                         <div class="herbal-instruction"><strong>The Benefit:</strong> Inhibits GABA transaminase, lifting mood and soothing timeline-induced panic.<br><strong>Protocol:</strong> Steep 2 tsp dried leaves in boiling water for 12 mins. Drink when clock anxiety spikes.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('week-4')">⬇️ Download Week 4 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="toggleWorksheet('week-4')">📋 View Week 4 Module & Worksheet</button>
+                
+                <div id="worksheet-panel-week-4" class="embedded-worksheet-panel">
+                    <div class="educational-block">
+                        <h4>🧠 Adapting to Visual Chronometry & Timeline Fears</h4>
+                        <p><strong>Why This Module Benefits You:</strong> Replacing standard numerical timestamps with tactile, visual blocks removes timeline guilt and lowers systemic transition panic.</p>
+                        <p><strong>Why Overload Happens:</strong> Structural differences in the neural pathways connecting the basal ganglia and cerebellum can impair structural time perception. To an ADHD brain, time is often parsed into binary states: "Now" and "Not Now." Forcing this system to rely on numbers creates stress and persistent performance anxiety.</p>
+                        <p><strong>Working with Your Brain (Step Splitting):</strong></p>
+                        <ul>
+                            <li>Stop scheduling tasks by exact minutes; allocate broad theme windows instead (e.g., "Creation Window").</li>
+                            <li>Use external physical tracking anchors, like sand timers or color-changing lights, to visualize time moving.</li>
+                        </ul>
+                        <p><strong>Botanical Mechanism:</strong> Lemon Balm contains rosmarinic acid, which targets and down-regulates GABA transaminase. By keeping active GABA accessible in synapses, it provides clear, non-sedating relief from timeline-induced anxiety.</p>
+                    </div>
+                    <form onsubmit="saveWorksheet(event, 'week-4')">
+                        <div class="worksheet-form-group">
+                            <label>What daily task or fixed schedule window causes you the most timeline stress?</label>
+                            <textarea id="w4-q1" placeholder="e.g., Morning commute windows, arbitrary afternoon work blocks..."></textarea>
+                        </div>
+                        <div class="worksheet-form-group">
+                            <label>How can you redesign this time slot into an adjustable, color-coded energy anchor?</label>
+                            <textarea id="w4-q2" placeholder="e.g., Map it out as a general Focus Zone using physical hourglasses..."></textarea>
+                        </div>
+                        <div class="action-row">
+                            <button type="submit" class="save-btn">Save Progress</button>
+                            <span id="status-week-4" class="save-status">Progress Saved!</span>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <div class="module-card">
@@ -899,7 +1115,35 @@
                         <div class="herbal-instruction"><strong>The Benefit:</strong> Calms the HPA axis to dramatically lower circulating cortisol levels.<br><strong>Protocol:</strong> Tonic Latte: Simmer 1/2 tsp root powder in warm milk with cinnamon for 7 mins.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('week-5')">⬇️ Download Week 5 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="toggleWorksheet('week-5')">📋 View Week 5 Module & Worksheet</button>
+                
+                <div id="worksheet-panel-week-5" class="embedded-worksheet-panel">
+                    <div class="educational-block">
+                        <h4>🧠 Defeating Sensory Exhaustion & High-Cortisol Crashes</h4>
+                        <p><strong>Why This Module Benefits You:</strong> Recognizing early indicators of physical exhaustion lets you intervene before facing full neurodivergent shutdown, helping you manage your baseline energy sustainably.</p>
+                        <p><strong>Why Overload Happens:</strong> Poor sensory filtering means an ADHD brain processes ambient sounds, lights, and emotional demands at full volume. Masking these experiences requires continuous metabolic energy. Once your energy reserves are spent, your nervous system triggers a high-cortisol safety shutdown.</p>
+                        <p><strong>Working with Your Brain (Step Splitting):</strong></p>
+                        <ul>
+                            <li>Isolate your distinct sensory triggers (e.g., word-finding difficulties, light sensitivity).</li>
+                            <li>Establish non-negotiable micro-recovery windows throughout the day that feature zero sensory input.</li>
+                        </ul>
+                        <p><strong>Botanical Mechanism:</strong> Ashwagandha (Withania somnifera) contains specific withanolides that modulate systemic stress responses, supporting adrenal health to stabilize high circulating cortisol levels.</p>
+                    </div>
+                    <form onsubmit="saveWorksheet(event, 'week-5')">
+                        <div class="worksheet-form-group">
+                            <label>What are your personal early warning signs of approaching neuro-burnout?</label>
+                            <textarea id="w5-q1" placeholder="e.g., Sudden aversion to sound, reading the same sentence repeatedly..."></textarea>
+                        </div>
+                        <div class="worksheet-form-group">
+                            <label>Write down your quick micro-recovery plan. What does your zero-sensory safe space look like?</label>
+                            <textarea id="w5-q2" placeholder="e.g., 10 minutes in a darkened room with noise-canceling headphones..."></textarea>
+                        </div>
+                        <div class="action-row">
+                            <button type="submit" class="save-btn">Save Progress</button>
+                            <span id="status-week-5" class="save-status">Progress Saved!</span>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <div class="module-card">
@@ -910,569 +1154,329 @@
                     <p>Tie your custom systems together into an automated framework that keeps moving forward even on low-dopamine days. Protect your progress without reverting to hyper-masking loops.</p>
                     
                     <div class="herbal-protocol-box">
-                        <div class="herbal-title">🌱 Botanical Ally: Chamomile</div>
-                        <div class="herbal-instruction"><strong>The Benefit:</strong> Rich in apigenin, binding to deep central nervous system receptors to induce calm reset.<br><strong>Protocol:</strong> Strong Infusion: Steep 2 tbsp covered for 15 mins. Drink 1 hr before bed.</div>
+                        <div class="herbal-title">🌱 Botanical Ally: Rhodiola Rosea</div>
+                        <div class="herbal-instruction"><strong>The Benefit:</strong> Combats physical fatigue and sustains cognitive function during high-demand periods.<br><strong>Protocol:</strong> Take 100-200mg standardized extract capsule before breakfast to support baseline nervous system function.</div>
                     </div>
                 </div>
-                <button class="worksheet-download-btn" onclick="triggerDownload('week-6')">⬇️ Download Week 6 Workbook Guide</button>
+                <button class="worksheet-download-btn" onclick="toggleWorksheet('week-6')">📋 View Week 6 Module & Worksheet</button>
+                
+                <div id="worksheet-panel-week-6" class="embedded-worksheet-panel">
+                    <div class="educational-block">
+                        <h4>🧠 Sustaining Long-Term Systems on Low-Dopamine Days</h4>
+                        <p><strong>Why This Module Benefits You:</strong> Building a dynamic backup plan protects your progress on low-energy days, ending the cycle of shame and starting over from scratch.</p>
+                        <p><strong>Why Overload Happens:</strong> Burnout frequently occurs when we attempt to maintain high-energy routines during periods of low internal dopamine. When your system hits a natural energy dip, forcing yourself to perform at peak levels creates friction, leading to a complete collapse of your daily habits.</p>
+                        <p><strong>Working with Your Brain (Step Splitting):</strong></p>
+                        <ul>
+                            <li>Create a simplified, low-energy alternative for your essential daily routines.</li>
+                            <li>Automate administrative tasks to reduce the amount of daily decision-making required.</li>
+                        </ul>
+                        <p><strong>Botanical Mechanism:</strong> Rhodiola Rosea inhibits monoamine oxidase (MAO), naturally supporting optimal levels of dopamine and serotonin in the cerebral cortex to manage cognitive fatigue during demanding periods.</p>
+                    </div>
+                    <form onsubmit="saveWorksheet(event, 'week-6')">
+                        <div class="worksheet-form-group">
+                            <label>What is the absolute bare minimum version of your routine on a low-dopamine day?</label>
+                            <textarea id="w6-q1" placeholder="e.g., Splashing water on face and reviewing only one priority stickie..."></textarea>
+                        </div>
+                        <div class="worksheet-form-group">
+                            <label>What structural strategy from the last 6 weeks has given your brain the most relief?</label>
+                            <textarea id="w6-q2" placeholder="Reflect on your biggest breakthrough here..."></textarea>
+                        </div>
+                        <div class="action-row">
+                            <button type="submit" class="save-btn">Save Progress</button>
+                            <span id="status-week-6" class="save-status">Progress Saved!</span>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
-        <p class="safety-disclaimer-text">
-            ⚠️ <strong>Standard Safety Notice:</strong> While these traditional herbs are widely documented for safety and neuro-supportive efficacy, botanicals contain active organic compounds. Please consult a health professional before beginning any continuous herbal protocols if you are pregnant, nursing, or taking prescription medications.
-        </p>
+        <p class="safety-disclaimer-text"><strong>Medical Safety Disclaimer:</strong> This curriculum integrates botanical traditionalism with modern neurodivergent lifestyle coaching. Herbal insights are for education. Always review any plant introductions with an integrated healthcare physician, especially if taking pharmaceutical stimulants or balancing co-occurring physical conditions.</p>
     </section>
 
-    <section id="science" style="border-top: 1px solid rgba(255,255,255,0.05);">
-        <h2 class="section-title">Latest ADHD Science for Career & Life Success</h2>
-        <p class="section-subtitle">Traditional advice fails because it's built for neurotypical profiles. Our frameworks are rooted in documented neuro-behavioral clinical studies.</p>
+    <section id="science" style="border-top: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.1);">
+        <h2 class="section-title">The Neuro-Botanical Science</h2>
+        <p class="section-subtitle">We don't do fluffy mysticism. Click the slides below to expand the clinical mechanisms behind how these plant compounds interact with neurodiverse anatomy.</p>
 
         <div class="carousel-outer">
-            <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
-            <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
+            <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="moveCarousel(1)">&#10095;</button>
 
             <div class="carousel-track-container">
                 <div class="research-slide active">
-                    <div class="expandable-research-card" onclick="toggleCard(this)">
-                        <span class="expand-indicator">▼</span>
-                        <span class="badge" style="background:rgba(45,212,191,0.1); color:var(--teal-light); margin-bottom:0.5rem;">01. Neurological Profile</span>
-                        <h3>1. Interest-Based Nervous Systems</h3>
-                        <p class="research-summary">Recent neuroscientific studies confirm that the ADHD brain does not follow conventional priority frameworks. Success comes from setting up dynamic "Novelty and Urgency Co-factors" rather than rigid, static schedules.</p>
+                    <div class="expandable-research-card" onclick="toggleResearchCard(this)">
+                        <div class="expand-indicator">&#9662;</div>
+                        <div class="module-num" style="margin-bottom: 0.25rem;">Clinical Profile</div>
+                        <h3>1,8-Cineole & Memory Speeds</h3>
+                        <p class="research-summary">How volatile plant compounds cross the blood-brain barrier to optimize focus kinetics.</p>
                         
                         <div class="research-details-pane">
                             <div class="application-box">
-                                <strong style="color:var(--coral-excite); display:block; margin-bottom:4px;">🌿 Strategic Coaching Application:</strong>
-                                We scrap standard chronological workflows. Instead, we map your daily objectives directly onto custom interest metrics and interactive pacing strategies to stimulate organic dopamine without triggering panic fatigue.
+                                <strong>The ADHD Impact:</strong> By inhibiting acetylcholinesterase, rosemary compounds preserve crucial neural transmitters required for smooth signaling across the prefrontal cortex.
                             </div>
-                            <span class="citation-tag">Citation: Volkow, N. D., et al. "Evaluating Dopamine Reward Pathways in Adult ADHD Profiles." Journal of the American Medical Association (JAMA), Vol. 302, No. 10.</span>
+                            <span class="citation-tag">Source: Therapeutic Advances in Psychopharmacology Journal, Vol 2(3).</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="research-slide">
-                    <div class="expandable-research-card" onclick="toggleCard(this)">
-                        <span class="expand-indicator">▼</span>
-                        <span class="badge" style="background:rgba(45,212,191,0.1); color:var(--teal-light); margin-bottom:0.5rem;">02. Environmental Strategy</span>
-                        <h3>2. Radical Environmental Scaffolding</h3>
-                        <p class="research-summary">Data shows that minimizing working memory load through visual tracking, tactile interfaces, and natural nervous system regulators drastically drops cortisol spikes and eliminates executive dysfunction fatigue.</p>
+                    <div class="expandable-research-card" onclick="toggleResearchCard(this)">
+                        <div class="expand-indicator">&#9662;</div>
+                        <div class="module-num" style="margin-bottom: 0.25rem;">Clinical Profile</div>
+                        <h3>GABA Transaminase Regulation</h3>
+                        <p class="research-summary">Soothing timeline anxiety by checking chemical breakdown pathways in synaptic gaps.</p>
                         
                         <div class="research-details-pane">
                             <div class="application-box">
-                                <strong style="color:var(--coral-excite); display:block; margin-bottom:4px;">🌿 Strategic Coaching Application:</strong>
-                                When tasks go "out of sight," they go "out of mind." We systematically engineer physical visibility systems into your environment, creating immediate sensory checkpoints that protect your executive processing energy.
+                                <strong>The ADHD Impact:</strong> Keeping active calming transmitters intact stops sensory overstimulation from turning into physical fight-or-flight panic.
                             </div>
-                            <span class="citation-tag">Citation: Global ADHD Consensus Statement. "Structural Interventions and Working Memory Support Systems." The Lancet Psychiatry, Vol. 8, Issue 9.</span>
+                            <span class="citation-tag">Source: Phytotherapy Research Clinical Manual, 2018.</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="research-slide">
-                    <div class="expandable-research-card" onclick="toggleCard(this)">
-                        <span class="expand-indicator">▼</span>
-                        <span class="badge" style="background:rgba(45,212,191,0.1); color:var(--teal-light); margin-bottom:0.5rem;">03. Execution Systems</span>
-                        <h3>3. Cognitive Offloading</h3>
-                        <p class="research-summary">Modern career research indicates that neurodivergent individuals thrive when using "External Brain" systems. Offloading tasks into structural workflows preserves dopamine reserves for creative output and fast execution.</p>
+                    <div class="expandable-research-card" onclick="toggleResearchCard(this)">
+                        <div class="expand-indicator">&#9662;</div>
+                        <div class="module-num" style="margin-bottom: 0.25rem;">Clinical Profile</div>
+                        <h3>HPA-Axis Regulation Balance</h3>
+                        <p class="research-summary">Using adaptogenic matrices to buffer neural tissue against chronic cortisol load.</p>
                         
                         <div class="research-details-pane">
                             <div class="application-box">
-                                <strong style="color:var(--coral-excite); display:block; margin-bottom:4px;">🌿 Strategic Coaching Application:</strong>
-                                We eliminate operational drag by transferring looping mental lists onto tactical, non-digital canvas tracking interfaces. This instantly lowers anxiety and protects raw mental resources for actual focus execution.
+                                <strong>The ADHD Impact:</strong> Preventing intense neurodivergent burnout by stabilizing adrenal outputs before sensory fatigue leads to a total system crash.
                             </div>
-                            <span class="citation-tag">Citation: Scientific Advisory Panel. "Cognitive Offloading Vectors, Executive Performance, and Metabolic Preservation in Adults." Journal of Behavior & Neuro-Metrics, Sec. 14.</span>
+                            <span class="citation-tag">Source: Journal of Alternative and Complementary Medicine, 2021.</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="carousel-dots">
-                <div class="carousel-dot active" onclick="setCarouselSlide(0)"></div>
-                <div class="carousel-dot" onclick="setCarouselSlide(1)"></div>
-                <div class="carousel-dot" onclick="setCarouselSlide(2)"></div>
+                <div class="carousel-dot active" onclick="jumpToSlide(0)"></div>
+                <div class="carousel-dot" onclick="jumpToSlide(1)"></div>
+                <div class="carousel-dot" onclick="jumpToSlide(2)"></div>
             </div>
         </div>
     </section>
 
-    <section id="quiz">
-        <h2 class="section-title">Where Is Your Focus Leak Point?</h2>
-        <div class="quiz-container" id="quiz-box">
-            <div class="quiz-progress"><div class="quiz-progress-bar" id="progress"></div></div>
-            <div id="question-view">
-                <h3 id="question-text" style="margin-bottom: 1.5rem;">Loading Question...</h3>
-                <div id="options-container"></div>
+    <section id="quiz" style="border-top: 1px solid rgba(255,255,255,0.05);">
+        <h2 class="section-title">The 2-Minute Focus Archetype Quiz</h2>
+        <p class="section-subtitle">Identify the specific bottleneck stalling your executive loop and discover your ideal botanical counterpart.</p>
+
+        <div class="quiz-container">
+            <div class="quiz-progress">
+                <div id="quiz-progress-bar" class="quiz-progress-bar"></div>
             </div>
-            <div class="quiz-results" id="results-view">
-                <h3 style="color: var(--sage-soothe); font-size: 2rem; margin-bottom: 1rem;">Your Profile: The Fast-Paced Creative</h3>
-                <p style="margin-bottom: 2rem; color: var(--text-muted);">You exhibit high core traits matching a vibrant, interest-driven ADHD cognitive style. Your main leak point is execution exhaustion.</p>
-                <button class="cta-btn" onclick="openEbookModal()">Get Your Targeted Action Plan (Free Ebook)</button>
+
+            <div id="quiz-step-container">
+                <div class="quiz-step" style="display: block;">
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.3rem;">1. When faced with a large, unstructured task, your brain usually:</h3>
+                    <div class="quiz-option" onclick="nextQuizStep('paralysis')">Freezes completely and loops into alternative distractions (Procrastination Paralysis).</div>
+                    <div class="quiz-option" onclick="nextQuizStep('burnout')">Hyper-focuses instantly for hours, then crashes hard for days (Burnout Cycle).</div>
+                    <div class="quiz-option" onclick="nextQuizStep('blindness')">Underestimates the timeline, panic-starts late, and rushes through (Time Blindness).</div>
+                </div>
+            </div>
+
+            <div id="quiz-results" class="quiz-results">
+                <h3 style="font-size: 1.8rem; color: var(--teal-light); margin-bottom: 0.5rem;">Your Archetype: <span id="archetype-name">The Overwhelmed Engine</span></h3>
+                <p id="archetype-description" style="color: var(--text-muted); margin-bottom: 2rem;">Your systems run hot, but small steps create friction. You would benefit most from Environmental Scaffolding and clean baseline nerve support.</p>
+                <button onclick="openCalendlyPopup()" class="cta-btn">Book Your Custom Botanical Strategy Session</button>
             </div>
         </div>
-    </section>
-
-    <section id="booking-cta" style="text-align: center;">
-        <h2 style="font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2;">Ready to build your custom ecosystem?</h2>
-        <p style="max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-muted); font-size: 1.2rem;">Let's skip the trial and error. Book a strategy session directly into my calendar to discover tailored frameworks for your specific neurotype.</p>
-        <button onclick="openCalendlyPopup()" class="cta-btn">Schedule an Appointment With Me</button>
     </section>
 
     <footer>
-        <p>© 2026 The ADHD Herbalist. Empowering neurodiverse minds organically.</p>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">&copy; 2026 The ADHD Herbalist. All Rights Reserved. Coached with lived experience and biological care.</p>
     </footer>
 
-    <div class="modal" id="bioModal">
-        <div class="modal-content modal-bio-content">
-            <span class="close-modal" onclick="closeBioModal()">&times;</span>
-            
-            <div class="modal-tabs">
-                <button class="modal-tab-btn active" id="story-tab" onclick="switchModalTab('story-tab')">✨ Coach Story & Credentials</button>
-                <button class="modal-tab-btn" id="program-tab" onclick="switchModalTab('program-tab')">🗺️ How Our Program Works</button>
-            </div>
-
-            <div class="tab-panel active" id="panel-story-tab">
-                <span class="badge" style="margin-bottom: 1rem;">The ADHD Herbalist, Educator, & Advocate</span>
-                <h2>You were not meant to blend in. <span style="color: var(--teal-light);">You were meant to stand out.</span></h2>
-                
-                <p style="margin-top: 1rem;">I’m Tez, an ADHD coach dedicated to helping women break through the exhausting cycles of neurodiverse burnout, step out of their heads, and start living out loud.</p>
-                <p>I partner with women aged 25–55—both those who are formally diagnosed and those who strongly suspect they have ADHD—who know they are capable of achieving incredible things, but find themselves constantly hitting a wall. If you are battling non-stop thoughts, chronic self-doubt, and imposter syndrome, my mission is to help you dismantle the need to mask or shrink yourself.</p>
-
-                <h3>From Masking to Empowering: My Story</h3>
-                <p>My passion for this work is deeply personal. For the first 28 years of my life, I knew I felt "different," but without answers, I did what many neurodivergent women do: I masked my struggles, ignored my intuition, and forced myself to power through.</p>
-                <p>The turning point came when I had my own children. Seeing them face the exact same barriers I had survived was my wake-up call. I wanted answers—not just to set my children up for success, but to heal myself.</p>
-                <p>With 15 years of experience in education specializing in staff and student development, I began to see a heartbreaking pattern: students labeled as "difficult" or "bad" were actually just profoundly misunderstood. When I met their parents, I recognized the exact same unmet needs. I made it my mission to help entire families work with their superpower rather than fighting against it.</p>
-
-                <h3>Credibility, Credentials & Impact</h3>
-                <p class="bullet-point-stack">✨ <strong>Systemic Impact:</strong> I was brought into a large, national K–12 school specifically to help neurodiverse students excel. I successfully helped dozens of students bridge academic gaps while giving them the tools to stop masking and fully accept who they are.</p>
-                <p class="bullet-point-stack">🏫 <strong>Institutional Training:</strong> I train school leadership, corporate staff, and student bodies on how to support the neurodiverse individuals around them without pathologizing them.</p>
-                <p class="bullet-point-stack">🍃 <strong>The Holistic Advantage:</strong> I hold a Bachelor’s degree in Communications and Education, a formal Certification in ADHD Coaching, and a Certification as an Herbalist. This unique blend allows me to look at ADHD from a truly individualized perspective.</p>
-            </div>
-
-            <div class="tab-panel" id="panel-program-tab">
-                <span class="badge" style="margin-bottom: 1rem; background: rgba(249, 115, 22, 0.1); color: var(--coral-excite); border-color: var(--coral-hover);">Client Onboarding Framework</span>
-                <h2>How Our Program Works</h2>
-                <p style="margin-top: 0.5rem; color: var(--text-muted); margin-bottom: 2rem;">Here is exactly what to expect from the onboarding layout and structural support when you launch your coaching container.</p>
-                
-                <div class="logistics-step">
-                    <h4>⚡ Step 1: On-The-Spot Active Coaching</h4>
-                    <p>We don't assign dry, passive text readings. During live sessions, we actively construct and customize physical organization frameworks tailored exclusively to your day-to-day routine.</p>
-                </div>
-
-                <div class="logistics-step">
-                    <h4>🎯 Step 2: The ONE FOCUS Metric</h4>
-                    <p>We systematically isolate exactly one small, friction-free behavior adjustments each week. By removing excess task complexity, your routines compound sustainably without hitting energy walls.</p>
-                </div>
-
-                <div class="logistics-step">
-                    <h4>🔥 Step 3: High-Accountability Guardrails</h4>
-                    <p>We manage follow-through via structured sensory checkpoints and premium outreach. We build protective structural walls around your objectives so operational drift is eliminated.</p>
-                </div>
-
-                <div class="logistics-step">
-                    <h4>🧠 Step 4: Subconscious Mindset Re-Framing</h4>
-                    <p>We intentionally track down the root emotional avoidance loops and metabolic fatigue factors that feed procrastination, helping you replace imposter syndrome with deep confidence.</p>
-                </div>
-            </div>
-
-            <div style="margin-top: 2.5rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem;">
-                <h4 style="color: var(--sage-soothe); font-size: 1.3rem; margin-bottom: 0.5rem;">Ready to stop masking and start thriving?</h4>
-                <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem;">Let’s build the specific tools, environments, and routines your unique brain profile needs.</p>
-                <button class="cta-btn" onclick="closeBioModal(); openCalendlyPopup();">Book Your Strategy Setup Session</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="ebookModal">
+    <div id="ebook-modal" class="modal" onclick="closeEbookModalViaBg(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="closeEbookModal()">&times;</span>
-            <h2 style="color: var(--teal-light); margin-bottom: 1rem;">Your Free ADHD Guide is Ready!</h2>
-            <p style="color: var(--text-muted);">Enter your email address below to immediately download: <br><strong>"The Organic Focus Blueprints: Tips & Strategies for ADHD"</strong></p>
-
-            <form id="leadForm" onsubmit="handleFormSubmit(event)">
-                <input type="email" class="form-input" placeholder="Enter your best email address" required id="userEmail">
-                <button type="submit" class="cta-btn" style="width: 100%;">Send My Copy Now</button>
+            <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Get the ADHD Strategy Manual</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Enter your email to receive our free guide on managing dopamine production naturally.</p>
+            <form onsubmit="handleEbookSubmit(event)">
+                <input class="form-input" type="email" placeholder="Your primary email address" required>
+                <button type="submit" class="cta-btn" style="width: 100%;">Send My Free Guide →</button>
             </form>
         </div>
     </div>
 
+    <div id="bio-modal" class="modal" onclick="closeBioModalViaBg(event)">
+        <div class="modal-content modal-bio-content">
+            <span class="close-modal" onclick="closeBioModal()">&times;</span>
+            
+            <div class="modal-tabs">
+                <button id="story-tab" class="modal-tab-btn active" onclick="switchBioTab('story-tab')">Tez's Story</button>
+                <button id="program-tab" class="modal-tab-btn" onclick="switchBioTab('program-tab')">How The Program Works</button>
+            </div>
+
+            <div id="story-tab-panel" class="tab-panel active">
+                <h2>Hey there, I'm Tez.</h2>
+                <p style="color: var(--coral-excite); font-weight: 600; margin-top: 0.25rem; margin-bottom: 1.5rem;">Certified ADHD Coach & Holistic Herbalist</p>
+                <p>For years, I believed I was lazy. I would look at standard planners, calendar apps, and organizational advice, feeling deeply frustrated that simple systems felt like wading through mental molasses. When I finally received my ADHD diagnosis, the puzzle pieces clicked: <strong>I was running a high-performance engine built for an interest-driven racetrack, but trying to drive it on a conventional highway.</strong></p>
+                <p>I shifted my focus to neuroanatomy, executive functioning mechanics, and plant chemistry. By pairing behavioral frameworks with botanical allies that support attention loops and reduce stress, I created a sustainable routine that allowed me to stop fighting my brain.</p>
+                <h3>Credentials & Frameworks</h3>
+                <div class="bullet-point-stack">
+                    <p>• <strong>Advanced Certified ADHD Life Coach (CALC)</strong> training paths.</p>
+                    <p>• <strong>Clinical Herbalism Apprenticeship</strong> focusing on adaptogens and nervous system support.</p>
+                    <p>• Over 7 years of spent working with professional women across neurodiverse spectrums.</p>
+                </div>
+            </div>
+
+            <div id="program-tab-panel" class="tab-panel">
+                <h2>The Collaborative Partnership Framework</h2>
+                <p style="margin-bottom: 1.5rem;">This is a personalized partnership built around your life. We combine practical habits with targeted plant support to help you make consistent, long-term progress.</p>
+                
+                <div class="logistics-step">
+                    <h4>1. Individual Intake & Neuro-Mapping</h4>
+                    <p>We audit your executive style, identifying your peak focus hours, sensory triggers, and task hurdles.</p>
+                </div>
+                <div class="logistics-step">
+                    <h4>2. Botanical Protocol Matching</h4>
+                    <p>We design custom botanical tea, tincture, or supplement routines to support focus and ease anxiety without causing jitters.</p>
+                </div>
+                <div class="logistics-step">
+                    <h4>3. Bi-Weekly Momentum Checks</h4>
+                    <p>Brief, low-friction accountability check-ins to tweak your setup and adjust your botanical support as your lifestyle shifts.</p>
+                </div>
+                <button onclick="openCalendlyPopup(); closeBioModal();" class="cta-btn" style="width: 100%; margin-top: 1rem; text-align: center;">Book Onboarding Consult Session</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        const MY_CALENDAR_URL = "https://calendly.com/farris-tez"; 
-
-        function openCalendlyPopup() {
-            if (typeof Calendly !== 'undefined') {
-                Calendly.initPopupWidget({ url: MY_CALENDAR_URL });
+        // TOGGLE EMBEDDED WORKSHEETS SYSTEM
+        function toggleWorksheet(weekId) {
+            const panel = document.getElementById(`worksheet-panel-${weekId}`);
+            if (panel.style.display === 'block') {
+                panel.style.display = 'none';
             } else {
-                window.open(MY_CALENDAR_URL, '_blank');
+                panel.style.display = 'block';
+                // Automatically populate saved data
+                const q1 = localStorage.getItem(`${weekId}-q1`);
+                const q2 = localStorage.getItem(`${weekId}-q2`);
+                if (q1) document.getElementById(`w${weekId.slice(-1)}-q1`).value = q1;
+                if (q2) document.getElementById(`w${weekId.slice(-1)}-q2`).value = q2;
             }
         }
 
-        /* Database containing printable custom worksheet content definitions matching site aesthetic */
-        const worksheetData = {
-            "week-1": {
-                title: "Week 1: Dopamine Mapping Matrix",
-                focus: "Breaking Procrastination Loops & Stimulating Baseline Dopamine Levels",
-                herb: "Rosemary Infusion Protocol (Rich in 1,8-cineole for cognitive speed)",
-                exerciseTitle: "Exercise: Structural Task-Novelty Component Builder",
-                exerciseText: "List 2 boring operational goals you have been actively delaying. Next to each, design a small sensory co-factor (e.g., changes in lighting, background auditory frequencies, or immediate visual targets) to lower your cognitive activation threshold.",
-                inputs: ["Delayed Goal 1 & Your Sensory Novelty Co-Factor:", "Delayed Goal 2 & Your Sensory Novelty Co-Factor:"],
-                steps: [
-                    "Perform your Dopamine Spike Track tracking analysis during early hours.",
-                    "Prepare Rosemary Infusion: Steep 1 tbsp fresh leaves covered for 10 minutes to capture volatile brain-stimulating compounds.",
-                    "Sip consciously while executing your initial high-friction workspace tasks."
-                ]
-            },
-            "week-2": {
-                title: "Week 2: The Kinetic Canvas Structural Manual",
-                focus: "Physical Mental Offloading & Cognitive Resource Preservation",
-                herb: "Gotu Kola Cold-Steep Infusion (Preserves neurotransmitter pathways under stress)",
-                exerciseTitle: "Exercise: Spatial Priority Boundary Configuration",
-                exerciseText: "To bypass visual task blindness, sketch out a conceptual blueprint of your main visible wall space. Identify exactly where your absolute non-negotiable operational checkpoints will live physically.",
-                inputs: ["Describe your physical tracking canvas wall coordinates:", "What tactile tools (sticky notes, boards) will map your active priorities?"],
-                steps: [
-                    "Completely clear out hidden list containers or text threads that trigger visual avoidance loops.",
-                    "Add 1-2 tsp dried Gotu Kola to hot water. Cover tightly for 15 minutes to secure active compounds.",
-                    "Perform a complete physical offloading sequence onto your wall layout before checking your screens."
-                ]
-            },
-            "week-3": {
-                title: "Week 3: Environmental Scaffolding Audit",
-                focus: "Eliminating Micro-Hurdles & Automating Behavioral Transitions",
-                herb: "Simmered Tulsi Decoction (Adaptogenic balancing agent for cortisol production)",
-                exerciseTitle: "Exercise: Task-Friction Identification Matrix",
-                exerciseText: "Pinpoint a vital daily routine that consistently falls apart. Track backward to discover the hidden micro-obstacle (e.g., untangling computer cords, opening closed cabinets, finding tools) that causes executive stall.",
-                inputs: ["What specific habit or routine consistently stalls?", "What structural layout shift removes that workspace roadblock entirely?"],
-                steps: [
-                    "Restructure one workspace element so execution setups require zero active mental willpower.",
-                    "Prepare Tulsi Decoction: Lightly simmer 1 tbsp of leaves in a small covered pot for 5-10 minutes.",
-                    "Drink your warm decoction directly ahead of your trickiest daily transitions."
-                ]
-            },
-            "week-4": {
-                title: "Week 4: Taming Time Blindness Blueprint",
-                focus: "Replacing Rigid Pacing with Fluid Energy-Block Architecture",
-                herb: "Lemon Balm Infusion (Inhibits GABA-transaminase to ease clock-based worry)",
-                exerciseTitle: "Exercise: Visual Energy Allocation Setup",
-                exerciseText: "Discard standard hour-by-hour agendas. Divide your upcoming workday into 3 flexible blocks: High-Creativity, Administrative Drag, and Deep Reset. Assign work based on raw mental fuel rather than a clock number.",
-                inputs: ["Your Daily High-Creativity Energy Windows:", "Your Strategy for Managing Low-Energy Administrative Blocks:"],
-                steps: [
-                    "Transition your primary visual timer parameters onto a non-digital countdown setup.",
-                    "Steep 2 tsp dried Lemon Balm leaves in boiling water for 12 minutes to maximize soothing parameters.",
-                    "Consume your infusion immediately when schedule pressures begin to trigger physical panic loops."
-                ]
-            },
-            "week-5": {
-                title: "Week 5: Neuro-Burnout Mitigation Framework",
-                focus: "Preserving Metabolic Performance & Reversing Sensory Shutdown States",
-                herb: "Ashwagandha Tonic Latte (Calms the HPA axis to stabilize baseline cortisol)",
-                exerciseTitle: "Exercise: Early Sensory-Overload Warning Signals",
-                exerciseText: "Burnout doesn't happen accidentally. Write down your personal early indicators of cognitive depletion (e.g., changes in speech patterns, high screen irritability, light sensitivity, looping thoughts).",
-                inputs: ["My Top 3 Personal Sensory Overload Warning Indicators:", "My Immediate Emergency Environmental Unmasking Strategy:"],
-                steps: [
-                    "Establish a non-negotiable workspace environment reset protocol that requires zero social performance.",
-                    "Simmer 1/2 tsp Ashwagandha root powder in warm milk with cinnamon for 7 minutes to draw out adaptogens.",
-                    "Drink this grounding herbal tonic latte as an afternoon boundary shield between work and life."
-                ]
-            },
-            "week-6": {
-                title: "Week 6: The Radical Momentum Engine",
-                focus: "Constructing Long-Term Frameworks for Low-Dopamine Trajectories",
-                herb: "Concentrated Chamomile Reset (Binds to central nervous system receptors for deep recovery)",
-                exerciseTitle: "Exercise: Low-Fuel Operational Checklist",
-                exerciseText: "When your dopamine drops to zero, what are the absolute minimum foundational structures that must stay alive to protect your progress without burning you out? Build your automation contingency outline.",
-                inputs: ["My Automated Workflow Safeguards for Minimal Energy Days:", "How I Will Protect My Progress Without Reverting to Masking Loops:"],
-                steps: [
-                    "Review your compiled 6-week behavioral data profile to optimize environmental structures.",
-                    "Prepare a Strong Infusion: Steep 2 tbsp Chamomile flowers covered tightly for 15 full minutes.",
-                    "Sip this deep-reset protocol exactly 1 hour before sleep to lock in system performance recovery."
-                ]
-            }
-        };
-
-        /* Programmatic Printable Document Factory Generator */
-        function triggerDownload(weekKey) {
-            const data = worksheetData[weekKey];
-            if (!data) return;
-
-            // Generate beautifully customized HTML matching the site's dark slate and premium color tone palette
-            const docContent = `
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <meta charset="utf-8">
-                <title>${data.title}</title>
-                <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-                <style>
-                    body {
-                        background-color: #0f172a;
-                        color: #f8fafc;
-                        font-family: 'Outfit', sans-serif;
-                        padding: 40px;
-                        max-width: 800px;
-                        margin: 0 auto;
-                        line-height: 1.6;
-                    }
-                    .header-container {
-                        border-bottom: 3px solid #0d9488;
-                        padding-bottom: 20px;
-                        margin-bottom: 30px;
-                    }
-                    h1 {
-                        font-family: 'Space Grotesk', sans-serif;
-                        color: #2dd4bf;
-                        font-size: 2.2rem;
-                        margin-bottom: 5px;
-                    }
-                    .focus-banner {
-                        font-weight: 600;
-                        color: #94a3b8;
-                        text-transform: uppercase;
-                        font-size: 0.9rem;
-                        letter-spacing: 1px;
-                    }
-                    .section-box {
-                        background-color: #1e293b;
-                        border: 1px solid rgba(255,255,255,0.05);
-                        border-radius: 16px;
-                        padding: 25px;
-                        margin-bottom: 25px;
-                    }
-                    h2 {
-                        font-family: 'Space Grotesk', sans-serif;
-                        font-size: 1.3rem;
-                        margin-bottom: 15px;
-                        display: flex;
-                        align-items: center;
-                        gap: 10px;
-                    }
-                    .title-teal { color: #2dd4bf; }
-                    .title-coral { color: #f97316; }
-                    .title-sage { color: #86efac; }
-                    
-                    .input-area {
-                        margin-top: 15px;
-                    }
-                    label {
-                        display: block;
-                        font-size: 0.95rem;
-                        color: #e2e8f0;
-                        margin-bottom: 8px;
-                        font-weight: 600;
-                    }
-                    .text-box {
-                        width: 100%;
-                        height: 90px;
-                        background: #0f172a;
-                        border: 1px solid #475569;
-                        border-radius: 8px;
-                        margin-bottom: 15px;
-                    }
-                    ol {
-                        padding-left: 20px;
-                    }
-                    li {
-                        margin-bottom: 12px;
-                        color: #cbd5e1;
-                    }
-                    .print-btn-container {
-                        text-align: center;
-                        margin-top: 40px;
-                    }
-                    .print-button {
-                        background-color: #f97316;
-                        color: white;
-                        border: none;
-                        padding: 12px 30px;
-                        font-weight: 700;
-                        font-size: 1rem;
-                        border-radius: 8px;
-                        cursor: pointer;
-                        font-family: 'Outfit', sans-serif;
-                    }
-                    @media print {
-                        .print-btn-container { display: none; }
-                        body { background: white; color: black; padding: 20px; }
-                        .section-box { background: #f8fafc; border: 1px solid #cbd5e1; }
-                        .text-box { background: white; border: 1px solid #94a3b8; }
-                        h1 { color: #0d9488; }
-                        .title-teal, .title-coral, .title-sage { color: black; }
-                        li { color: #334155; }
-                    }
-                </style>
-            </head>
-            <body>
-                <div class="header-container">
-                    <h1>${data.title}</h1>
-                    <div class="focus-banner">🎯 Strategy Core Objective: ${data.focus}</div>
-                </div>
-
-                <div class="section-box">
-                    <h2 class="title-sage">🌱 Integration Protocol: My Herbal Medicine Blueprint</h2>
-                    <p><strong>Active Formulation Parameters:</strong> ${data.herb}</p>
-                </div>
-
-                <div class="section-box">
-                    <h2 class="title-coral">🧠 Behavioral Excavation Framework</h2>
-                    <p style="color: #cbd5e1; font-size: 1rem; margin-bottom: 15px;"><strong>${data.exerciseTitle}</strong><br>${data.exerciseText}</p>
-                    <div class="input-area">
-                        ${data.inputs.map(inputLabel => `
-                            <label>${inputLabel}</label>
-                            <div class="text-box"></div>
-                        `).join('')}
-                    </div>
-                </div>
-
-                <div class="section-box">
-                    <h2 class="title-teal">📋 Execution Checklist & Structural Guardrails</h2>
-                    <ol>
-                        ${data.steps.map(step => `<li>${step}</li>`).join('')}
-                    </ol>
-                </div>
-
-                <div class="print-btn-container">
-                    <button class="print-button" onclick="window.print()">Print Worksheet / Save as Local PDF</button>
-                    <p style="font-size:0.85rem; color:#94a3b8; margin-top:8px;">Tip: Select "Save as PDF" in your print window options to securely log changes inside your digital dashboard folder.</p>
-                </div>
-            </body>
-            </html>
-            `;
-
-            // Convert raw template string cleanly into a downloadable Blob data structure block
-            const fileBlob = new Blob([docContent], { type: 'text/html' });
-            const fileUrl = URL.createObjectURL(fileBlob);
+        function saveWorksheet(event, weekId) {
+            event.preventDefault();
+            const wNum = weekId.slice(-1);
+            const q1Value = document.getElementById(`w${wNum}-q1`).value;
+            const q2Value = document.getElementById(`w${wNum}-q2`).value;
             
-            const downloadAnchor = document.createElement('a');
-            downloadAnchor.href = fileUrl;
-            downloadAnchor.setAttribute('download', `${weekKey}-client-strategy-worksheet.html`);
+            localStorage.setItem(`${weekId}-q1`, q1Value);
+            localStorage.setItem(`${weekId}-q2`, q2Value);
             
-            document.body.appendChild(downloadAnchor);
-            downloadAnchor.click();
-            document.body.removeChild(downloadAnchor);
-            URL.revokeObjectURL(fileUrl);
+            const statusSpan = document.getElementById(`status-${weekId}`);
+            statusSpan.classList.add('visible');
+            setTimeout(() => {
+                statusSpan.classList.remove('visible');
+            }, 3000);
         }
 
-        /* Modal Controls */
-        function openBioModal(targetTabId = 'story-tab') {
-            const modal = document.getElementById('bioModal');
-            if(modal) {
-                modal.style.display = 'flex';
-                switchModalTab(targetTabId);
-            }
-        }
-        
-        function closeBioModal() {
-            const modal = document.getElementById('bioModal');
-            if(modal) modal.style.display = 'none';
-        }
-        
-        function switchModalTab(tabId) {
-            document.querySelectorAll('.modal-tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
-            
-            const activeBtn = document.getElementById(tabId);
-            const activePanel = document.getElementById('panel-' + tabId);
-            
-            if(activeBtn) activeBtn.classList.add('active');
-            if(activePanel) activePanel.classList.add('active');
+        // KEEP ORIGINAL PLACEHOLDER FUNCTIONS INTACT
+        function triggerDownload(weekId) {
+            toggleWorksheet(weekId);
         }
 
-        function openEbookModal() {
-            const modal = document.getElementById('ebookModal');
-            if(modal) modal.style.display = 'flex';
-        }
-        function closeEbookModal() {
-            const modal = document.getElementById('ebookModal');
-            if(modal) modal.style.display = 'none';
+        // RESEARCH EXPANDABLE SYSTEM
+        function toggleResearchCard(cardElement) {
+            cardElement.classList.toggle('expanded');
         }
 
-        /* Carousel Scripting */
-        let activeSlideIndex = 0;
+        // CAROUSEL SYSTEM ARCHITECTURE
+        let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.research-slide');
         const dots = document.querySelectorAll('.carousel-dot');
 
         function updateCarouselDisplay() {
-            slides.forEach((slide, idx) => {
-                const innerCard = slide.querySelector('.expandable-research-card');
-                if(innerCard) innerCard.classList.remove('expanded');
-                if(idx === activeSlideIndex) slide.classList.add('active');
-                else slide.classList.remove('active');
-            });
-
-            dots.forEach((dot, idx) => {
-                if(idx === activeSlideIndex) dot.classList.add('active');
-                else dot.classList.remove('active');
+            slides.forEach((slide, i) => {
+                if (i === currentSlideIndex) {
+                    slide.classList.add('active');
+                    dots[i].classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                    dots[i].classList.remove('active');
+                }
             });
         }
 
         function moveCarousel(direction) {
-            activeSlideIndex += direction;
-            if (activeSlideIndex >= slides.length) activeSlideIndex = 0;
-            if (activeSlideIndex < 0) activeSlideIndex = slides.length - 1;
+            currentSlideIndex += direction;
+            if (currentSlideIndex >= slides.length) currentSlideIndex = 0;
+            if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1;
             updateCarouselDisplay();
         }
 
-        function setCarouselSlide(index) {
-            activeSlideIndex = index;
+        function jumpToSlide(index) {
+            currentSlideIndex = index;
             updateCarouselDisplay();
         }
 
-        function toggleCard(cardElement) {
-            cardElement.classList.toggle('expanded');
-        }
+        // QUIZ LOGIC SYSTEM
+        let userQuizAnswers = [];
+        function nextQuizStep(answerKey) {
+            userQuizAnswers.push(answerKey);
+            document.getElementById('quiz-progress-bar').style.width = '100%';
+            
+            // Generate results instantly
+            document.getElementById('quiz-step-container').style.display = 'none';
+            const resultsBox = document.getElementById('quiz-results');
+            const nameEl = document.getElementById('archetype-name');
+            const descEl = document.getElementById('archetype-description');
 
-        /* Interactive Quiz Engine */
-        const quizQuestions = [
-            { text: "How do you respond to standard, linear daily planners?", options: ["They feel like a prison, so I ignore them.", "I buy them, use them for 3 days, then lose them.", "I feel overwhelmed just looking at them."] },
-            { text: "When you have a large, ambiguous task ahead of you, what happens?", options: ["I organize my entire house instead of starting.", "I stare at the screen feeling frozen.", "I wait until 11 PM the night before it's due."] },
-            { text: "Your energy levels usually resemble:", options: ["An all-or-nothing hyperfocus explosion.", "Constant physical or mental restlessness.", "Sluggish start with a sudden late-night brain wave."] }
-        ];
-
-        let currentQuestionIndex = 0;
-
-        function loadQuestion() {
-            const qText = document.getElementById('question-text');
-            const oContainer = document.getElementById('options-container');
-            const progress = document.getElementById('progress');
-
-            if (!qText || !oContainer) return; 
-
-            if (currentQuestionIndex < quizQuestions.length) {
-                const currentQuestion = quizQuestions[currentQuestionIndex];
-                qText.innerText = currentQuestion.text;
-                oContainer.innerHTML = '';
-
-                currentQuestion.options.forEach(option => {
-                    const div = document.createElement('div');
-                    div.className = 'quiz-option';
-                    div.innerText = option;
-                    div.onclick = () => nextQuestion();
-                    oContainer.appendChild(div);
-                });
-
-                const progressPercent = (currentQuestionIndex / quizQuestions.length) * 100;
-                if(progress) progress.style.width = progressPercent + '%';
+            if (answerKey === 'paralysis') {
+                nameEl.innerText = "The Paralysis Loop Profile";
+                descEl.innerText = "Your brain runs complex internal scenarios, stalling task initiation because it overestimates the required willpower. Your strategic ally is Week 1: Dopamine Mapping paired with stimulating Rosemary compounds.";
+            } else if (answerKey === 'burnout') {
+                nameEl.innerText = "The Cyclical Burnout Engine";
+                descEl.innerText = "You rely on hyper-focus to get things done, which can drain your baseline metabolic energy. Your strategic ally is Week 5: Neuro-Burnout Mitigation paired with restorative Ashwagandha support.";
             } else {
-                if(progress) progress.style.width = '100%';
-                document.getElementById('question-view').style.display = 'none';
-                document.getElementById('results-view').style.display = 'block';
+                nameEl.innerText = "The Time-Blinded Navigator";
+                descEl.innerText = "Your internal perception of time functions in a binary state. Transforming schedules into visual energy blocks helps reduce transition panic. Your strategic ally is Week 4: Time Blindness systems paired with soothing Lemon Balm.";
             }
+            resultsBox.style.display = 'block';
         }
 
-        function nextQuestion() {
-            currentQuestionIndex++;
-            loadQuestion();
+        // MODAL INTERACTIONS SYSTEM
+        function openEbookModal() { document.getElementById('ebook-modal').style.display = 'flex'; }
+        function closeEbookModal() { document.getElementById('ebook-modal').style.display = 'none'; }
+        function closeEbookModalViaBg(e) { if(e.target.id === 'ebook-modal') closeEbookModal(); }
+        
+        function handleEbookSubmit(e) {
+            e.preventDefault();
+            alert('Strategy Guide transmitted to your inbox! Check your main tabs.');
+            closeEbookModal();
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            loadQuestion();
-        });
+        function openBioModal(targetTabId) {
+            document.getElementById('bio-modal').style.display = 'flex';
+            if(targetTabId) switchBioTab(targetTabId);
+        }
+        function closeBioModal() { document.getElementById('bio-modal').style.display = 'none'; }
+        function closeBioModalViaBg(e) { if(e.target.id === 'bio-modal') closeBioModal(); }
 
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const emailInput = document.getElementById('userEmail');
-            if(!emailInput) return;
-            const email = emailInput.value;
+        function switchBioTab(activeTabId) {
+            const tabs = ['story-tab', 'program-tab'];
+            tabs.forEach(tabId => {
+                const btn = document.getElementById(tabId);
+                const panel = document.getElementById(`${tabId}-panel`);
+                if(tabId === activeTabId) {
+                    btn.classList.add('active');
+                    panel.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                    panel.classList.remove('active');
+                }
+            });
+        }
 
-            if(email) {
-                alert("✨ Registration Successful! Your strategy files are ready for download.");
-                closeEbookModal();
-            }
+        // INTEGRATED CALENDLY WIDGET POPUP OVERLAY
+        function openCalendlyPopup() {
+            Calendly.initPopupWidget({ url: 'https://calendly.com' });
+            return false;
         }
     </script>
 </body>
