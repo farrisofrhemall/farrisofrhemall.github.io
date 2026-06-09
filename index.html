@@ -1,5 +1,3 @@
-Here is the fully functional code
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1464,169 +1462,35 @@ Here is the fully functional code
         window.addEventListener('DOMContentLoaded', () => {
             loadQuestion();
         });
-/* FORM SUBMISSION LOGIC: Logs email addresses and updates modal with a direct download button */
-function handleFormSubmit(event) {
-    event.preventDefault();
-    
-    const emailInput = document.getElementById('userEmail');
-    if (!emailInput) return;
-    const email = emailInput.value;
+/* FORM SUBMISSION LOGIC: Logs email addresses and automates download from GitHub storage */
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('userEmail');
+            if(!emailInput) return;
+            const email = emailInput.value;
 
-    if (email) {
-        // 1. Target the content block inside your modal
-        const modalContent = document.querySelector('#ebookModal .modal-content');
-        
-        // 2. Define your live GitHub Pages link
-        const githubPdfUrl = "https://farris-tez.github.io/The-ADHD-Herbalist/The_ADHD_Herbalist_Womans_Guide.pdf";
+            if(email) {
+                // 1. Alert the client of successful registration
+                alert("✨ Registration Successful! Your strategy files are ready for download.");
+                
+                // 2. Hide the lead capture input form modal seamlessly
+                closeEbookModal();
 
-        // 3. Dynamically rewrite the modal content to show a success message and an official download button
-        modalContent.innerHTML = `
-            <span class="close-modal" onclick="closeEbookModal()">&times;</span>
-            <h2 style="color: var(--teal-light); margin-bottom: 1rem;">✨ Your Guide is Ready! ✨</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Thank you! Click the button below to view and save your free strategy guide:</p>
-            
-            <a href="${githubPdfUrl}" target="_blank" class="cta-btn" style="display: block; text-align: center; width: 100%; text-decoration: none; box-sizing: border-box; padding: 0.8rem 0;">
-                Download Free Guide (PDF)
-            </a>
-        `;
-    }
-}
+                // 3. Formulate the explicit raw link pointing to your exact PDF document on GitHub
+                const githubPdfUrl = "https://github.com/farris-tez/The-ADHD-Herbalist/raw/main/The_ADHD_Herbalist_Womans_Guide.pdf";
 
-/* ==========================================================================
-   QUIZ APPLICATION LOGIC
-   ========================================================================== */
-
-// 1. Define Quiz Questions based on "The ADHD Herbalist Strategy Vault" core profiles
-const quizQuestions = [
-    {
-        question: "Which executive functioning challenge resonates with you the most in daily life?",
-        options: [
-            { text: "Working Memory: The 'Out of Sight, Out of Mind' trap (frequently losing keys, wallets, or dropping tasks out of awareness).", profile: "inattentive" },
-            { text: "Cognitive Flexibility: Overwhelm Freezing (feeling completely locked in state-paralysis when plans shift abruptly).", profile: "overwhelmed" },
-            { text: "Time Optimization: Time Blindness (struggling to estimate task duration, leading to intense panic or burnout).", profile: "time-blind" }
-        ]
-    },
-    {
-        question: "How does your internal mental landscape usually feel when trying to stay present?",
-        options: [
-            { text: "An overactive internal dialogue or constant mental vibration, even when my body appears perfectly calm.", profile: "internally-hyperactive" },
-            { text: "Hitting an invisible '80% Wall'—feeling exceptional at starting projects, but failing to execute the final steps.", profile: "inattentive" },
-            { text: "Chronic choice paralysis and mental fog when staring at formatting paperwork or static tasks.", profile: "overwhelmed" }
-        ]
-    },
-    {
-        question: "What is your main goal or focus area for natural botanical scaffolding?",
-        options: [
-            { text: "Restorative Sleep: Quieting an overactive motor at night to prepare my nervous system for rejuvenation.", profile: "internally-hyperactive" },
-            { text: "Cognitive Clarity & Focus: Clearing mental fog and stabilizing steady fuel profiles to prevent executive crashes.", profile: "inattentive" },
-            { text: "Nervous System Grounding: Buffering the cortisol response that drives deep neurodivergent anxiety and stress.", profile: "overwhelmed" }
-        ]
-    }
-];
-
-let currentQuestionIndex = 0;
-let userAnswers = [];
-
-// 2. Render Quiz Interface dynamically inside your website's quiz container
-function initializeQuiz() {
-    const quizContainer = document.getElementById('quiz-container');
-    if (!quizContainer) return;
-
-    if (currentQuestionIndex < quizQuestions.length) {
-        const currentQ = quizQuestions[currentQuestionIndex];
-        
-        quizContainer.innerHTML = `
-            <div class="quiz-card" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
-                <div class="quiz-progress" style="color: var(--teal-light); font-size: 0.9rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">
-                    Question ${currentQuestionIndex + 1} of ${quizQuestions.length}
-                </div>
-                <h3 style="color: #fff; margin-bottom: 1.5rem; font-size: 1.3rem; line-height: 1.4;">${currentQ.question}</h3>
-                <div class="quiz-options" style="display: flex; flex-direction: column; gap: 1rem;">
-                    ${currentQ.options.map((option, index) => `
-                        <button class="quiz-opt-btn" onclick="handleQuizAnswer(${index})" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); padding: 1rem; border-radius: 8px; text-align: left; cursor: pointer; transition: all 0.2s ease; font-size: 1rem; line-height: 1.4;">
-                            ${option.text}
-                        </button>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-    } else {
-        renderQuizResults();
-    }
-}
-
-// 3. Track selections and step forward
-function handleQuizAnswer(optionIndex) {
-    const selectedOption = quizQuestions[currentQuestionIndex].options[optionIndex];
-    userAnswers.push(selectedOption.profile);
-    currentQuestionIndex++;
-    initializeQuiz();
-}
-
-// 4. Evaluate responses and present targeted advice matching the strategy guide
-function renderQuizResults() {
-    const quizContainer = document.getElementById('quiz-container');
-    if (!quizContainer) return;
-
-    // Calculate most frequent profile type
-    const counts = {};
-    let dominantProfile = "inattentive";
-    let maxCount = 0;
-    
-    for (const profile of userAnswers) {
-        counts[profile] = (counts[profile] || 0) + 1;
-        if (counts[profile] > maxCount) {
-            maxCount = counts[profile];
-            dominantProfile = profile;
+                // 4. Construct a programmatic download anchor element on-the-fly
+                const downloadTrigger = document.createElement('a');
+                downloadTrigger.href = githubPdfUrl;
+                downloadTrigger.setAttribute('download', 'The_ADHD_Herbalist_Womans_Guide.pdf');
+                downloadTrigger.style.display = 'none';
+                
+                // 5. Inject element, simulate programmatic user interaction, and clean up memory structures
+                document.body.appendChild(downloadTrigger);
+                downloadTrigger.click();
+                document.body.removeChild(downloadTrigger);
+            }
         }
-    }
-
-    let resultTitle = "";
-    let resultDescription = "";
-    let adviceHTML = "";
-
-    // Set custom recommendations drawn from the guide content
-    if (dominantProfile === "inattentive" || dominantProfile === "time-blind") {
-        resultTitle = "The Creative Visionary (Inattentive / Time-Optimizing Profile)";
-        resultDescription = "Your mind runs on an interest-driven engine. While you possess profound hyperfocus channels and deep empathy, you heavily confront 'Time Blindness' and the '80% Wall'—thriving on high-novelty project launches but hitting structural barriers during execution.";
-        adviceHTML = `
-            <li style="margin-bottom: 0.8rem;"><strong>Actionable Tool:</strong> Build an <em>Audio-Paced Pomodoro Workflow</em>. Anchor your pacing with a 20-25 minute instrumental or low-fi jazz playlist rather than static alarm timers.</li>
-            <li style="margin-bottom: 0.8rem;"><strong>Botanical Scaffold:</strong> Introduce <strong>Lion's Mane Mushroom</strong> into your morning routine for cognitive clarity to buffer executive crashes.</li>
-        `;
-    } else {
-        resultTitle = "The Overwhelming Vibration (Internally Hyperactive Profile)";
-        resultDescription = "Your symptoms manifest internally rather than physically. You struggle with an overactive internal dialogue, chronic choice paralysis, and emotional overwhelm freezing when sensory throughput or schedules shift abruptly.";
-        adviceHTML = `
-            <li style="margin-bottom: 0.8rem;"><strong>Actionable Tool:</strong> Use the <em>2-Minute Peppermint Reset</em>. Diffuse Peppermint or Rosemary essential oils during state-paralysis freezes to provide instant sensory grounding.</li>
-            <li style="margin-bottom: 0.8rem;"><strong>Botanical Scaffold:</strong> Incorporate calming traditional earth allies like <strong>Chamomile</strong>, <strong>Passionflower</strong>, or <strong>Ashwagandha</strong> to lower evening cortisol and quiet your nervous system.</li>
-        `;
-    }
-
-    // Output result layout natively on screen
-    quizContainer.innerHTML = `
-        <div class="quiz-result-card" style="background: rgba(255,255,255,0.03); border: 2px solid var(--teal-light); padding: 2.5rem; border-radius: 12px; color: #fff;">
-            <h3 style="color: var(--teal-light); font-size: 1.5rem; margin-bottom: 1rem;">Your Profile: ${resultTitle}</h3>
-            <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">${resultDescription}</p>
-            
-            <h4 style="color: var(--sage-soothe); margin-bottom: 0.8rem; font-size: 1.1rem;">Your Native Blueprint Strategy:</h4>
-            <ul style="color: var(--text-muted); padding-left: 1.2rem; line-height: 1.6; margin-bottom: 2rem;">
-                ${adviceHTML}
-            </ul>
-
-            <button onclick="openEbookModal()" class="cta-btn" style="width: 100%; text-align: center; padding: 1rem 0;">
-                Get Your Complete Strategy Playbook
-            </button>
-        </div>
-    `;
-}
-
-// Start quiz on boot
-document.addEventListener("DOMContentLoaded", function() {
-    initializeQuiz();
-});
-</script>
-</body>
-</html>
     </script>
 </body>
 </html>
