@@ -8,11 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
-    <!-- Calendly asset injections begin -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <!-- Calendly asset injections end -->
-
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -675,8 +670,7 @@
             <a href="#science">Latest Science</a>
             <a href="#modules">Program Vault</a>
             <a href="#quiz">ADHD Quiz</a>
-            <!-- Trigger integrated directly into button -->
-            <button onclick="openCalendlyPopup()" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; box-shadow: none;">Book a Session</button>
+            <a href="#" id="calendar-nav-link" class="cta-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; box-shadow: none;">Book a Session</a>
         </div>
     </nav>
 
@@ -796,7 +790,7 @@
                     <div class="lock-icon">🔒</div>
                     <div class="lock-title">Module Vault Locked</div>
                     <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
-                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Access Now</button>
+                    <button class="lock-action-btn" onclick="scrollToCalendar()">Unlock Access Now</button>
                 </div>
                 <div class="card-blur-layer">
                     <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 1 Vault</span>
@@ -811,7 +805,7 @@
                     <div class="lock-icon">🔒</div>
                     <div class="lock-title">Module Vault Locked</div>
                     <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
-                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Access Now</button>
+                    <button class="lock-action-btn" onclick="scrollToCalendar()">Unlock Access Now</button>
                 </div>
                 <div class="card-blur-layer">
                     <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 2 Vault</span>
@@ -826,7 +820,7 @@
                     <div class="lock-icon">🔒</div>
                     <div class="lock-title">Module Vault Locked</div>
                     <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
-                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Access Now</button>
+                    <button class="lock-action-btn" onclick="scrollToCalendar()">Unlock Access Now</button>
                 </div>
                 <div class="card-blur-layer">
                     <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 3 Vault</span>
@@ -841,7 +835,7 @@
                     <div class="lock-icon">🔒</div>
                     <div class="lock-title">Module Vault Locked</div>
                     <p class="lock-text">Enroll in premium coaching or schedule a consultation call to unlock curriculum materials and tools.</p>
-                    <button class="lock-action-btn" onclick="openCalendlyPopup()">Unlock Access Now</button>
+                    <button class="lock-action-btn" onclick="scrollToCalendar()">Unlock Access Now</button>
                 </div>
                 <div class="card-blur-layer">
                     <span style="color: var(--coral-excite); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Week 4 Vault</span>
@@ -872,8 +866,7 @@
     <section id="booking-cta" style="text-align: center;">
         <h2 style="font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2;">Ready to build your custom ecosystem?</h2>
         <p style="max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-muted); font-size: 1.2rem;">Let's skip the trial and error. Book a strategy session directly into my calendar to discover tailored frameworks for your specific neurotype.</p>
-        <!-- Converted link into a button calling the popup logic directly -->
-        <button onclick="openCalendlyPopup()" class="cta-btn">Schedule an Appointment With Me</button>
+        <a href="#" id="calendar-main-btn" class="cta-btn" target="_blank">Schedule an Appointment With Me</a>
     </section>
 
     <footer>
@@ -928,17 +921,16 @@
     </div>
 
     <script>
-        // Centralized configuration for Calendly
-        const MY_CALENDAR_URL = "https://calendly.com/farris-tez"; 
+        const MY_CALENDAR_URL = "https://calendly.com/your-username-placeholder"; 
 
-        // Native Calendly modal popup launcher
-        function openCalendlyPopup() {
-            if (typeof Calendly !== 'undefined') {
-                Calendly.initPopupWidget({ url: MY_CALENDAR_URL });
-            } else {
-                // Safe structural fallback if the external Calendly script is blocked/failed to load
-                window.open(MY_CALENDAR_URL, '_blank');
-            }
+        const navCalLink = document.getElementById('calendar-nav-link');
+        const mainCalBtn = document.getElementById('calendar-main-btn');
+        if(navCalLink) navCalLink.href = MY_CALENDAR_URL;
+        if(mainCalBtn) mainCalBtn.href = MY_CALENDAR_URL;
+
+        function scrollToCalendar() {
+            const section = document.getElementById('booking-cta');
+            if(section) section.scrollIntoView({ behavior: 'smooth' });
         }
 
         /* Modal Triggers */
@@ -1080,4 +1072,4 @@ Your resources are on their way! Ensure you save this data panel.`;
         }
     </script>
 </body>
-</html>  
+</html>
