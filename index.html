@@ -237,4 +237,495 @@
             margin-bottom: 0.5rem;
         }
 
-        .quiz-sub-lbl
+        .quiz-sub-lbl {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: var(--teal-light);
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .quiz-question-container p {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 1rem 1.2rem;
+            border-radius: 14px;
+            cursor: pointer;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            transition: all 0.25s ease;
+        }
+
+        .quiz-option:hover {
+            background: rgba(45, 212, 191, 0.04);
+            border-color: rgba(45, 212, 191, 0.3);
+            color: var(--text-main);
+            transform: translateX(3px);
+        }
+
+        .results-block {
+            text-align: center;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scientific Carousel Styling */
+        .research-carousel-wrapper {
+            position: relative;
+        }
+
+        .carousel-viewframe {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .research-slide {
+            display: none;
+            width: 100%;
+        }
+
+        .research-slide.active {
+            display: block;
+        }
+
+        .expandable-research-card {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title-group h4 {
+            font-size: 1.2rem;
+            color: var(--teal-light);
+            margin-bottom: 0.2rem;
+        }
+
+        .card-title-group span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .expansion-chevron {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+        }
+
+        .card-drawer-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, margin-top 0.3s ease;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0);
+        }
+
+        .expandable-research-card.expanded .card-drawer-content {
+            max-height: 300px;
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .expandable-research-card.expanded .expansion-chevron {
+            transform: rotate(180deg);
+            color: var(--teal-light);
+        }
+
+        .carousel-nav-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .arrow-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--text-main);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .arrow-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--teal-light);
+        }
+
+        .carousel-dots-indicator {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .carousel-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--teal-light);
+            width: 20px;
+            border-radius: 10px;
+        }
+
+        /* Right Side: Centralized Curated Journey Board */
+        .journey-board-panel {
+            background: linear-gradient(145deg, #1e293b, #111827);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .board-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .board-header h3 {
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+        }
+
+        .board-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 0.3rem;
+        }
+
+        .timeline-container {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 7px; top: 5px; bottom: 5px; width: 2px;
+            background: linear-gradient(to bottom, var(--teal-light), rgba(134, 239, 172, 0.3), transparent);
+        }
+
+        .timeline-node-card {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-node-card::before {
+            content: '';
+            position: absolute;
+            left: calc(-2.5rem - 1px);
+            top: 6px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--slate-deep);
+            border: 3px solid var(--teal-light);
+            box-shadow: 0 0 10px rgba(45, 212, 191, 0.4);
+            z-index: 5;
+        }
+
+        .node-meta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 0.4rem;
+        }
+
+        .node-meta span.week-lbl {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--teal-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .node-meta span.pill-tag {
+            background: rgba(134, 239, 172, 0.08);
+            border: 1px solid rgba(134, 239, 172, 0.15);
+            color: var(--sage-soothe);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.1rem 0.6rem;
+            border-radius: 50px;
+        }
+
+        .timeline-node-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .timeline-node-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            font-weight: 300;
+        }
+
+        .download-btn-micro {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            padding: 0.5rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .download-btn-micro:hover {
+            background: var(--text-main);
+            color: var(--slate-deep);
+            border-color: var(--text-main);
+        }
+
+        /* Modal Core Shell Infrastructure */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+            max-width: 750px;
+            border-radius: 32px;
+            padding: 3rem;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 2rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--text-main);
+        }
+
+        /* Bio Modal Layout Architecture */
+        .modal-identity-row {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .modal-avatar-frame {
+            width: 100px;
+            height: 100px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--teal-light), var(--sage-soothe));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 10px 25px rgba(45, 212, 191, 0.2);
+        }
+
+        .modal-nav-tabs {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .modal-tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding-bottom: 0.8rem;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .modal-tab-btn.active {
+            color: var(--text-main);
+        }
+
+        .modal-tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px; left: 0; right: 0; height: 2px;
+            background: var(--teal-light);
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .bullet-point-stack {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            color: #cbd5e1;
+        }
+
+        .bullet-point-stack strong {
+            color: var(--text-main);
+        }
+
+        .logistics-step {
+            background: rgba(255,255,255,0.01);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .logistics-step h4 {
+            color: var(--teal-light);
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .logistics-step p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Lead Gen Form inputs fields */
+        .form-input {
+            width: 100%;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 14px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--teal-light);
+            background: rgba(0,0,0,0.3);
+            box-shadow: 0 0 15px rgba(45, 212, 191, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">THE ADHD <span>HERBALIST</span></div>
+        <ul class="nav-links">
+            <li><a href="#dashboard">Methodology</a></li>
+            <li><a href="javascript:void(0)" onclick="openBioModal('story-tab')">My Story</a></li>
+            <li><a href="javascript:void(0)" onclick="openBioModal('program-tab')">The Program</a></li>
+            <li><button class="cta-btn" onclick="openCalendlyPopup()">Book Consultation</button></li>
+        </ul>
+    </nav>
+
+    <header class="hero-container">
+        <div class="hero-content">
+            <span class="badge">Cognitive Science & Natural Botanical Scaffolding</span>
+            <h1>Reclaim Your Focus Natively.<br>Stop Masking. <em>Start Thriving.</em></h1>
+            <p class="hero-p">We design customized, high-accountability environmental frameworks and traditional botanical medicine protocols built directly for executive performance profiles.</p>
+            <div class="button-cluster">
+                <button class="cta-btn" onclick="openCalendlyPopup()">Apply for 1:1 Bespoke Coaching</button>
+                <button class="sec-btn" onclick="openEbookModal()">Download Free ADHD Strategy Guide</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="dashboard-section" id="dashboard">
+        <div class="section-header">
+            <span class="badge">Operational Dashboard Layout</span>
+            <h2>Bespoke Kinetic Scaffolding Blueprint</h2>
+        </div>
+
+        <div class="grid-layout">
+            
+            <div class="widget-column">
+                
+                <div class="premium-card quiz-container">
+                    <h3>Executive Friction Calculator</h3>
+                    <p class="quiz-sub-lbl">Isolate your highest cognitive leak parameter inside 45 seconds.</p>
+                    
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progress"></div>
+                    </div>
+
+                    <div id="question-view">
+                        <div class="quiz-question-container">
+                            <p id="question-text">Loading baseline parameters...</p>
+                        </div>
+                        <div id="options-container">
+                            </div>
+                    </div>
+
+                    <div id="results-view" class="results-block" style="display: none;">
+                        <h4 style="color: var(--teal-light); font-size: 1.4rem; margin-bottom: 0.5rem;">Profile Identified: High Executive Friction</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom:
