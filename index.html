@@ -1,5 +1,3 @@
-Useable code
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -390,7 +388,7 @@ Useable code
             display: flex;
             align-items: center;
             gap: 0.5rem;
-        }
+            }
 
         .logistics-step p {
             font-size: 0.95rem;
@@ -1465,6 +1463,7 @@ Useable code
             loadQuestion();
         });
 
+        /* FORM SUBMISSION LOGIC: Logs email addresses and automates download from GitHub storage */
         function handleFormSubmit(event) {
             event.preventDefault();
             const emailInput = document.getElementById('userEmail');
@@ -1472,11 +1471,27 @@ Useable code
             const email = emailInput.value;
 
             if(email) {
+                // 1. Alert the client of successful registration
                 alert("✨ Registration Successful! Your strategy files are ready for download.");
+                
+                // 2. Hide the lead capture input form modal seamlessly
                 closeEbookModal();
+
+                // 3. Formulate the explicit raw link pointing to your exact PDF document on GitHub
+                const githubPdfUrl = "https://github.com/farris-tez/The-ADHD-Herbalist/raw/main/The_ADHD_Herbalist_Womans_Guide.pdf";
+
+                // 4. Construct a programmatic download anchor element on-the-fly
+                const downloadTrigger = document.createElement('a');
+                downloadTrigger.href = githubPdfUrl;
+                downloadTrigger.setAttribute('download', 'The_ADHD_Herbalist_Womans_Guide.pdf');
+                downloadTrigger.style.display = 'none';
+                
+                // 5. Inject element, simulate programmatic user interaction, and clean up memory structures
+                document.body.appendChild(downloadTrigger);
+                downloadTrigger.click();
+                document.body.removeChild(downloadTrigger);
             }
         }
     </script>
 </body>
 </html>
-
