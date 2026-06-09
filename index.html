@@ -1,3 +1,5 @@
+Here is the fully functional code
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -388,7 +390,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            }
+        }
 
         .logistics-step p {
             font-size: 0.95rem;
@@ -1463,7 +1465,6 @@
             loadQuestion();
         });
 
-        /* FORM SUBMISSION LOGIC: Logs email addresses and automates download from GitHub storage */
         function handleFormSubmit(event) {
             event.preventDefault();
             const emailInput = document.getElementById('userEmail');
@@ -1471,35 +1472,10 @@
             const email = emailInput.value;
 
             if(email) {
-                // 1. Alert the client of successful registration
                 alert("✨ Registration Successful! Your strategy files are ready for download.");
-                
-                // 2. Hide the lead capture input form modal seamlessly
                 closeEbookModal();
-
-                // // 3. Formulate the explicit raw link pointing to your exact PDF document on GitHub
-        const githubPdfUrl = "https://farris-tez.github.io/The-ADHD-Herbalist/The_ADHD_Herbalist_Womans_Guide.pdf";
-
-        // // 4. Construct a programmatic download anchor element on-the-fly
-        const downloadTrigger = document.createElement('a');
-        downloadTrigger.href = githubPdfUrl;
-        downloadTrigger.setAttribute('download', 'The_ADHD_Herbalist_Womans_Guide.pdf');
-        downloadTrigger.style.display = 'none';
-                
-                /// // 5. Inject element, simulate programmatic user interaction, and clean up memory structures
-        document.body.appendChild(downloadTrigger);
-        downloadTrigger.click();
-        document.body.removeChild(downloadTrigger);
-    } // <--- MAKE SURE THIS CLOSING BRACKET IS HERE!
-} // <--- AND THIS ONE CLOSING THE ENTIRE function handleFormSubmit(event)
-
-// Your Quiz Questions array should safely start below it like this:
-const quizQuestions = [
-    {
-        question: "...",
-        options: ["...", "..."]
-    }
-];
+            }
+        }
     </script>
 </body>
 </html>
