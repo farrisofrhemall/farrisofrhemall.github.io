@@ -3,139 +3,775 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The ADHD Herbalist</title>
+    <title>The ADHD Herbalist | Thrive with Neurodiversity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <style>
-    /* Modal Backdrop Overlay */
-    .modal-overlay {
-      display: none; /* Keeps it completely hidden until the button is clicked */
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6); /* Dims the rest of the website background */
-      backdrop-filter: blur(4px);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --teal-calm: #0d9488;
+            --teal-light: #2dd4bf;
+            --coral-excite: #f97316;
+            --coral-hover: #ea580c;
+            --sage-soothe: #86efac;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
 
-    /* The White Popup Window Box */
-    .modal-content {
-      background-color: #ffffff;
-      padding: 40px;
-      border-radius: 12px;
-      max-width: 450px;
-      width: 90%;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      position: relative;
-      text-align: center;
-      font-family: sans-serif;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-    /* The Close Button (X) */
-    .close-button {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 28px;
-      font-weight: bold;
-      color: #888888;
-      cursor: pointer;
-      line-height: 1;
-    }
-    .close-button:hover {
-      color: #333333;
-    }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    /* Modal Content Typography & Elements */
-    .modal-content h2 {
-      color: #1b4d3e; /* Botanical deep green */
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 24px;
-    }
-    .modal-content p {
-      color: #555555;
-      font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 25px;
-    }
-    .input-group {
-      margin-bottom: 20px;
-    }
-    .input-group input {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #cccccc;
-      border-radius: 6px;
-      font-size: 15px;
-      box-sizing: border-box;
-    }
-    .submit-btn {
-      width: 100%;
-      background-color: #d4a373; /* Warm gold accent */
-      color: #ffffff;
-      padding: 12px;
-      font-size: 16px;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .submit-btn:hover {
-      background-color: #c49262;
-    }
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--teal-light);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--coral-excite);
+        }
+
+        /* Hero Landing */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            background: radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 20% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50__);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .badge {
+            background: rgba(13, 148, 136, 0.2);
+            color: var(--teal-light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--teal-calm);
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-text {
+            background: linear-gradient(to right, var(--teal-light), var(--coral-excite));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        /* Buttons */
+        .cta-btn {
+            background-color: var(--coral-excite);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--coral-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: var(--teal-light);
+            border: 2px solid var(--teal-calm);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .secondary-btn:hover {
+            background: rgba(13, 148, 136, 0.1);
+            border-color: var(--teal-light);
+        }
+
+        /* Visual Graphic Styling */
+        .visual-container {
+            width: 100%;
+            height: 350px;
+            margin: 2rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .visual-placeholder {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .visual-overlay-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.85);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--coral-excite);
+        }
+
+        /* Core Structure */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Bio Layout */
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .bio-image {
+            width: 100%; 
+            max-height: 500px; 
+            object-fit: cover; 
+            border-radius: 24px; 
+            border: 4px solid var(--teal-calm);
+            background-color: var(--bg-card);
+        }
+
+        .bio-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .bio-text strong {
+            color: var(--text-light);
+        }
+
+        /* 6-WEEK MODULES ROADMAP GRID */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .module-card {
+            background-color: var(--bg-card);
+            padding: 2.2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .module-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--teal-light);
+            box-shadow: 0 10px 25px rgba(45, 212, 191, 0.05);
+        }
+
+        .module-num {
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--coral-excite);
+            margin-bottom: 0.5rem;
+        }
+
+        .module-card h3 {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .module-focus-tag {
+            color: var(--teal-light);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .module-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Herbal Integration Elements */
+        .herbal-protocol-box {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px dashed rgba(45, 212, 191, 0.3);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .herbal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            color: var(--sage-soothe);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .herbal-instruction {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .worksheet-download-btn {
+            background: rgba(13, 148, 136, 0.15);
+            color: var(--teal-light);
+            padding: 0.85rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(45, 212, 191, 0.2);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .worksheet-download-btn:hover {
+            background: var(--teal-calm);
+            color: white;
+            border-color: var(--teal-calm);
+        }
+
+        .safety-disclaimer-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 3rem auto 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Logistical Support Structure */
+        .logistics-step {
+            background: rgba(15, 23, 42, 0.4);
+            border-left: 4px solid var(--teal-light);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 1.25rem;
+        }
+
+        .logistics-step h4 {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logistics-step p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* RESEARCH CAROUSEL SYSTEM */
+        .carousel-outer {
+            position: relative;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .carousel-track-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            min-height: 300px;
+        }
+
+        .research-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.95);
+            transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+            z-index: 1;
+        }
+
+        .research-slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .expandable-research-card {
+            background-color: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            user-select: none;
+        }
+
+        .expandable-research-card:hover {
+            border-color: var(--teal-light);
+            background: #24324d;
+            transform: translateY(-2px);
+        }
+
+        .expandable-research-card h3 {
+            color: var(--teal-light);
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+            padding-right: 2rem;
+        }
+
+        .expand-indicator {
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            color: var(--coral-excite);
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .expandable-research-card.expanded .expand-indicator {
+            transform: rotate(180deg);
+        }
+
+        .research-summary {
+            font-size: 1.15rem;
+            color: var(--text-light);
+        }
+
+        .research-details-pane {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 0;
+        }
+
+        .expandable-research-card.expanded .research-details-pane {
+            max-height: 500px;
+            margin-top: 1.5rem;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+        }
+
+        .application-box {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 1.25rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--coral-excite);
+            margin-bottom: 1.25rem;
+        }
+
+        .citation-tag {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-light);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: var(--coral-excite);
+            border-color: var(--coral-excite);
+            color: white;
+        }
+
+        .carousel-btn.prev { left: -10px; }
+        .carousel-btn.next { right: -10px; }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #334155;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--teal-light);
+            width: 24px;
+            border-radius: 10px;
+        }
+
+        /* Quiz Box Layout */
+        .quiz-container {
+            background-color: var(--bg-card);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 2px solid var(--teal-calm);
+            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.1);
+        }
+
+        .quiz-progress {
+            height: 6px;
+            background: #334155;
+            border-radius: 3px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, var(--teal-light), var(--coral-excite));
+            transition: width 0.3s ease;
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-option:hover {
+            background: rgba(45, 212, 191, 0.1);
+            border-color: var(--teal-light);
+        }
+
+        .quiz-results {
+            display: none;
+            text-align: center;
+        }
+
+        /* Footer System */
+        footer {
+            background-color: #020617;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Popup Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            border: 2px solid var(--coral-excite);
+            text-align: center;
+        }
+
+        .modal-bio-content {
+            max-width: 850px;
+            max-height: 90vh;
+            overflow-y: auto;
+            text-align: left;
+            border-color: var(--teal-calm);
+            padding: 2.5rem;
+        }
+
+        /* MODAL TAB SYSTEM */
+        .modal-tabs {
+            display: flex;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .modal-tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        .modal-tab-btn:hover {
+            color: var(--teal-light);
+        }
+
+        .modal-tab-btn.active {
+            color: var(--teal-light);
+        }
+
+        .modal-tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--teal-light);
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .modal-bio-content h2 {
+            color: var(--text-light);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-bio-content h3 {
+            color: var(--coral-excite);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-bio-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .bullet-point-stack {
+            margin-bottom: 1.5rem;
+        }
+
+        .bullet-point-stack strong {
+            color: var(--text-light);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: white;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            background: var(--bg-dark);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-input:focus {
+            outline: 2px solid var(--teal-light);
+        }
+
+        @media (max-width: 768px) {
+            .bio-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .secondary-btn { margin-left: 0; margin-top: 1rem; display: block; text-align: center;}
+            .cta-btn { display: block; text-align: center; width: 100%; margin-bottom: 0.5rem; }
+            .nav-links { display: none; } 
+            .carousel-outer { padding: 0 1rem; }
+            .carousel-btn { display: none; }
+            .modal-tabs { flex-direction: column; gap: 0; }
+            .modal-tab-btn { text-align: left; padding: 0.5rem 0; }
+            .modal-tab-btn.active::after { bottom: 0; left: 0; width: 40px; }
+        }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-content">
-            <span class="badge">Neurodivergent-Led Support</span>
-            <h1>Stop Fighting Your Brain. <br><span class="highlight-text">Start Flowering Through It.</span></h1>
-            <p>You aren't broken—your engine is just built for a completely different racetrack. Discover the holistic, science-backed systems built by an ADHDer, for ADHDers, to unlock calm focus and daily momentum.</p>
-            <div>
-                <button class="cta-btn" onclick="openEbookModal()">Download Free ADHD Strategy Guide</button>
-                <a href="#quiz" class="secondary-btn">Take the 2-Min Focus Quiz</a>
-            </div>
-        </div>
-    </header>
-
-    <div id="emailModal" class="modal-overlay">
-      <div class="modal-content">
-        <span id="closeModalBtn" class="close-button">&times;</span>
-        
-        <h2>Unlock Your Free Guide</h2>
-        <p>Enter your email below to instantly download <strong>The ADHD Herbalist Woman's Guide</strong> and kickstart your forward momentum.</p>
-        
-        <form id="leadCaptureForm">
-          <div class="input-group">
-            <input type="email" id="userEmail" placeholder="Enter your email address" required />
-          </div>
-          <button type="submit" class="submit-btn">Get My Free Guide</button>
-        </form>
-      </div>
-    </div>
-
-
-    <script>
-    // Your specific raw GitHub path to download the PDF instantly
-    const PDF_URL = 'https://raw.githubusercontent.com/farrisofrhemall/farrisofrhemall.github.io/main/The_ADHD_Herbalist_Womans_Guide.pdf'; 
-
-    // Gathering our components from the page elements
-    const emailModal = document.getElementById('emailModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const leadCaptureForm = document.getElementById('leadCaptureForm');
-    const userEmailInput = document.getElementById('userEmail');
-
-    // Wakes up when the hero button triggers onclick="openEbookModal()"
-    function openEbookModal() {
-      emailModal.style.display = 'flex'; // Unhides the popup overlay
-    }
-
-    // Hide the modal if the user clicks the "X" button
-    closeModalBtn.addEventListener('click', () => {
-      emailModal.style.display
+    <nav>
+        <a href="#" class="logo">🌿 The ADHD Herbalist</a>
+        <div class="nav-links">
+            <a href="#about">My Story</a>
+            <a href="#modules
