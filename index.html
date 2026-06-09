@@ -1462,35 +1462,22 @@
         window.addEventListener('DOMContentLoaded', () => {
             loadQuestion();
         });
-/* FORM SUBMISSION LOGIC: Logs email addresses and automates download from GitHub storage */
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const emailInput = document.getElementById('userEmail');
-            if(!emailInput) return;
-            const email = emailInput.value;
+/* FORM SUBMISSION LOGIC: Redirects seamlessly to a dedicated download asset page */
+function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    const emailInput = document.getElementById('userEmail');
+    if (!emailInput) return;
+    const email = emailInput.value;
 
-            if(email) {
-                // 1. Alert the client of successful registration
-                alert("✨ Registration Successful! Your strategy files are ready for download.");
-                
-                // 2. Hide the lead capture input form modal seamlessly
-                closeEbookModal();
+    if (email) {
+        // Clear out the modal window visually
+        closeEbookModal();
 
-                // 3. Formulate the explicit raw link pointing to your exact PDF document on GitHub
-                const githubPdfUrl = "https://github.com/farris-tez/The-ADHD-Herbalist/raw/main/The_ADHD_Herbalist_Womans_Guide.pdf";
-
-                // 4. Construct a programmatic download anchor element on-the-fly
-                const downloadTrigger = document.createElement('a');
-                downloadTrigger.href = githubPdfUrl;
-                downloadTrigger.setAttribute('download', 'The_ADHD_Herbalist_Womans_Guide.pdf');
-                downloadTrigger.style.display = 'none';
-                
-                // 5. Inject element, simulate programmatic user interaction, and clean up memory structures
-                document.body.appendChild(downloadTrigger);
-                downloadTrigger.click();
-                document.body.removeChild(downloadTrigger);
-            }
-        }
+        // Redirect the user immediately to your bulletproof thank you page
+        window.location.href = "thank-you.html";
+    }
+}
     </script>
 </body>
 </html>
