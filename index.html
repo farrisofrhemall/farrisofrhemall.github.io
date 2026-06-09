@@ -1477,21 +1477,29 @@
                 // 2. Hide the lead capture input form modal seamlessly
                 closeEbookModal();
 
-                // 3. Formulate the explicit raw link pointing to your exact PDF document on GitHub
-                const githubPdfUrl = const githubPdfUrl = "https://farris-tez.github.io/The_ADHD_Herbalist_Womans_Guide.pdf";
+                // // 3. Formulate the explicit raw link pointing to your exact PDF document on GitHub
+        const githubPdfUrl = "https://farris-tez.github.io/The-ADHD-Herbalist/The_ADHD_Herbalist_Womans_Guide.pdf";
 
-                // 4. Construct a programmatic download anchor element on-the-fly
-                const downloadTrigger = document.createElement('a');
-                downloadTrigger.href = githubPdfUrl;
-                downloadTrigger.setAttribute('download', 'The_ADHD_Herbalist_Womans_Guide.pdf');
-                downloadTrigger.style.display = 'none';
+        // // 4. Construct a programmatic download anchor element on-the-fly
+        const downloadTrigger = document.createElement('a');
+        downloadTrigger.href = githubPdfUrl;
+        downloadTrigger.setAttribute('download', 'The_ADHD_Herbalist_Womans_Guide.pdf');
+        downloadTrigger.style.display = 'none';
                 
-                // 5. Inject element, simulate programmatic user interaction, and clean up memory structures
-                document.body.appendChild(downloadTrigger);
-                downloadTrigger.click();
-                document.body.removeChild(downloadTrigger);
-            }
-        }
+                /// // 5. Inject element, simulate programmatic user interaction, and clean up memory structures
+        document.body.appendChild(downloadTrigger);
+        downloadTrigger.click();
+        document.body.removeChild(downloadTrigger);
+    } // <--- MAKE SURE THIS CLOSING BRACKET IS HERE!
+} // <--- AND THIS ONE CLOSING THE ENTIRE function handleFormSubmit(event)
+
+// Your Quiz Questions array should safely start below it like this:
+const quizQuestions = [
+    {
+        question: "...",
+        options: ["...", "..."]
+    }
+];
     </script>
 </body>
 </html>
